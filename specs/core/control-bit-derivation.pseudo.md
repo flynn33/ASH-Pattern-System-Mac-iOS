@@ -121,22 +121,13 @@ Equivalent algebraic form:
 derive_control_bit(core_bits) = (Σ_i=0^7 bi) mod 2
 ```
 
-### Semantic rationale
+### Semantic rationale and consequence
 
-This formula is canonical because:
+Every admissible normalized core derives `control_bit = 0` because the locked [8,4,4] code is doubly-even and therefore has even overall parity.
 
-1. The 8-bit stabilizing core is locked to the doubly-even `[8,4,4]` extended Hamming code structure.
-2. Every admissible codeword in that structure has Hamming weight `0`, `4`, or `8`.
-3. Therefore every admissible codeword has **even overall parity**, so the derived control bit for any normalized admissible core is always `0`.
-4. This makes the 9th dimension a true **control/parity sentinel** — it is `0` for every valid normalized state and non-zero only when the core has been corrupted or is inadmissible.
+A non-zero control bit therefore guarantees the state is not a valid normalized state.
 
-### Consequence of the lock
-
-For every admissible normalized ASH state:
-
-```text
-control_bit = 0
-```
+However, a zero control bit alone does not prove admissibility or validity, because some inadmissible cores can also have even parity.
 
 The control dimension is therefore:
 

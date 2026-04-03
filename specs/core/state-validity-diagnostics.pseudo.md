@@ -95,7 +95,7 @@ ENUM NormalizationStatus
     ALREADY_NORMALIZED   -- core is admissible, control matches derivation
     NORMALIZABLE         -- core is admissible or correctable, control can be re-derived
     NOT_NORMALIZABLE     -- core is inadmissible beyond correction
-    BLOCKED              -- normalization cannot proceed (e.g., derivation formula not locked)
+    BLOCKED              -- normalization cannot proceed (e.g., malformed input or implementation nonconformance)
 END ENUM
 ```
 
