@@ -6,53 +6,86 @@ This specification defines the canonical **codeword set** `C ⊂ F2^9` for the A
 
 The codeword set is the algebraic structure that governs all state transformations, orbit structure, averaging behavior, and branching topology in the ASH model. Every transformation `x' = x ⊕ c` uses a codeword from this set.
 
-## What the codeword set is
+## Closure status
 
-The codeword set `C` is a subset of `F2^9` — a collection of 9-bit binary vectors that define the allowed XOR transformations on the state space.
+> **STATUS: PARTIALLY CLOSED**
+>
+> The codeword set is established as a subgroup of `(F2^9, ⊕)`. Its exact generators and exhaustive enumeration remain pending extraction from the published research materials. This is the sole remaining open research-closure item in the ASH Pattern System specification.
 
-- `C ⊂ F2^9`
-- Each codeword `c ∈ C` is a full 9-bit vector
-- The set defines the orbit structure: for any state `x`, the orbit of `x` under `C` is `{ x ⊕ c : c ∈ C }`
-- The averaging operator `T f(x) = (1/|C|) Σ_{c∈C} f(x ⊕ c)` is defined over this set
+---
 
-## Research-baseline grounding
+## Locked facts (canonical now)
 
-The ASH research materials (ashcosmology.net, published papers and preprints) describe the codeword structure in terms of:
+The following properties of `C` are established and canonical:
 
-- A set of **generating transformations** that produce the codeword set
-- Published **example codewords** that illustrate the transformation structure
-- The algebraic relationship between the codeword structure and adinkra / graph-theoretic constructs in the research baseline
+1. **Domain**: `C ⊂ F2^9` — every codeword is a full 9-bit binary vector
+2. **Non-emptiness**: `C` is non-empty
+3. **Identity**: `C` contains the zero vector `0 ∈ C`, so `x ⊕ 0 = x` (identity transformation)
+4. **XOR closure**: if `c1, c2 ∈ C` then `c1 ⊕ c2 ∈ C` — the set is closed under the group operation
+5. **Subgroup**: properties 2–4 establish that `C` is a **subgroup** of `(F2^9, ⊕)`. This is the minimum algebraic consequence required by the canonical averaging operator `T` with `T² = T` (see derivation below)
+6. **Determinism**: `C` is fixed for a given ASH model configuration — it does not vary at runtime
+7. **Research grounding**: the codeword set must be grounded in published research materials, not invented by implementations
+8. **No coordinate privilege**: codewords are full 9-bit objects — no coordinate is structurally privileged at the foundational level
+9. **No 8+1 decomposition**: codewords are not decomposed into 8-bit components plus a derived 9th bit at the foundational level
 
-### Observable properties of published examples
+### Derivation of the subgroup property
 
-Some published example codewords have their 9th coordinate set to `0`. This is an observable structural property of those specific codewords. It does **not** mandate that all codewords must have `b8 = 0`, nor does it justify promoting the 9th coordinate to a derived parity/control role.
+The averaging operator is defined as:
 
-### Exact codeword enumeration
+```text
+T f(x) = (1/|C|) Σ_{c∈C} f(x ⊕ c)
+```
 
-> **STATUS: PENDING RESEARCH CLOSURE**
+The canonical requirement `T² = T` (idempotent projection) holds if and only if the index set of the sum is closed under the group operation and contains the identity. That is, `C` must be a subgroup of `(F2^9, ⊕)`.
 
-The exact exhaustive enumeration of all codewords in `C` for the canonical ASH model has not been fully formalized in this repository from the research baseline. The research materials provide generating structures and example sets, but the complete canonical enumeration requires careful extraction from the published sources.
+This is a mathematical consequence of the already-locked averaging-operator specification, not an independent assumption. The subgroup property does not by itself determine the generators, dimension, or size of `C` — it constrains but does not exhaust the codeword-set closure problem.
 
-Until this closure item is resolved:
+## Supported but non-exhaustive facts
 
-1. Implementations must treat the codeword set as a defined-by-research input, not an implementation choice
-2. Implementations must not invent codewords not supported by the research baseline
-3. Implementations must structure code so the codeword set is a single replaceable point of definition
-4. The generating structure from the research materials should be used to derive the complete set where published
+The following are observable or inferable but do not constitute exhaustive closure:
 
-## Downstream treatment of unspecified codewords
+1. **Published examples**: some published example codewords have their 9th coordinate set to `0`. This is an observable structural property of those specific codewords. It does **not** mandate that all codewords must have `b8 = 0`, nor does it justify promoting the 9th coordinate to a derived parity/control role
+2. **Generating structures**: the research materials (ashcosmology.net, published papers and preprints) describe generating transformations and adinkra / graph-theoretic constructs related to the codeword structure
+3. **Size constraint**: as a subgroup of `F2^9`, `|C|` must be a power of 2 (possible sizes: 1, 2, 4, 8, 16, 32, 64, 128, 256, 512)
 
-Downstream implementations must not:
+## Unresolved closure items
+
+The following remain open and must be resolved by extraction from the published research materials:
+
+1. **Generators**: the exact generating set for `C` has not been extracted from published sources into this repository
+2. **Dimension**: the dimension of `C` as a subspace of `F2^9` (and therefore `|C|`) is not yet formalized here
+3. **Exhaustive enumeration**: the complete list of all codewords in `C` is not yet available in this repository
+
+These items are **not blocked by missing theory** — the subgroup structure is locked and the research materials contain the generating information. The remaining work is extraction and formalization, not discovery.
+
+## Downstream implementation constraints
+
+### Implementations must not
 
 - Invent codewords not grounded in the research baseline
 - Extend the codeword set beyond what the research materials justify
 - Treat the codeword set as an open parameter that implementations may choose freely
-- Assume any specific algebraic closure (e.g., a linear code) unless the research baseline explicitly establishes it
+- Assume `C` is the full space `F2^9` or any specific subspace without explicit research support
+- Assume any algebraic property of `C` stronger than the subgroup property unless separately established from the research baseline
+
+### Implementations must
+
+- Treat `C` as a **single replaceable point of definition** — the codeword set must be injectable/configurable so it can be updated when the exhaustive enumeration is formalized
+- Handle `UNCLASSIFIED` admissibility status correctly when `C` is not fully specified (see `state-admissibility.pseudo.md`)
+- Enforce that all codewords used in transformations are members of the provided `C`
+- Validate the subgroup property on any provided codeword set (identity present, XOR-closed)
+
+### Implementations may
+
+- Proceed with a partial or placeholder codeword set only under **CONFORMANT WITH CAVEATS** acceptance posture for all codeword-dependent features (see `implementation-acceptance.md`)
+- Use the subgroup property to validate and test codeword-set integrity
+
+---
 
 ## Relation to other specifications
 
 - **codeword-transformation-semantics.pseudo.md** — defines `x' = x ⊕ c` using codewords from this set
-- **averaging-operator-semantics.pseudo.md** — defines `T` as a sum over codeword transformations
+- **averaging-operator-semantics.pseudo.md** — defines `T` as a sum over codeword transformations; the `T² = T` requirement is the source of the subgroup property
 - **branching-semantics.pseudo.md** — branching topology is governed by the codeword structure
 - **state-admissibility.pseudo.md** — admissibility is defined relative to the codeword orbit structure
 - **ash-state-space.pseudo.md** — defines the F2^9 state space in which codewords operate
@@ -64,3 +97,4 @@ Downstream implementations must not:
 2. **9-bit completeness**: codewords are full 9-bit vectors in F2^9
 3. **No 8+1 decomposition**: codewords are not decomposed into 8-bit components plus a derived 9th bit at the foundational level
 4. **Determinism**: the codeword set is fixed for a given ASH model configuration — it does not vary at runtime
+5. **Subgroup**: `C` is a subgroup of `(F2^9, ⊕)` — contains identity, closed under XOR

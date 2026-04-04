@@ -32,7 +32,7 @@ where `⊕` denotes coordinate-wise XOR (addition in F2).
 - Codewords are **9-bit vectors** in F2^9.
 - The codeword set `C` is a subset of F2^9 defining the allowed transformations.
 - Codewords are full 9-bit objects — they are **not** decomposed into an 8-bit component plus a derived 9th bit at the foundational level.
-- The specific codeword set `C` for the ASH Pattern System is defined by the research baseline. Its exact specification and algebraic properties will be formalized in later realignment packages (R2).
+- The specific codeword set `C` for the ASH Pattern System is defined by the research baseline. Its algebraic structure (subgroup of `F2^9`) is locked; exact generators and exhaustive enumeration are pending extraction from published research (see `codeword-set.pseudo.md`).
 
 ## Pseudocode
 

@@ -1,6 +1,6 @@
 # AI Coding Handoff
 
-> **Post-R3 status**: The ASH Pattern System is grounded in the **full 9-dimensional research baseline**. The contract and verification layers have been rebuilt on the 9D foundation (R3). The exhaustive codeword-set enumeration remains pending research closure.
+> **Post-R3 status**: The ASH Pattern System is grounded in the **full 9-dimensional research baseline**. The contract and verification layers have been rebuilt on the 9D foundation (R3). The codeword set `C ⊂ F2^9` is partially closed — its algebraic structure (subgroup of `F2^9`) is locked, but exact generators and exhaustive enumeration remain pending extraction from published research.
 
 ## Purpose
 
@@ -98,7 +98,7 @@ The following layers have been **rebuilt on the 9D research baseline** and are a
 - Verification layer (`specs/verification/`) — rebuilt in R3
 - Diagnostic schema and rule-ID taxonomy — revalidated in R3
 
-**Open research-closure item**: The exhaustive codeword-set enumeration (`C ⊂ F2^9`) is pending research closure. Implementations must handle this honestly (see `implementation-acceptance.md` for CONFORMANT WITH CAVEATS acceptance).
+**Open research-closure item**: The codeword set `C ⊂ F2^9` is partially closed. The algebraic structure is locked: `C` is a subgroup of `(F2^9, ⊕)`, established by the `T² = T` averaging-operator requirement. The exact generators and exhaustive enumeration remain pending extraction from published research. Implementations must treat `C` as a single replaceable point of definition and must not invent or extend codewords beyond research-grounded vectors. Codeword-dependent features operate under CONFORMANT WITH CAVEATS acceptance (see `implementation-acceptance.md`).
 
 ## Design package status
 

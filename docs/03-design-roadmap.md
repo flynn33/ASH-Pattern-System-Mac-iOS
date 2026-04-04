@@ -94,7 +94,7 @@ Rebuilt/revalidated:
 - `specs/verification/conformance-categories.md` (rebuilt on 9D terms)
 - `specs/verification/implementation-acceptance.md` (rebuilt on 9D terms with honest codeword-set handling)
 
-**Status**: Complete. The contract and verification layers are now authoritative for the full 9D research baseline. The exhaustive codeword-set enumeration remains pending research closure and is handled honestly in acceptance criteria (CONFORMANT WITH CAVEATS).
+**Status**: Complete. The contract and verification layers are now authoritative for the full 9D research baseline. The codeword set is partially closed — established as a subgroup of `(F2^9, ⊕)`, with exact generators and exhaustive enumeration pending extraction from published research. Codeword-dependent acceptance uses CONFORMANT WITH CAVEATS posture.
 
 ### Phase 4 — create platform build handoff packages
 
@@ -107,7 +107,7 @@ For each target implementation repo, the coding agent should receive:
 - packaging constraints
 - performance constraints if applicable
 
-**Status**: Ready to begin once the codeword-set research closure is resolved. Platform handoff may proceed with the caveat that codeword-set-dependent behavior requires the research closure.
+**Status**: Ready to begin. The codeword set's algebraic structure (subgroup of `F2^9`) is locked. Platform handoff may proceed under CONFORMANT WITH CAVEATS acceptance posture for codeword-dependent features until the exact generators and exhaustive enumeration are extracted from published research.
 
 ## Immediate next design step
 
@@ -115,5 +115,5 @@ R1, R2, and R3 are complete. The contract and verification layers are rebuilt on
 
 The immediate next steps are:
 
-1. **Resolve codeword-set research closure** — formalize the exhaustive enumeration of `C ⊂ F2^9` from the published research materials in `specs/core/codeword-set.pseudo.md`
-2. **Begin Phase 4** — create platform build handoff packages once the codeword-set closure is resolved (or proceed with CONFORMANT WITH CAVEATS acceptance for codeword-dependent features)
+1. **Complete codeword-set closure** — extract the exact generators and exhaustive enumeration of `C ⊂ F2^9` from the published research materials into `specs/core/codeword-set.pseudo.md`. The algebraic structure (subgroup of `F2^9`) is already locked; the remaining work is extraction from published sources, not discovery
+2. **Begin Phase 4** — create platform build handoff packages (may proceed now under CONFORMANT WITH CAVEATS acceptance for codeword-dependent features)

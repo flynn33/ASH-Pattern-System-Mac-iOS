@@ -4,7 +4,7 @@
 
 This specification defines the **minimum acceptance threshold** for a downstream implementation to be considered conformant with the ASH Pattern System, grounded in the full 9D research baseline.
 
-**Open research-closure item**: The exhaustive enumeration of `C ⊂ F2^9` is pending research closure. Acceptance for codeword-set-dependent invariants (marked in `invariant-spec.md`) applies to whatever codeword set is provided but cannot be fully assessed until the set is specified. This is explicitly acknowledged in the acceptance framework — it does not block conformance judgment for all other invariants.
+**Open research-closure item**: The codeword set `C ⊂ F2^9` is partially closed. Its algebraic structure is locked — `C` is a subgroup of `(F2^9, ⊕)`, established by the `T² = T` averaging-operator requirement. The exact generators and exhaustive enumeration remain pending extraction from published research. Acceptance for codeword-set-dependent invariants (marked in `invariant-spec.md`) applies to whatever codeword set is provided but cannot be fully assessed until the generators are specified. This does not block conformance judgment for all other invariants.
 
 ---
 
@@ -64,7 +64,7 @@ The following may **not be waived, deferred, or locally overridden**:
 All non-codeword-dependent invariants pass, all 5 categories are covered, all contracts are satisfied, diagnostics are complete, and open research items are handled honestly.
 
 ### CONFORMANT WITH CAVEATS
-All of the above, plus: codeword-dependent invariants are satisfied for the provided codeword set, but the set is not yet fully specified by the research baseline. The caveat must name the specific open item.
+All of the above, plus: codeword-dependent invariants are satisfied for the provided codeword set, but the exact generators and exhaustive enumeration of `C` are not yet extracted from the research baseline. The caveat must state: "codeword-set generators and enumeration pending extraction from published research."
 
 ### NON-CONFORMANT
 Any acceptance condition is not met. The judgment must include: failing invariants (by ID), failing categories, and recommendations for remediation.

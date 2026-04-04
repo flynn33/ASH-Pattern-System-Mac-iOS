@@ -4,7 +4,7 @@
 
 This contract layer has been **rebuilt for the full 9D ASH research baseline** in R3. The detailed contract files in `specs/interfaces/contracts/` are authoritative for module-level implementation behavior within the current 9D foundation.
 
-**Open research-closure item**: The exhaustive enumeration of the canonical codeword set `C ⊂ F2^9` is still pending research closure (see `specs/core/codeword-set.pseudo.md`). Contracts that depend on the specific codeword set acknowledge this explicitly. Implementations must treat the codeword set as a research-baseline input, not an implementation choice, and must handle `UNCLASSIFIED` admissibility status when the codeword set is not fully specified.
+**Open research-closure item**: The codeword set `C ⊂ F2^9` is partially closed — its algebraic structure (subgroup of `(F2^9, ⊕)`) is locked, but exact generators and exhaustive enumeration remain pending extraction from published research (see `specs/core/codeword-set.pseudo.md`). Contracts that depend on the specific codeword set acknowledge this explicitly. Implementations must treat the codeword set as a research-baseline input, not an implementation choice, and must handle `UNCLASSIFIED` admissibility status when the codeword set is not fully specified.
 
 ## Umbrella contract document
 
