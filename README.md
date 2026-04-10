@@ -111,6 +111,7 @@ Canonical motion between states is **XOR-by-codeword**: `x' = x ⊕ c` where `c 
 - `handoff-templates/service-implementation-handoff-template.md` — service/backend target class template
 - `governance/repository-governance.md` — governance rules for this repository
 - `governance/ai-coding-handoff.md` — handoff instructions for coding agents
+- `governance/github-agents-governance.md` — GitHub-native sentinel agent layer (alignment, semantic integrity, math integrity, downstream conformance)
 
 ## Intended use
 

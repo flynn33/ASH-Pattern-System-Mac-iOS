@@ -30,7 +30,7 @@ The **research baseline** is canonical — not the superseded 8+1 drift formaliz
    - `recovery-fallback-semantics.pseudo.md` — deterministic recovery and fallback selection
    - `containment-safe-failure-semantics.pseudo.md` — containment and safe-failure behavior
 5. read `specs/interfaces/semantic-contracts.md` and all files in `specs/interfaces/contracts/`
-6. read `governance/repository-governance.md`
+6. read `governance/repository-governance.md` and `governance/github-agents-governance.md` (the latter documents the sentinel agent layer that gates math-critical changes, blocks 8+1 reintroduction, and guards canonical-repo boundary drift)
 7. confirm that the canonical specs use the full 9D research baseline (not the superseded 8+1 model)
 8. confirm that the canonical semantic, contract, and verification layers are complete, that Phase 4 downstream handoff-template work is treated as active / in progress (not complete), and that no stale or superseded content is treated as current
 9. only then begin target-specific design and implementation planning

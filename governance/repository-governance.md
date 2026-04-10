@@ -56,3 +56,7 @@ If a specification marks a rule as an **unresolved item**, that item must be res
 
 A new file belongs in this repository only if it strengthens the semantic source of truth.
 If it mainly expresses one platform's build, runtime, or packaging concerns, it belongs in a downstream implementation repository instead.
+
+## GitHub governance agents
+
+A sentinel agent layer is defined in `governance/github-agents-governance.md` and enforced via workflows under `.github/workflows/`. The agents detect canonical-repo boundary drift, guard the locked research-baseline math, block reintroduction of superseded canonical language, and provide a reusable conformance workflow for downstream repositories. The agents are gatekeepers only — they do not own or redefine canonical truth.

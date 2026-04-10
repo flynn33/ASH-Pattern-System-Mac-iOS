@@ -1,0 +1,40 @@
+name: Alignment Agent
+
+# Sentinel workflow. Detects canonical-repo boundary drift:
+#   - implementation code outside the small .github/scripts/ allowlist
+#   - build / package / platform-tree files anywhere in the repo
+#   - hierarchy-inversion language treating a downstream repo as canonical authority
+#
+# This workflow runs in report-only mode on initial landing (REPORT_ONLY: "1").
+# The Python script honors REPORT_ONLY and always exits 0 while still printing
+# the full violation report and GitHub annotations. Promotion to blocking is a
+# follow-up commit that flips REPORT_ONLY to "0" after the first clean run.
+#
+# See governance/github-agents-governance.md for full policy.
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+    branches: ["**"]
+
+env:
+  REPORT_ONLY: "1"
+
+jobs:
+  alignment:
+    name: Alignment check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run alignment check
+        run: python3 .github/scripts/alignment_check.py

@@ -1,0 +1,3 @@
+# Python bytecode artifacts from running the .github/scripts/ sentinels locally.
+__pycache__/
+*.pyc
