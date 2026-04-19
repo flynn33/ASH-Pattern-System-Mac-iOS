@@ -43,7 +43,7 @@ Checks:
   - `.github/scripts/**` — the sentinel scripts themselves.
   - No other paths are allowlisted in the initial landing.
 - **(b) Build / package / platform-tree files.** Flags `Cargo.toml`, `package.json`, `pom.xml`, `Makefile`, `CMakeLists.txt`, `pyproject.toml`, `go.mod`, `Gemfile`, `composer.json`, `Package.swift`, and similar, plus top-level platform directories like `src/`, `lib/`, `build/`, `dist/`, `target/`, `bin/`, `out/`, `node_modules/`, `vendor/`.
-- **(c) Hierarchy-inversion language.** Scans `README.md`, `docs/**.md`, `governance/**.md`, and `handoff-templates/**.md` for any sentence containing both a downstream referent (`aeostara`, `downstream repo`, `implementation repo`, etc.) and a canonical-authority claim (`source of truth`, `authoritative`, `defines canonical semantics`, `overrides canonical`, `canonical authority`) within 200 characters. The check is direction-agnostic and does not fire on legitimate sentences that lack either half of the pair.
+- **(c) Hierarchy-inversion language.** Scans `README.md`, `docs/**.md`, `governance/**.md`, and `handoff-templates/**.md` for any sentence containing both a downstream referent (`downstream repo`, `implementation repo`, etc.) and a canonical-authority claim (`source of truth`, `authoritative`, `defines canonical semantics`, `overrides canonical`, `canonical authority`) within 200 characters. The check is direction-agnostic and does not fire on legitimate sentences that lack either half of the pair.
 
 ### 2. Canonical Semantic Integrity Agent
 

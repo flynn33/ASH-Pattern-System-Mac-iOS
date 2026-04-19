@@ -6,7 +6,16 @@ It is intentionally independent of product/runtime frameworks and focuses only o
 
 ## Targets
 
-- `ASHCore`: ASH domain models and services (state model, axiom evaluation, transition registry, topology generation).
+- `ASHCore`: ASH domain models and services:
+  - `ASHStateModel`
+  - `ASHAxiomEvaluator`
+  - `ASHTransitionRegistry`
+  - `ASHTopologyGenerator`
+  - `ASHRealmEncoder`
+  - `ASHGenerationPlanner`
+  - `ASHArtifactEmitter`
+  - `ASHDiagnosticsModule`
+  - `ASHRecoveryEngine`
 - `ASHPatternSystem`: orchestration layer (`ASHPatternSystemEngine`) that composes `ASHCore` into a deterministic bootstrap pipeline.
 
 ## Native Boundary

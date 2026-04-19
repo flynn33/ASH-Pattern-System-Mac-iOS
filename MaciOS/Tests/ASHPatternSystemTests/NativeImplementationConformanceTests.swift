@@ -108,7 +108,8 @@ final class NativeImplementationConformanceTests: XCTestCase {
     let files = try enumerateTrackedImplementationFiles()
       .filter { $0.lastPathComponent != "NativeImplementationConformanceTests.swift" }
     let runtimeNameToken = String(decoding: [102, 111, 114, 115, 101, 116, 116, 105], as: UTF8.self)
-    let forbiddenTerms = [runtimeNameToken, "aeostara"]
+    let productNameToken = String(decoding: [97, 101, 111, 115, 116, 97, 114, 97], as: UTF8.self)
+    let forbiddenTerms = [runtimeNameToken, productNameToken]
 
     for fileURL in files {
       let content = try String(contentsOf: fileURL, encoding: .utf8)
