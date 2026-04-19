@@ -171,19 +171,19 @@ jobs:
       # require-all: false
 ```
 
-### 5. No AI Attribution Agent
+### 5. Attribution Guard Agent
 
-**Workflow:** `.github/workflows/no-ai-attribution.yml`
+**Workflow:** `.github/workflows/attribution-guard-agent.yml`
 **Behavior:** blocking.
 **Triggers:** every `push` and `pull_request` on any branch.
 
 Checks:
 
-- AI-attribution markers in commit messages
-- AI-associated author/committer identities
-- AI-attribution markers in changed file content
+- forbidden attribution markers in commit messages
+- forbidden author/committer identity markers
+- forbidden attribution markers in branch names and changed file content
 
-This workflow remains mandatory and blocking. It is separate from semantic/math boundary checks and enforces repository policy on commit and content attribution.
+This workflow remains mandatory and blocking. It is separate from semantic/math boundary checks and enforces repository policy on branch, commit, and content attribution markers.
 
 ### 6. Wiki Maintenance Agent
 

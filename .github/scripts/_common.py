@@ -90,7 +90,7 @@ def gh_warning(file: str, line: int, message: str) -> None:
 
 
 def banner(title: str, status: str) -> None:
-    """Boxed banner matching the style in .github/workflows/no-ai-attribution.yml."""
+    """Boxed banner matching the style in .github/workflows/attribution-guard-agent.yml."""
     bar = "=" * 42
     print()
     print(bar)

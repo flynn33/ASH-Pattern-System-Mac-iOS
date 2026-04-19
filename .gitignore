@@ -1,3 +1,7 @@
 # Python bytecode artifacts from running the .github/scripts/ sentinels locally.
 __pycache__/
 *.pyc
+
+# Swift Package Manager build artifacts.
+.build/
+*/.build/

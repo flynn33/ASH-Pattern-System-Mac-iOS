@@ -112,7 +112,7 @@ NOTES_DIR = "governance/math-change-notes"
 
 
 # -------------------------------------------------------------------
-# Changed-file detection (mirrors .github/workflows/no-ai-attribution.yml)
+# Changed-file detection (mirrors .github/workflows/attribution-guard-agent.yml)
 # -------------------------------------------------------------------
 def git(*args: str) -> str:
     try:

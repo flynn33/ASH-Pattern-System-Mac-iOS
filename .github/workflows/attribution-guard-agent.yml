@@ -1,0 +1,27 @@
+name: Attribution Guard Agent
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+    branches: ["**"]
+
+jobs:
+  attribution-guard:
+    name: Attribution Guard
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Run attribution guard checks
+        env:
+          GUARD_BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+          GUARD_HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+          GUARD_BASE_REF: ${{ github.base_ref }}
+          GUARD_HEAD_REF: ${{ github.head_ref || github.ref_name }}
+        run: python3 .github/scripts/attribution_guard_check.py --mode ci
