@@ -40,7 +40,7 @@ public final class ASHAxiomEvaluator: ASHAxiomEvaluatorProtocol {
       axiomID: .relationalExistence,
       passed: passed,
       explanation: explanation,
-      ruleIDs: ["ASH-AXIOM-EVALUATION-001"]
+      ruleIDs: ["ASH-STATE-AXIOM-001"]
     )
   }
 
@@ -54,7 +54,7 @@ public final class ASHAxiomEvaluator: ASHAxiomEvaluatorProtocol {
       axiomID: .structuralCompressibility,
       passed: passed,
       explanation: explanation,
-      ruleIDs: ["ASH-AXIOM-EVALUATION-002"]
+      ruleIDs: ["ASH-STATE-AXIOM-002"]
     )
   }
 
@@ -68,7 +68,7 @@ public final class ASHAxiomEvaluator: ASHAxiomEvaluatorProtocol {
       axiomID: .multiScalePersistence,
       passed: passed,
       explanation: explanation,
-      ruleIDs: ["ASH-AXIOM-EVALUATION-003"]
+      ruleIDs: ["ASH-STATE-AXIOM-003"]
     )
   }
 
@@ -82,7 +82,7 @@ public final class ASHAxiomEvaluator: ASHAxiomEvaluatorProtocol {
       axiomID: .energeticCostOfErasure,
       passed: passed,
       explanation: explanation,
-      ruleIDs: ["ASH-AXIOM-EVALUATION-004"]
+      ruleIDs: ["ASH-STATE-AXIOM-004"]
     )
   }
 
@@ -96,7 +96,7 @@ public final class ASHAxiomEvaluator: ASHAxiomEvaluatorProtocol {
       axiomID: .selfReferenceForConsciousness,
       passed: passed,
       explanation: explanation,
-      ruleIDs: ["ASH-AXIOM-EVALUATION-005"]
+      ruleIDs: ["ASH-STATE-AXIOM-005"]
     )
   }
 }

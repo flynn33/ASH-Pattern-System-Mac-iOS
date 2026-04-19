@@ -47,4 +47,25 @@ final class ASHTransitionRegistryTests: XCTestCase {
 
     XCTAssertEqual(failure?.reason, .codewordNotAllowed)
   }
+
+  func testStateSpecificApplicabilityCanRejectTransition() {
+    let registry = ASHTransitionRegistry(
+      stateModel: stateModel,
+      orderedTransitions: [
+        ASHTransitionDefinition(
+          transitionID: "restricted",
+          displayName: "Restricted Transition",
+          description: "Requires b0 to be set",
+          codeword: .zero,
+          applicability: .requireBitSet(0)
+        )
+      ]
+    )
+
+    let stateWithB0Clear = ASHState(bitString: "000000000")!
+    let result = registry.applyTransition(from: stateWithB0Clear, transitionID: "restricted")
+    let failure = try? XCTUnwrap(result.failureDiagnostic)
+
+    XCTAssertEqual(failure?.reason, .transitionNotApplicable)
+  }
 }

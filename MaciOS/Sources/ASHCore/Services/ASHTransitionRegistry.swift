@@ -28,7 +28,11 @@ public final class ASHTransitionRegistry: ASHTransitionRegistryProtocol {
   }
 
   public func availableTransitions(from state: ASHState) -> [ASHTransitionDefinition] {
-    isStateEligibleForTransition(state) ? orderedTransitions : []
+    guard isStateEligibleForTransition(state) else {
+      return []
+    }
+
+    return orderedTransitions.filter { $0.applicability.isApplicable(to: state) }
   }
 
   public func applyTransition(from state: ASHState, transitionID: String) -> ASHTransitionResolution {
@@ -37,8 +41,22 @@ public final class ASHTransitionRegistry: ASHTransitionRegistryProtocol {
         ASHTransitionFailureDiagnostic(
           reason: .transitionNotFound,
           summary: "Transition \(transitionID) is not registered.",
-          ruleIDs: ["ASH-TRANSITION-RESOLUTION-001"],
+          ruleIDs: ["ASH-CODEWORD-TRANSITION-001"],
           notes: ["Use an entry from orderedTransitions for deterministic transition resolution."]
+        )
+      )
+    }
+
+    guard transition.applicability.isApplicable(to: state) else {
+      return .failure(
+        ASHTransitionFailureDiagnostic(
+          reason: .transitionNotApplicable,
+          summary: "Transition \(transitionID) is not applicable for the provided state.",
+          ruleIDs: ["ASH-CODEWORD-TRANSITION-002"],
+          notes: [
+            "Transition applicability rules are deterministic and state-dependent.",
+            "Requested codeword: \(transition.codeword.description)."
+          ]
         )
       )
     }
@@ -52,7 +70,7 @@ public final class ASHTransitionRegistry: ASHTransitionRegistryProtocol {
         ASHTransitionFailureDiagnostic(
           reason: .invalidInputState,
           summary: "Input state is not eligible for transition processing.",
-          ruleIDs: ["ASH-STATE-VALIDITY-001", "ASH-TRANSITION-APPLICABILITY-001"],
+          ruleIDs: ["ASH-STATE-VALIDITY-001", "ASH-CODEWORD-TRANSITION-003"],
           notes: [
             "Transitions require a valid or transformation-compatible state.",
             "Admissibility status: \(stateModel.classifyAdmissibility(of: state).rawValue)."
@@ -63,10 +81,10 @@ public final class ASHTransitionRegistry: ASHTransitionRegistryProtocol {
 
     guard stateModel.codewordSet.contains(codeword) else {
       return .failure(
-        ASHTransitionFailureDiagnostic(
-          reason: .codewordNotAllowed,
-          summary: "Provided codeword is outside the canonical codeword set.",
-          ruleIDs: ["ASH-CODEWORD-STRUCTURE-001"],
+          ASHTransitionFailureDiagnostic(
+            reason: .codewordNotAllowed,
+            summary: "Provided codeword is outside the canonical codeword set.",
+            ruleIDs: ["ASH-CODEWORD-STRUCTURE-001"],
           notes: ["Transitions are constrained to canonical codewords only."]
         )
       )
@@ -105,7 +123,8 @@ public final class ASHTransitionRegistry: ASHTransitionRegistryProtocol {
           transitionID: transitionID,
           displayName: "Codeword \(codeword.description)",
           description: "Apply canonical XOR-by-codeword transition using \(codeword.description)",
-          codeword: codeword
+          codeword: codeword,
+          applicability: .always
         )
       }
   }

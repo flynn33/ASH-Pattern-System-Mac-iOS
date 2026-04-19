@@ -38,7 +38,7 @@ public final class ASHTopologyGenerator: ASHTopologyGeneratorProtocol {
         diagnostics: [
           ASHTopologyDiagnostic(
             summary: "Topology depth must be non-negative.",
-            ruleIDs: ["ASH-TOPOLOGY-GENERATION-001"],
+            ruleIDs: ["ASH-STATE-TOPOLOGY-001"],
             notes: ["Received depth=\(depth)."]
           )
         ]
@@ -51,7 +51,7 @@ public final class ASHTopologyGenerator: ASHTopologyGeneratorProtocol {
         diagnostics: [
           ASHTopologyDiagnostic(
             summary: "Seed state could not be normalized for topology generation.",
-            ruleIDs: ["ASH-STATE-VALIDITY-001", "ASH-TOPOLOGY-GENERATION-002"],
+            ruleIDs: ["ASH-STATE-VALIDITY-001", "ASH-STATE-TOPOLOGY-002"],
             notes: ["Topology generation requires normalized seed state."]
           )
         ]
@@ -85,7 +85,7 @@ public final class ASHTopologyGenerator: ASHTopologyGeneratorProtocol {
                 diagnostics.append(
                   ASHTopologyDiagnostic(
                     summary: "Topology expansion failed while applying branch transition.",
-                    ruleIDs: failure.ruleIDs + ["ASH-TOPOLOGY-GENERATION-003"],
+                    ruleIDs: failure.ruleIDs + ["ASH-STATE-TOPOLOGY-003"],
                     notes: failure.notes + [
                       "parent_id=\(parent.nodeID)",
                       "branch_kind=\(rule.kind.rawValue)",

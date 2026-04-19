@@ -32,7 +32,37 @@ public final class ASHPatternSystemEngine {
     configuration: ASHPatternSystemEngineConfiguration = .init()
   ) -> ASHPatternSystemBootstrapReport {
     let candidate = requestedState ?? stateModel.knownValidStates.sorted().first ?? .zero
-    let bootState = stateModel.normalize(candidate) ?? candidate
+    let requestedStateDiagnostic = stateModel.diagnose(candidate)
+
+    let bootState: ASHState
+    let startupStatus: ASHPatternSystemStartupStatus
+    var startupNotes: [String] = []
+
+    if let normalized = stateModel.normalize(candidate) {
+      bootState = normalized
+      if normalized == candidate {
+        startupStatus = .usedRequestedState
+        startupNotes.append("Requested state was already suitable for bootstrap.")
+      } else {
+        startupStatus = .normalizedRequestedState
+        startupNotes.append(
+          "Requested state normalized from \(candidate.description) to \(normalized.description)."
+        )
+      }
+    } else {
+      let fallbackState = stateModel.knownValidStates.sorted().first ?? candidate
+      bootState = fallbackState
+      startupStatus = .fallbackToKnownValid
+      startupNotes.append(
+        "Requested state \(candidate.description) could not be normalized."
+      )
+      startupNotes.append(
+        "Fallback bootstrap state selected: \(fallbackState.description)."
+      )
+      startupNotes.append(
+        "Requested-state normalization status: \(requestedStateDiagnostic.normalizationStatus.rawValue)."
+      )
+    }
 
     let stateDiagnostic = stateModel.diagnose(bootState)
     let axiomEvaluation = axiomEvaluator.evaluate(state: bootState)
@@ -44,6 +74,10 @@ public final class ASHPatternSystemEngine {
     )
 
     return ASHPatternSystemBootstrapReport(
+      requestedState: candidate,
+      requestedStateDiagnostic: requestedStateDiagnostic,
+      startupStatus: startupStatus,
+      startupNotes: startupNotes,
       state: bootState,
       stateDiagnostic: stateDiagnostic,
       axiomEvaluation: axiomEvaluation,

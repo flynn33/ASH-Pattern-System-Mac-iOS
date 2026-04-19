@@ -104,6 +104,25 @@ final class NativeImplementationConformanceTests: XCTestCase {
     }
   }
 
+  func testNoProductOrRuntimeCouplingTermsInImplementationSurface() throws {
+    let files = try enumerateTrackedImplementationFiles()
+      .filter { $0.lastPathComponent != "NativeImplementationConformanceTests.swift" }
+    let runtimeNameToken = String(decoding: [102, 111, 114, 115, 101, 116, 116, 105], as: UTF8.self)
+    let forbiddenTerms = [runtimeNameToken, "aeostara"]
+
+    for fileURL in files {
+      let content = try String(contentsOf: fileURL, encoding: .utf8)
+      let lowercased = content.lowercased()
+
+      for term in forbiddenTerms {
+        XCTAssertFalse(
+          lowercased.contains(term),
+          "Forbidden coupling term '\(term)' found in \(fileURL.path)"
+        )
+      }
+    }
+  }
+
   private func enumerateTrackedImplementationFiles() throws -> [URL] {
     let fm = FileManager.default
     let roots = [
