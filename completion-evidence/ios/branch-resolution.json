@@ -1,0 +1,36 @@
+{
+  "repository_url": "https://github.com/flynn33/ASH-Pattern-System-Mac-iOS.git",
+  "canonical_repository_url": "https://github.com/flynn33/ASH-Pattern-System.git",
+  "canonical_main_head": "cc253f3d137a27f0eeb471bed62bbdb939e3b6d1",
+  "canonical_release_tag": null,
+  "canonical_release_tag_status": "No canonical release tag is present in the local fetched tag set.",
+  "selected_platform_branch_ref": "origin/main",
+  "selected_platform_branch_head": "cb71b06819fff9c32e3fa5ac971557d2a54055dc",
+  "selected_platform_branch_reason": "origin/main is the only fetched platform branch that contains the Mac/iOS Swift package and implementation history. upstream/main contains the canonical product baseline and would remove the platform source tree if used as the implementation base.",
+  "merge_base_with_canonical_main": "6c84ac0ddde8b22c502276b471906aaf0c8d4f71",
+  "candidate_branches_considered": [
+    {
+      "ref": "origin/main",
+      "head": "cb71b06819fff9c32e3fa5ac971557d2a54055dc",
+      "selected": true,
+      "reason": "Contains MaciOS/Package.swift, ASHCore, ASHPatternSystem, and platform tests."
+    },
+    {
+      "ref": "upstream/main",
+      "head": "cc253f3d137a27f0eeb471bed62bbdb939e3b6d1",
+      "selected": false,
+      "reason": "Canonical source baseline, not a platform implementation branch."
+    },
+    {
+      "ref": "upstream/release/aps-1.0.0-completion-clean",
+      "head": "44a28980639e79bd68161422ce53c50e0791356f",
+      "selected": false,
+      "reason": "Canonical release candidate branch, not a platform implementation branch."
+    }
+  ],
+  "branch_history_complete_or_shallow": "complete",
+  "is_shallow_repository": false,
+  "completion_branch_created": "release/aps-ios-1.0.0-completion-clean",
+  "active_branch_scope": "iOS package completion branch for the shared Mac/iOS Swift package",
+  "companion_macos_branch_status": "The macOS package defines release/aps-macos-1.0.0-completion-clean as a separate exact branch."
+}

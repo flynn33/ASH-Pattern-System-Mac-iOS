@@ -1,0 +1,53 @@
+{
+  "baseline_commit": "a2ccf52ee5546544539f79fb82b1eb3ac063f432",
+  "branch": "release/aps-ios-1.0.0-completion-clean",
+  "mode": "product",
+  "protected_items": [
+    {
+      "content_sha256": "5c8f637b966b2bd6189f2ce7569e4e644868068aec3bad2eb7138d90c632b098",
+      "item_id": "protected-item-001",
+      "path_sha256": "d0111741efdcaa2ef1bab69b1d5ef5bba49f2166ad60b1fbf285158ccfd2f426"
+    },
+    {
+      "content_sha256": "cfdbf574bc170def49fb7ecbc223954f899f62cba1dbf5f092c905938ff3baf0",
+      "item_id": "protected-item-002",
+      "path_sha256": "3f3b9118edc33a4ae99880552c613680365681e68f2b483d40a431784f024170"
+    },
+    {
+      "content_sha256": "3e09f537191fe33d9ea96112f7c6fcd41244c8478fb56d2fb2177d63c347a097",
+      "item_id": "protected-item-003",
+      "path_sha256": "2e15fcc15f287b31975bc401840cfbc51035e007dc023491d76f33a8a2d379a9"
+    },
+    {
+      "content_sha256": "719873b3cfb06a82e56d8f77358f989a23cf83a41bf65487f54fd05b76748fef",
+      "item_id": "protected-item-004",
+      "path_sha256": "d5dbb5cf49fc67a180d874323c042403ac94c186880239d98576e3088df1b105"
+    },
+    {
+      "content_sha256": "e8436b840316b47f48e1b57a9ec11c21d82699e5752845c754089aeaad431052",
+      "item_id": "protected-item-005",
+      "path_sha256": "32ec3f2b8c2c4a2af05094fc7710fe1cc64f09ba7b24bb21a4aac51c0c8036d9"
+    },
+    {
+      "content_sha256": "e2721200d3c2b4e4ea88ed9bddd6f2472a88579616d3499f56fcc6e959299333",
+      "item_id": "protected-item-006",
+      "path_sha256": "3c0104aca1d3229175af01128914bb268077f052e82d8fae7b7712db30969614"
+    },
+    {
+      "content_sha256": "640e666bb607d4200757924a7b8a937ef1c0015b92811428938496631c25480c",
+      "item_id": "protected-item-007",
+      "path_sha256": "8bf28dc10de2a71226e0e9646ea5c9980c202f9ce0a07ab4f1d0ebe58966011b"
+    },
+    {
+      "content_sha256": "03f668f31a864856c4220da5260f88719c80cb38a76285ad5f2328bcc1d0d597",
+      "item_id": "protected-item-008",
+      "path_sha256": "ad1ea35eefac3ba82d6797dff4c4864cdf20091105eeb2f54d679980b637bf02"
+    },
+    {
+      "content_sha256": "12896bd65b434a7d3a24398d50f0178b415e6c7f7842a69015d500fe122f7a0f",
+      "item_id": "protected-item-009",
+      "path_sha256": "93d95aaf94990b1f2c2c6200aba951617d2fbacb283633084c388765fcb8bb05"
+    }
+  ],
+  "protected_surface_diff_status": "clean"
+}

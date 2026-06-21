@@ -1,0 +1,125 @@
+{
+  "findings": [
+    {
+      "id": "APS-IOS-001",
+      "severity": "blocker",
+      "title": "Default native state model did not cover all 512 canonical realms",
+      "status": "resolved",
+      "evidence": "swift test --package-path MaciOS passes with coverage for 512 states, 32 orbit representatives, and 8,192 transitions.",
+      "evidence_path": "completion-evidence/test-and-quality-baseline.md:20",
+      "affected_capability": "canonical realm state model",
+      "root_cause": "The default valid-state set was limited to `.zero` instead of all well-formed realms.",
+      "remediation": "Default `ASHStateModel` now uses the canonical 512-state space while restricted valid-state behavior remains available through explicit initialization.",
+      "tests": [
+        "swift test --package-path MaciOS",
+        "swift test --package-path MaciOS --filter ASHCanonicalCorpusConformanceTests"
+      ],
+      "owner": "repository owner",
+      "linked_requirements": [
+        "LIVE-BRANCH-AUDIT-PROTOCOL#canonical-conformance",
+        "CANONICAL-MODULE-IMPLEMENTATION-REQUIREMENTS"
+      ],
+      "files": [
+        "MaciOS/Sources/ASHCore/Services/ASHStateModel.swift",
+        "MaciOS/Tests/ASHCoreTests/ASHStateModelTests.swift"
+      ]
+    },
+    {
+      "id": "APS-IOS-002",
+      "severity": "high",
+      "title": "Realm IDs used non-canonical native prefix",
+      "status": "resolved",
+      "evidence": "Realm encoder tests verify APS-REALM-000 through APS-REALM-511.",
+      "evidence_path": "completion-evidence/canonical-conformance-gap-analysis.md:6",
+      "affected_capability": "canonical realm identity serialization",
+      "root_cause": "Realm identity generation used the prior state-signature prefix rather than canonical numeric realm identifiers.",
+      "remediation": "Realm encoder now emits canonical realm identifiers from the state raw value and tests cover all 512 identifiers.",
+      "tests": [
+        "swift test --package-path MaciOS --filter ASHRealmEncoderTests",
+        "swift test --package-path MaciOS --filter ASHCanonicalCorpusConformanceTests"
+      ],
+      "owner": "repository owner",
+      "linked_requirements": [
+        "LIVE-BRANCH-AUDIT-PROTOCOL#canonical-conformance",
+        "CANONICAL-SYNCHRONIZATION-AND-DIVERGENCE"
+      ],
+      "files": [
+        "MaciOS/Sources/ASHCore/Services/ASHRealmEncoder.swift",
+        "MaciOS/Tests/ASHCoreTests/ASHRealmEncoderTests.swift"
+      ]
+    },
+    {
+      "id": "APS-IOS-003",
+      "severity": "high",
+      "title": "Package-required protected-surface verifier is absent",
+      "status": "resolved",
+      "evidence": "python3 tools/verify_protected_surface.py --mode product --write-baseline passes and writes completion-evidence/protected-surface-baseline.json.",
+      "evidence_path": "completion-evidence/baseline-audit.md:37",
+      "affected_capability": "local protected-surface integrity verification",
+      "root_cause": "The platform repository did not include a repository-local product verifier for protected surface changes.",
+      "remediation": "Added a verifier and unit tests that fail when protected paths have tracked or untracked changes and record hashed clean-state evidence.",
+      "tests": [
+        "python3 -m unittest discover -s tools/tests -v",
+        "python3 tools/verify_protected_surface.py --mode product --write-baseline"
+      ],
+      "owner": "repository owner",
+      "linked_requirements": [
+        "PROTECTED-GOVERNANCE-BOUNDARY",
+        "GATE-INTEGRITY-IMPLEMENTATION"
+      ],
+      "files": [
+        "tools/verify_protected_surface.py",
+        "tools/tests/test_verify_protected_surface.py"
+      ]
+    },
+    {
+      "id": "APS-IOS-004",
+      "severity": "blocker",
+      "title": "iOS packaging and signing evidence is not present",
+      "status": "open",
+      "evidence": "SwiftPM and Xcode package scheme builds pass, but the repository contains Swift package products only; no iOS app archive, signing, App Store, or TestFlight artifacts are present.",
+      "evidence_path": "completion-evidence/packaging-and-signing-baseline.md:10",
+      "affected_capability": "signed iOS distribution",
+      "root_cause": "The repository has no iOS app target, archive scheme, signing settings, entitlements, or distribution credentials.",
+      "remediation": "Define the iOS app target and distribution choices, add archive/export workflows, configure signing inputs, then verify archive, signing, store upload, TestFlight, and installation paths.",
+      "tests": [
+        "xcodebuild -scheme ASHCore -destination 'generic/platform=iOS' -configuration Release build -quiet",
+        "xcodebuild -scheme ASHPatternSystem -destination 'generic/platform=iOS' -configuration Release build -quiet"
+      ],
+      "owner": "repository owner",
+      "linked_requirements": [
+        "PACKAGING-SIGNING-AND-DISTRIBUTION",
+        "PRODUCT-DEFINITION-OF-DONE"
+      ],
+      "files": [
+        "MaciOS/Package.swift",
+        "completion-evidence/distribution-prerequisite-request.md",
+        "completion-evidence/final-acceptance-report.md"
+      ]
+    },
+    {
+      "id": "APS-IOS-005",
+      "severity": "blocker",
+      "title": "Hosted branch protection is not active",
+      "status": "open",
+      "evidence": "Authenticated API reads show zero active rulesets and HTTP 404 for default branch protection on main.",
+      "evidence_path": "completion-evidence/governance/live-branch-protection-audit.md:20",
+      "affected_capability": "hosted branch protection and merge governance",
+      "root_cause": "The hosted repository has no active rulesets and the default branch is not protected.",
+      "remediation": "Restore or define the required hosted check family, configure branch protection or rulesets for main and active release branches, then recapture authenticated evidence.",
+      "tests": [
+        "gh api repos/flynn33/ASH-Pattern-System-Mac-iOS/rulesets --jq 'length'",
+        "gh api repos/flynn33/ASH-Pattern-System-Mac-iOS/branches/main/protection"
+      ],
+      "owner": "repository owner",
+      "linked_requirements": [
+        "BRANCH-PROTECTION-AND-RULESET-REQUIREMENTS",
+        "LIVE-BRANCH-AUDIT-PROTOCOL"
+      ],
+      "files": [
+        "completion-evidence/governance/live-branch-protection-audit.md",
+        "completion-evidence/baseline-audit.md"
+      ]
+    }
+  ]
+}
