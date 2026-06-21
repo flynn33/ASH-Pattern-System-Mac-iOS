@@ -31,9 +31,10 @@ final class ASHTopologyGeneratorTests: XCTestCase {
   }
 
   func testGenerateTopologyRejectsUnnormalizableSeed() {
-    let registry = ASHTransitionRegistry(stateModel: stateModel)
+    let restrictedStateModel = ASHStateModel(knownValidStates: [.zero])
+    let registry = ASHTransitionRegistry(stateModel: restrictedStateModel)
     let generator = ASHTopologyGenerator(
-      stateModel: stateModel,
+      stateModel: restrictedStateModel,
       transitionRegistry: registry
     )
     let unnormalizable = ASHState(bitString: "000000001")!

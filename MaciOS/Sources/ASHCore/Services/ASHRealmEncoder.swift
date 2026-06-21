@@ -23,7 +23,7 @@ public final class ASHRealmEncoder: ASHRealmEncoderProtocol {
     }
 
     let signature = state.description
-    let realmID = "ASH-RLM-\(signature)"
+    let realmID = String(format: "APS-REALM-%03d", state.rawValue)
     return .success(
       ASHRealmIdentity(
         stateSignature: signature,

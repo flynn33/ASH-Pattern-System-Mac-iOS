@@ -1,0 +1,293 @@
+{
+  "codewords": [
+    {
+      "bits": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "codeword_id": "APS-CW-00",
+      "is_identity": true,
+      "ordering_rank": 0,
+      "signature": "000000000",
+      "weight": 0
+    },
+    {
+      "bits": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0
+      ],
+      "codeword_id": "APS-CW-01",
+      "is_identity": false,
+      "ordering_rank": 1,
+      "signature": "000011110",
+      "weight": 4
+    },
+    {
+      "bits": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0
+      ],
+      "codeword_id": "APS-CW-02",
+      "is_identity": false,
+      "ordering_rank": 2,
+      "signature": "001100110",
+      "weight": 4
+    },
+    {
+      "bits": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "codeword_id": "APS-CW-03",
+      "is_identity": false,
+      "ordering_rank": 3,
+      "signature": "001111000",
+      "weight": 4
+    },
+    {
+      "bits": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "codeword_id": "APS-CW-04",
+      "is_identity": false,
+      "ordering_rank": 4,
+      "signature": "010101010",
+      "weight": 4
+    },
+    {
+      "bits": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      "codeword_id": "APS-CW-05",
+      "is_identity": false,
+      "ordering_rank": 5,
+      "signature": "010110100",
+      "weight": 4
+    },
+    {
+      "bits": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      "codeword_id": "APS-CW-06",
+      "is_identity": false,
+      "ordering_rank": 6,
+      "signature": "011001100",
+      "weight": 4
+    },
+    {
+      "bits": [
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      "codeword_id": "APS-CW-07",
+      "is_identity": false,
+      "ordering_rank": 7,
+      "signature": "011010010",
+      "weight": 4
+    },
+    {
+      "bits": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      "codeword_id": "APS-CW-08",
+      "is_identity": false,
+      "ordering_rank": 8,
+      "signature": "100101100",
+      "weight": 4
+    },
+    {
+      "bits": [
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      "codeword_id": "APS-CW-09",
+      "is_identity": false,
+      "ordering_rank": 9,
+      "signature": "100110010",
+      "weight": 4
+    },
+    {
+      "bits": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "codeword_id": "APS-CW-10",
+      "is_identity": false,
+      "ordering_rank": 10,
+      "signature": "101001010",
+      "weight": 4
+    },
+    {
+      "bits": [
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      "codeword_id": "APS-CW-11",
+      "is_identity": false,
+      "ordering_rank": 11,
+      "signature": "101010100",
+      "weight": 4
+    },
+    {
+      "bits": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0
+      ],
+      "codeword_id": "APS-CW-12",
+      "is_identity": false,
+      "ordering_rank": 12,
+      "signature": "110000110",
+      "weight": 4
+    },
+    {
+      "bits": [
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "codeword_id": "APS-CW-13",
+      "is_identity": false,
+      "ordering_rank": 13,
+      "signature": "110011000",
+      "weight": 4
+    },
+    {
+      "bits": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "codeword_id": "APS-CW-14",
+      "is_identity": false,
+      "ordering_rank": 14,
+      "signature": "111100000",
+      "weight": 4
+    },
+    {
+      "bits": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0
+      ],
+      "codeword_id": "APS-CW-15",
+      "is_identity": false,
+      "ordering_rank": 15,
+      "signature": "111111110",
+      "weight": 8
+    }
+  ],
+  "version": "completion-baseline-1"
+}

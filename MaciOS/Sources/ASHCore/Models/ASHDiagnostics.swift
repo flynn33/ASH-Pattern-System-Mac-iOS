@@ -50,15 +50,18 @@ public enum RecoveryCategory: String, Codable, Sendable {
 
 public struct OrbitInfo: Codable, Hashable, Sendable {
   public let orbitRepresentative: ASHState
+  public let orbitID: String?
   public let orbitSize: Int
   public let containsKnownValidState: Bool
 
   public init(
     orbitRepresentative: ASHState,
+    orbitID: String? = nil,
     orbitSize: Int,
     containsKnownValidState: Bool
   ) {
     self.orbitRepresentative = orbitRepresentative
+    self.orbitID = orbitID
     self.orbitSize = orbitSize
     self.containsKnownValidState = containsKnownValidState
   }

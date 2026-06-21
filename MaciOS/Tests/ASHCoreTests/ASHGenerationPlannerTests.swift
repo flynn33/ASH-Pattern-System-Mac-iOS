@@ -50,6 +50,7 @@ final class ASHGenerationPlannerTests: XCTestCase {
   }
 
   func testBuildPlanRejectsUnnormalizableState() {
+    let restrictedStateModel = ASHStateModel(knownValidStates: [.zero])
     let topology = ASHTopology(
       seedToken: "F",
       depth: 0,
@@ -66,8 +67,8 @@ final class ASHGenerationPlannerTests: XCTestCase {
       ]
     )
     let planner = ASHGenerationPlanner(
-      stateModel: stateModel,
-      realmEncoder: ASHRealmEncoder(stateModel: stateModel)
+      stateModel: restrictedStateModel,
+      realmEncoder: ASHRealmEncoder(stateModel: restrictedStateModel)
     )
     let axiomEvaluation = ASHAxiomEvaluator().evaluate(state: .zero)
     let unnormalizable = ASHState(bitString: "000000001")!

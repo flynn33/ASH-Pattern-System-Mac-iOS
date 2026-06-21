@@ -5,14 +5,15 @@ final class ASHRecoveryEngineTests: XCTestCase {
   private let stateModel = ASHStateModel()
 
   func testNormalizeStateRecoveryReturnsRecovered() {
-    let registry = ASHTransitionRegistry(stateModel: stateModel)
+    let restrictedStateModel = ASHStateModel(knownValidStates: [.zero])
+    let registry = ASHTransitionRegistry(stateModel: restrictedStateModel)
     let engine = ASHRecoveryEngine(
-      stateModel: stateModel,
+      stateModel: restrictedStateModel,
       transitionRegistry: registry
     )
     let compatibleState = ASHState(bitString: "111100000")!
-    let diagnostic = stateModel.diagnose(compatibleState)
-    let stateClass = stateModel.classifySystemState(
+    let diagnostic = restrictedStateModel.diagnose(compatibleState)
+    let stateClass = restrictedStateModel.classifySystemState(
       for: diagnostic,
       context: ASHSystemContext(correctionPathKnown: false)
     )
