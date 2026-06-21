@@ -117,11 +117,13 @@ public final class ASHTransitionRegistry: ASHTransitionRegistryProtocol {
   private static func makeCanonicalTransitions(codewordSet: Set<ASHState>) -> [ASHTransitionDefinition] {
     codewordSet
       .sorted()
-      .map { codeword in
-        let transitionID = "CW-\(codeword.description)"
+      .enumerated()
+      .map { index, codeword in
+        let codewordID = String(format: "APS-CW-%02d", index)
+        let transitionID = String(format: "APS-TRANSITION-CW-%02d", index)
         return ASHTransitionDefinition(
           transitionID: transitionID,
-          displayName: "Codeword \(codeword.description)",
+          displayName: "Codeword \(codewordID)",
           description: "Apply canonical XOR-by-codeword transition using \(codeword.description)",
           codeword: codeword,
           applicability: .always

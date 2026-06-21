@@ -1,0 +1,133 @@
+{
+  "transitions": [
+    {
+      "codeword_id": "APS-CW-00",
+      "codeword_signature": "000000000",
+      "is_identity": true,
+      "operation": "XOR",
+      "ordering_rank": 0,
+      "transition_id": "APS-TRANSITION-CW-00"
+    },
+    {
+      "codeword_id": "APS-CW-01",
+      "codeword_signature": "000011110",
+      "is_identity": false,
+      "operation": "XOR",
+      "ordering_rank": 1,
+      "transition_id": "APS-TRANSITION-CW-01"
+    },
+    {
+      "codeword_id": "APS-CW-02",
+      "codeword_signature": "001100110",
+      "is_identity": false,
+      "operation": "XOR",
+      "ordering_rank": 2,
+      "transition_id": "APS-TRANSITION-CW-02"
+    },
+    {
+      "codeword_id": "APS-CW-03",
+      "codeword_signature": "001111000",
+      "is_identity": false,
+      "operation": "XOR",
+      "ordering_rank": 3,
+      "transition_id": "APS-TRANSITION-CW-03"
+    },
+    {
+      "codeword_id": "APS-CW-04",
+      "codeword_signature": "010101010",
+      "is_identity": false,
+      "operation": "XOR",
+      "ordering_rank": 4,
+      "transition_id": "APS-TRANSITION-CW-04"
+    },
+    {
+      "codeword_id": "APS-CW-05",
+      "codeword_signature": "010110100",
+      "is_identity": false,
+      "operation": "XOR",
+      "ordering_rank": 5,
+      "transition_id": "APS-TRANSITION-CW-05"
+    },
+    {
+      "codeword_id": "APS-CW-06",
+      "codeword_signature": "011001100",
+      "is_identity": false,
+      "operation": "XOR",
+      "ordering_rank": 6,
+      "transition_id": "APS-TRANSITION-CW-06"
+    },
+    {
+      "codeword_id": "APS-CW-07",
+      "codeword_signature": "011010010",
+      "is_identity": false,
+      "operation": "XOR",
+      "ordering_rank": 7,
+      "transition_id": "APS-TRANSITION-CW-07"
+    },
+    {
+      "codeword_id": "APS-CW-08",
+      "codeword_signature": "100101100",
+      "is_identity": false,
+      "operation": "XOR",
+      "ordering_rank": 8,
+      "transition_id": "APS-TRANSITION-CW-08"
+    },
+    {
+      "codeword_id": "APS-CW-09",
+      "codeword_signature": "100110010",
+      "is_identity": false,
+      "operation": "XOR",
+      "ordering_rank": 9,
+      "transition_id": "APS-TRANSITION-CW-09"
+    },
+    {
+      "codeword_id": "APS-CW-10",
+      "codeword_signature": "101001010",
+      "is_identity": false,
+      "operation": "XOR",
+      "ordering_rank": 10,
+      "transition_id": "APS-TRANSITION-CW-10"
+    },
+    {
+      "codeword_id": "APS-CW-11",
+      "codeword_signature": "101010100",
+      "is_identity": false,
+      "operation": "XOR",
+      "ordering_rank": 11,
+      "transition_id": "APS-TRANSITION-CW-11"
+    },
+    {
+      "codeword_id": "APS-CW-12",
+      "codeword_signature": "110000110",
+      "is_identity": false,
+      "operation": "XOR",
+      "ordering_rank": 12,
+      "transition_id": "APS-TRANSITION-CW-12"
+    },
+    {
+      "codeword_id": "APS-CW-13",
+      "codeword_signature": "110011000",
+      "is_identity": false,
+      "operation": "XOR",
+      "ordering_rank": 13,
+      "transition_id": "APS-TRANSITION-CW-13"
+    },
+    {
+      "codeword_id": "APS-CW-14",
+      "codeword_signature": "111100000",
+      "is_identity": false,
+      "operation": "XOR",
+      "ordering_rank": 14,
+      "transition_id": "APS-TRANSITION-CW-14"
+    },
+    {
+      "codeword_id": "APS-CW-15",
+      "codeword_signature": "111111110",
+      "is_identity": false,
+      "operation": "XOR",
+      "ordering_rank": 15,
+      "transition_id": "APS-TRANSITION-CW-15"
+    }
+  ],
+  "version": "completion-baseline-1"
+}

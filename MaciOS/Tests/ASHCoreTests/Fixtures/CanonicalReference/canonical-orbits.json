@@ -1,0 +1,2373 @@
+{
+  "orbits": [
+    {
+      "b8": 0,
+      "member_count": 16,
+      "members": [
+        {
+          "realm_id": "APS-REALM-000",
+          "state_signature": "000000000"
+        },
+        {
+          "realm_id": "APS-REALM-030",
+          "state_signature": "000011110"
+        },
+        {
+          "realm_id": "APS-REALM-102",
+          "state_signature": "001100110"
+        },
+        {
+          "realm_id": "APS-REALM-120",
+          "state_signature": "001111000"
+        },
+        {
+          "realm_id": "APS-REALM-170",
+          "state_signature": "010101010"
+        },
+        {
+          "realm_id": "APS-REALM-180",
+          "state_signature": "010110100"
+        },
+        {
+          "realm_id": "APS-REALM-204",
+          "state_signature": "011001100"
+        },
+        {
+          "realm_id": "APS-REALM-210",
+          "state_signature": "011010010"
+        },
+        {
+          "realm_id": "APS-REALM-300",
+          "state_signature": "100101100"
+        },
+        {
+          "realm_id": "APS-REALM-306",
+          "state_signature": "100110010"
+        },
+        {
+          "realm_id": "APS-REALM-330",
+          "state_signature": "101001010"
+        },
+        {
+          "realm_id": "APS-REALM-340",
+          "state_signature": "101010100"
+        },
+        {
+          "realm_id": "APS-REALM-390",
+          "state_signature": "110000110"
+        },
+        {
+          "realm_id": "APS-REALM-408",
+          "state_signature": "110011000"
+        },
+        {
+          "realm_id": "APS-REALM-480",
+          "state_signature": "111100000"
+        },
+        {
+          "realm_id": "APS-REALM-510",
+          "state_signature": "111111110"
+        }
+      ],
+      "orbit_id": "APS-ORBIT-00",
+      "ordering_rank": 0,
+      "representative_realm_id": "APS-REALM-000",
+      "representative_signature": "000000000"
+    },
+    {
+      "b8": 1,
+      "member_count": 16,
+      "members": [
+        {
+          "realm_id": "APS-REALM-001",
+          "state_signature": "000000001"
+        },
+        {
+          "realm_id": "APS-REALM-031",
+          "state_signature": "000011111"
+        },
+        {
+          "realm_id": "APS-REALM-103",
+          "state_signature": "001100111"
+        },
+        {
+          "realm_id": "APS-REALM-121",
+          "state_signature": "001111001"
+        },
+        {
+          "realm_id": "APS-REALM-171",
+          "state_signature": "010101011"
+        },
+        {
+          "realm_id": "APS-REALM-181",
+          "state_signature": "010110101"
+        },
+        {
+          "realm_id": "APS-REALM-205",
+          "state_signature": "011001101"
+        },
+        {
+          "realm_id": "APS-REALM-211",
+          "state_signature": "011010011"
+        },
+        {
+          "realm_id": "APS-REALM-301",
+          "state_signature": "100101101"
+        },
+        {
+          "realm_id": "APS-REALM-307",
+          "state_signature": "100110011"
+        },
+        {
+          "realm_id": "APS-REALM-331",
+          "state_signature": "101001011"
+        },
+        {
+          "realm_id": "APS-REALM-341",
+          "state_signature": "101010101"
+        },
+        {
+          "realm_id": "APS-REALM-391",
+          "state_signature": "110000111"
+        },
+        {
+          "realm_id": "APS-REALM-409",
+          "state_signature": "110011001"
+        },
+        {
+          "realm_id": "APS-REALM-481",
+          "state_signature": "111100001"
+        },
+        {
+          "realm_id": "APS-REALM-511",
+          "state_signature": "111111111"
+        }
+      ],
+      "orbit_id": "APS-ORBIT-01",
+      "ordering_rank": 1,
+      "representative_realm_id": "APS-REALM-001",
+      "representative_signature": "000000001"
+    },
+    {
+      "b8": 0,
+      "member_count": 16,
+      "members": [
+        {
+          "realm_id": "APS-REALM-002",
+          "state_signature": "000000010"
+        },
+        {
+          "realm_id": "APS-REALM-028",
+          "state_signature": "000011100"
+        },
+        {
+          "realm_id": "APS-REALM-100",
+          "state_signature": "001100100"
+        },
+        {
+          "realm_id": "APS-REALM-122",
+          "state_signature": "001111010"
+        },
+        {
+          "realm_id": "APS-REALM-168",
+          "state_signature": "010101000"
+        },
+        {
+          "realm_id": "APS-REALM-182",
+          "state_signature": "010110110"
+        },
+        {
+          "realm_id": "APS-REALM-206",
+          "state_signature": "011001110"
+        },
+        {
+          "realm_id": "APS-REALM-208",
+          "state_signature": "011010000"
+        },
+        {
+          "realm_id": "APS-REALM-302",
+          "state_signature": "100101110"
+        },
+        {
+          "realm_id": "APS-REALM-304",
+          "state_signature": "100110000"
+        },
+        {
+          "realm_id": "APS-REALM-328",
+          "state_signature": "101001000"
+        },
+        {
+          "realm_id": "APS-REALM-342",
+          "state_signature": "101010110"
+        },
+        {
+          "realm_id": "APS-REALM-388",
+          "state_signature": "110000100"
+        },
+        {
+          "realm_id": "APS-REALM-410",
+          "state_signature": "110011010"
+        },
+        {
+          "realm_id": "APS-REALM-482",
+          "state_signature": "111100010"
+        },
+        {
+          "realm_id": "APS-REALM-508",
+          "state_signature": "111111100"
+        }
+      ],
+      "orbit_id": "APS-ORBIT-02",
+      "ordering_rank": 2,
+      "representative_realm_id": "APS-REALM-002",
+      "representative_signature": "000000010"
+    },
+    {
+      "b8": 1,
+      "member_count": 16,
+      "members": [
+        {
+          "realm_id": "APS-REALM-003",
+          "state_signature": "000000011"
+        },
+        {
+          "realm_id": "APS-REALM-029",
+          "state_signature": "000011101"
+        },
+        {
+          "realm_id": "APS-REALM-101",
+          "state_signature": "001100101"
+        },
+        {
+          "realm_id": "APS-REALM-123",
+          "state_signature": "001111011"
+        },
+        {
+          "realm_id": "APS-REALM-169",
+          "state_signature": "010101001"
+        },
+        {
+          "realm_id": "APS-REALM-183",
+          "state_signature": "010110111"
+        },
+        {
+          "realm_id": "APS-REALM-207",
+          "state_signature": "011001111"
+        },
+        {
+          "realm_id": "APS-REALM-209",
+          "state_signature": "011010001"
+        },
+        {
+          "realm_id": "APS-REALM-303",
+          "state_signature": "100101111"
+        },
+        {
+          "realm_id": "APS-REALM-305",
+          "state_signature": "100110001"
+        },
+        {
+          "realm_id": "APS-REALM-329",
+          "state_signature": "101001001"
+        },
+        {
+          "realm_id": "APS-REALM-343",
+          "state_signature": "101010111"
+        },
+        {
+          "realm_id": "APS-REALM-389",
+          "state_signature": "110000101"
+        },
+        {
+          "realm_id": "APS-REALM-411",
+          "state_signature": "110011011"
+        },
+        {
+          "realm_id": "APS-REALM-483",
+          "state_signature": "111100011"
+        },
+        {
+          "realm_id": "APS-REALM-509",
+          "state_signature": "111111101"
+        }
+      ],
+      "orbit_id": "APS-ORBIT-03",
+      "ordering_rank": 3,
+      "representative_realm_id": "APS-REALM-003",
+      "representative_signature": "000000011"
+    },
+    {
+      "b8": 0,
+      "member_count": 16,
+      "members": [
+        {
+          "realm_id": "APS-REALM-004",
+          "state_signature": "000000100"
+        },
+        {
+          "realm_id": "APS-REALM-026",
+          "state_signature": "000011010"
+        },
+        {
+          "realm_id": "APS-REALM-098",
+          "state_signature": "001100010"
+        },
+        {
+          "realm_id": "APS-REALM-124",
+          "state_signature": "001111100"
+        },
+        {
+          "realm_id": "APS-REALM-174",
+          "state_signature": "010101110"
+        },
+        {
+          "realm_id": "APS-REALM-176",
+          "state_signature": "010110000"
+        },
+        {
+          "realm_id": "APS-REALM-200",
+          "state_signature": "011001000"
+        },
+        {
+          "realm_id": "APS-REALM-214",
+          "state_signature": "011010110"
+        },
+        {
+          "realm_id": "APS-REALM-296",
+          "state_signature": "100101000"
+        },
+        {
+          "realm_id": "APS-REALM-310",
+          "state_signature": "100110110"
+        },
+        {
+          "realm_id": "APS-REALM-334",
+          "state_signature": "101001110"
+        },
+        {
+          "realm_id": "APS-REALM-336",
+          "state_signature": "101010000"
+        },
+        {
+          "realm_id": "APS-REALM-386",
+          "state_signature": "110000010"
+        },
+        {
+          "realm_id": "APS-REALM-412",
+          "state_signature": "110011100"
+        },
+        {
+          "realm_id": "APS-REALM-484",
+          "state_signature": "111100100"
+        },
+        {
+          "realm_id": "APS-REALM-506",
+          "state_signature": "111111010"
+        }
+      ],
+      "orbit_id": "APS-ORBIT-04",
+      "ordering_rank": 4,
+      "representative_realm_id": "APS-REALM-004",
+      "representative_signature": "000000100"
+    },
+    {
+      "b8": 1,
+      "member_count": 16,
+      "members": [
+        {
+          "realm_id": "APS-REALM-005",
+          "state_signature": "000000101"
+        },
+        {
+          "realm_id": "APS-REALM-027",
+          "state_signature": "000011011"
+        },
+        {
+          "realm_id": "APS-REALM-099",
+          "state_signature": "001100011"
+        },
+        {
+          "realm_id": "APS-REALM-125",
+          "state_signature": "001111101"
+        },
+        {
+          "realm_id": "APS-REALM-175",
+          "state_signature": "010101111"
+        },
+        {
+          "realm_id": "APS-REALM-177",
+          "state_signature": "010110001"
+        },
+        {
+          "realm_id": "APS-REALM-201",
+          "state_signature": "011001001"
+        },
+        {
+          "realm_id": "APS-REALM-215",
+          "state_signature": "011010111"
+        },
+        {
+          "realm_id": "APS-REALM-297",
+          "state_signature": "100101001"
+        },
+        {
+          "realm_id": "APS-REALM-311",
+          "state_signature": "100110111"
+        },
+        {
+          "realm_id": "APS-REALM-335",
+          "state_signature": "101001111"
+        },
+        {
+          "realm_id": "APS-REALM-337",
+          "state_signature": "101010001"
+        },
+        {
+          "realm_id": "APS-REALM-387",
+          "state_signature": "110000011"
+        },
+        {
+          "realm_id": "APS-REALM-413",
+          "state_signature": "110011101"
+        },
+        {
+          "realm_id": "APS-REALM-485",
+          "state_signature": "111100101"
+        },
+        {
+          "realm_id": "APS-REALM-507",
+          "state_signature": "111111011"
+        }
+      ],
+      "orbit_id": "APS-ORBIT-05",
+      "ordering_rank": 5,
+      "representative_realm_id": "APS-REALM-005",
+      "representative_signature": "000000101"
+    },
+    {
+      "b8": 0,
+      "member_count": 16,
+      "members": [
+        {
+          "realm_id": "APS-REALM-006",
+          "state_signature": "000000110"
+        },
+        {
+          "realm_id": "APS-REALM-024",
+          "state_signature": "000011000"
+        },
+        {
+          "realm_id": "APS-REALM-096",
+          "state_signature": "001100000"
+        },
+        {
+          "realm_id": "APS-REALM-126",
+          "state_signature": "001111110"
+        },
+        {
+          "realm_id": "APS-REALM-172",
+          "state_signature": "010101100"
+        },
+        {
+          "realm_id": "APS-REALM-178",
+          "state_signature": "010110010"
+        },
+        {
+          "realm_id": "APS-REALM-202",
+          "state_signature": "011001010"
+        },
+        {
+          "realm_id": "APS-REALM-212",
+          "state_signature": "011010100"
+        },
+        {
+          "realm_id": "APS-REALM-298",
+          "state_signature": "100101010"
+        },
+        {
+          "realm_id": "APS-REALM-308",
+          "state_signature": "100110100"
+        },
+        {
+          "realm_id": "APS-REALM-332",
+          "state_signature": "101001100"
+        },
+        {
+          "realm_id": "APS-REALM-338",
+          "state_signature": "101010010"
+        },
+        {
+          "realm_id": "APS-REALM-384",
+          "state_signature": "110000000"
+        },
+        {
+          "realm_id": "APS-REALM-414",
+          "state_signature": "110011110"
+        },
+        {
+          "realm_id": "APS-REALM-486",
+          "state_signature": "111100110"
+        },
+        {
+          "realm_id": "APS-REALM-504",
+          "state_signature": "111111000"
+        }
+      ],
+      "orbit_id": "APS-ORBIT-06",
+      "ordering_rank": 6,
+      "representative_realm_id": "APS-REALM-006",
+      "representative_signature": "000000110"
+    },
+    {
+      "b8": 1,
+      "member_count": 16,
+      "members": [
+        {
+          "realm_id": "APS-REALM-007",
+          "state_signature": "000000111"
+        },
+        {
+          "realm_id": "APS-REALM-025",
+          "state_signature": "000011001"
+        },
+        {
+          "realm_id": "APS-REALM-097",
+          "state_signature": "001100001"
+        },
+        {
+          "realm_id": "APS-REALM-127",
+          "state_signature": "001111111"
+        },
+        {
+          "realm_id": "APS-REALM-173",
+          "state_signature": "010101101"
+        },
+        {
+          "realm_id": "APS-REALM-179",
+          "state_signature": "010110011"
+        },
+        {
+          "realm_id": "APS-REALM-203",
+          "state_signature": "011001011"
+        },
+        {
+          "realm_id": "APS-REALM-213",
+          "state_signature": "011010101"
+        },
+        {
+          "realm_id": "APS-REALM-299",
+          "state_signature": "100101011"
+        },
+        {
+          "realm_id": "APS-REALM-309",
+          "state_signature": "100110101"
+        },
+        {
+          "realm_id": "APS-REALM-333",
+          "state_signature": "101001101"
+        },
+        {
+          "realm_id": "APS-REALM-339",
+          "state_signature": "101010011"
+        },
+        {
+          "realm_id": "APS-REALM-385",
+          "state_signature": "110000001"
+        },
+        {
+          "realm_id": "APS-REALM-415",
+          "state_signature": "110011111"
+        },
+        {
+          "realm_id": "APS-REALM-487",
+          "state_signature": "111100111"
+        },
+        {
+          "realm_id": "APS-REALM-505",
+          "state_signature": "111111001"
+        }
+      ],
+      "orbit_id": "APS-ORBIT-07",
+      "ordering_rank": 7,
+      "representative_realm_id": "APS-REALM-007",
+      "representative_signature": "000000111"
+    },
+    {
+      "b8": 0,
+      "member_count": 16,
+      "members": [
+        {
+          "realm_id": "APS-REALM-008",
+          "state_signature": "000001000"
+        },
+        {
+          "realm_id": "APS-REALM-022",
+          "state_signature": "000010110"
+        },
+        {
+          "realm_id": "APS-REALM-110",
+          "state_signature": "001101110"
+        },
+        {
+          "realm_id": "APS-REALM-112",
+          "state_signature": "001110000"
+        },
+        {
+          "realm_id": "APS-REALM-162",
+          "state_signature": "010100010"
+        },
+        {
+          "realm_id": "APS-REALM-188",
+          "state_signature": "010111100"
+        },
+        {
+          "realm_id": "APS-REALM-196",
+          "state_signature": "011000100"
+        },
+        {
+          "realm_id": "APS-REALM-218",
+          "state_signature": "011011010"
+        },
+        {
+          "realm_id": "APS-REALM-292",
+          "state_signature": "100100100"
+        },
+        {
+          "realm_id": "APS-REALM-314",
+          "state_signature": "100111010"
+        },
+        {
+          "realm_id": "APS-REALM-322",
+          "state_signature": "101000010"
+        },
+        {
+          "realm_id": "APS-REALM-348",
+          "state_signature": "101011100"
+        },
+        {
+          "realm_id": "APS-REALM-398",
+          "state_signature": "110001110"
+        },
+        {
+          "realm_id": "APS-REALM-400",
+          "state_signature": "110010000"
+        },
+        {
+          "realm_id": "APS-REALM-488",
+          "state_signature": "111101000"
+        },
+        {
+          "realm_id": "APS-REALM-502",
+          "state_signature": "111110110"
+        }
+      ],
+      "orbit_id": "APS-ORBIT-08",
+      "ordering_rank": 8,
+      "representative_realm_id": "APS-REALM-008",
+      "representative_signature": "000001000"
+    },
+    {
+      "b8": 1,
+      "member_count": 16,
+      "members": [
+        {
+          "realm_id": "APS-REALM-009",
+          "state_signature": "000001001"
+        },
+        {
+          "realm_id": "APS-REALM-023",
+          "state_signature": "000010111"
+        },
+        {
+          "realm_id": "APS-REALM-111",
+          "state_signature": "001101111"
+        },
+        {
+          "realm_id": "APS-REALM-113",
+          "state_signature": "001110001"
+        },
+        {
+          "realm_id": "APS-REALM-163",
+          "state_signature": "010100011"
+        },
+        {
+          "realm_id": "APS-REALM-189",
+          "state_signature": "010111101"
+        },
+        {
+          "realm_id": "APS-REALM-197",
+          "state_signature": "011000101"
+        },
+        {
+          "realm_id": "APS-REALM-219",
+          "state_signature": "011011011"
+        },
+        {
+          "realm_id": "APS-REALM-293",
+          "state_signature": "100100101"
+        },
+        {
+          "realm_id": "APS-REALM-315",
+          "state_signature": "100111011"
+        },
+        {
+          "realm_id": "APS-REALM-323",
+          "state_signature": "101000011"
+        },
+        {
+          "realm_id": "APS-REALM-349",
+          "state_signature": "101011101"
+        },
+        {
+          "realm_id": "APS-REALM-399",
+          "state_signature": "110001111"
+        },
+        {
+          "realm_id": "APS-REALM-401",
+          "state_signature": "110010001"
+        },
+        {
+          "realm_id": "APS-REALM-489",
+          "state_signature": "111101001"
+        },
+        {
+          "realm_id": "APS-REALM-503",
+          "state_signature": "111110111"
+        }
+      ],
+      "orbit_id": "APS-ORBIT-09",
+      "ordering_rank": 9,
+      "representative_realm_id": "APS-REALM-009",
+      "representative_signature": "000001001"
+    },
+    {
+      "b8": 0,
+      "member_count": 16,
+      "members": [
+        {
+          "realm_id": "APS-REALM-010",
+          "state_signature": "000001010"
+        },
+        {
+          "realm_id": "APS-REALM-020",
+          "state_signature": "000010100"
+        },
+        {
+          "realm_id": "APS-REALM-108",
+          "state_signature": "001101100"
+        },
+        {
+          "realm_id": "APS-REALM-114",
+          "state_signature": "001110010"
+        },
+        {
+          "realm_id": "APS-REALM-160",
+          "state_signature": "010100000"
+        },
+        {
+          "realm_id": "APS-REALM-190",
+          "state_signature": "010111110"
+        },
+        {
+          "realm_id": "APS-REALM-198",
+          "state_signature": "011000110"
+        },
+        {
+          "realm_id": "APS-REALM-216",
+          "state_signature": "011011000"
+        },
+        {
+          "realm_id": "APS-REALM-294",
+          "state_signature": "100100110"
+        },
+        {
+          "realm_id": "APS-REALM-312",
+          "state_signature": "100111000"
+        },
+        {
+          "realm_id": "APS-REALM-320",
+          "state_signature": "101000000"
+        },
+        {
+          "realm_id": "APS-REALM-350",
+          "state_signature": "101011110"
+        },
+        {
+          "realm_id": "APS-REALM-396",
+          "state_signature": "110001100"
+        },
+        {
+          "realm_id": "APS-REALM-402",
+          "state_signature": "110010010"
+        },
+        {
+          "realm_id": "APS-REALM-490",
+          "state_signature": "111101010"
+        },
+        {
+          "realm_id": "APS-REALM-500",
+          "state_signature": "111110100"
+        }
+      ],
+      "orbit_id": "APS-ORBIT-10",
+      "ordering_rank": 10,
+      "representative_realm_id": "APS-REALM-010",
+      "representative_signature": "000001010"
+    },
+    {
+      "b8": 1,
+      "member_count": 16,
+      "members": [
+        {
+          "realm_id": "APS-REALM-011",
+          "state_signature": "000001011"
+        },
+        {
+          "realm_id": "APS-REALM-021",
+          "state_signature": "000010101"
+        },
+        {
+          "realm_id": "APS-REALM-109",
+          "state_signature": "001101101"
+        },
+        {
+          "realm_id": "APS-REALM-115",
+          "state_signature": "001110011"
+        },
+        {
+          "realm_id": "APS-REALM-161",
+          "state_signature": "010100001"
+        },
+        {
+          "realm_id": "APS-REALM-191",
+          "state_signature": "010111111"
+        },
+        {
+          "realm_id": "APS-REALM-199",
+          "state_signature": "011000111"
+        },
+        {
+          "realm_id": "APS-REALM-217",
+          "state_signature": "011011001"
+        },
+        {
+          "realm_id": "APS-REALM-295",
+          "state_signature": "100100111"
+        },
+        {
+          "realm_id": "APS-REALM-313",
+          "state_signature": "100111001"
+        },
+        {
+          "realm_id": "APS-REALM-321",
+          "state_signature": "101000001"
+        },
+        {
+          "realm_id": "APS-REALM-351",
+          "state_signature": "101011111"
+        },
+        {
+          "realm_id": "APS-REALM-397",
+          "state_signature": "110001101"
+        },
+        {
+          "realm_id": "APS-REALM-403",
+          "state_signature": "110010011"
+        },
+        {
+          "realm_id": "APS-REALM-491",
+          "state_signature": "111101011"
+        },
+        {
+          "realm_id": "APS-REALM-501",
+          "state_signature": "111110101"
+        }
+      ],
+      "orbit_id": "APS-ORBIT-11",
+      "ordering_rank": 11,
+      "representative_realm_id": "APS-REALM-011",
+      "representative_signature": "000001011"
+    },
+    {
+      "b8": 0,
+      "member_count": 16,
+      "members": [
+        {
+          "realm_id": "APS-REALM-012",
+          "state_signature": "000001100"
+        },
+        {
+          "realm_id": "APS-REALM-018",
+          "state_signature": "000010010"
+        },
+        {
+          "realm_id": "APS-REALM-106",
+          "state_signature": "001101010"
+        },
+        {
+          "realm_id": "APS-REALM-116",
+          "state_signature": "001110100"
+        },
+        {
+          "realm_id": "APS-REALM-166",
+          "state_signature": "010100110"
+        },
+        {
+          "realm_id": "APS-REALM-184",
+          "state_signature": "010111000"
+        },
+        {
+          "realm_id": "APS-REALM-192",
+          "state_signature": "011000000"
+        },
+        {
+          "realm_id": "APS-REALM-222",
+          "state_signature": "011011110"
+        },
+        {
+          "realm_id": "APS-REALM-288",
+          "state_signature": "100100000"
+        },
+        {
+          "realm_id": "APS-REALM-318",
+          "state_signature": "100111110"
+        },
+        {
+          "realm_id": "APS-REALM-326",
+          "state_signature": "101000110"
+        },
+        {
+          "realm_id": "APS-REALM-344",
+          "state_signature": "101011000"
+        },
+        {
+          "realm_id": "APS-REALM-394",
+          "state_signature": "110001010"
+        },
+        {
+          "realm_id": "APS-REALM-404",
+          "state_signature": "110010100"
+        },
+        {
+          "realm_id": "APS-REALM-492",
+          "state_signature": "111101100"
+        },
+        {
+          "realm_id": "APS-REALM-498",
+          "state_signature": "111110010"
+        }
+      ],
+      "orbit_id": "APS-ORBIT-12",
+      "ordering_rank": 12,
+      "representative_realm_id": "APS-REALM-012",
+      "representative_signature": "000001100"
+    },
+    {
+      "b8": 1,
+      "member_count": 16,
+      "members": [
+        {
+          "realm_id": "APS-REALM-013",
+          "state_signature": "000001101"
+        },
+        {
+          "realm_id": "APS-REALM-019",
+          "state_signature": "000010011"
+        },
+        {
+          "realm_id": "APS-REALM-107",
+          "state_signature": "001101011"
+        },
+        {
+          "realm_id": "APS-REALM-117",
+          "state_signature": "001110101"
+        },
+        {
+          "realm_id": "APS-REALM-167",
+          "state_signature": "010100111"
+        },
+        {
+          "realm_id": "APS-REALM-185",
+          "state_signature": "010111001"
+        },
+        {
+          "realm_id": "APS-REALM-193",
+          "state_signature": "011000001"
+        },
+        {
+          "realm_id": "APS-REALM-223",
+          "state_signature": "011011111"
+        },
+        {
+          "realm_id": "APS-REALM-289",
+          "state_signature": "100100001"
+        },
+        {
+          "realm_id": "APS-REALM-319",
+          "state_signature": "100111111"
+        },
+        {
+          "realm_id": "APS-REALM-327",
+          "state_signature": "101000111"
+        },
+        {
+          "realm_id": "APS-REALM-345",
+          "state_signature": "101011001"
+        },
+        {
+          "realm_id": "APS-REALM-395",
+          "state_signature": "110001011"
+        },
+        {
+          "realm_id": "APS-REALM-405",
+          "state_signature": "110010101"
+        },
+        {
+          "realm_id": "APS-REALM-493",
+          "state_signature": "111101101"
+        },
+        {
+          "realm_id": "APS-REALM-499",
+          "state_signature": "111110011"
+        }
+      ],
+      "orbit_id": "APS-ORBIT-13",
+      "ordering_rank": 13,
+      "representative_realm_id": "APS-REALM-013",
+      "representative_signature": "000001101"
+    },
+    {
+      "b8": 0,
+      "member_count": 16,
+      "members": [
+        {
+          "realm_id": "APS-REALM-014",
+          "state_signature": "000001110"
+        },
+        {
+          "realm_id": "APS-REALM-016",
+          "state_signature": "000010000"
+        },
+        {
+          "realm_id": "APS-REALM-104",
+          "state_signature": "001101000"
+        },
+        {
+          "realm_id": "APS-REALM-118",
+          "state_signature": "001110110"
+        },
+        {
+          "realm_id": "APS-REALM-164",
+          "state_signature": "010100100"
+        },
+        {
+          "realm_id": "APS-REALM-186",
+          "state_signature": "010111010"
+        },
+        {
+          "realm_id": "APS-REALM-194",
+          "state_signature": "011000010"
+        },
+        {
+          "realm_id": "APS-REALM-220",
+          "state_signature": "011011100"
+        },
+        {
+          "realm_id": "APS-REALM-290",
+          "state_signature": "100100010"
+        },
+        {
+          "realm_id": "APS-REALM-316",
+          "state_signature": "100111100"
+        },
+        {
+          "realm_id": "APS-REALM-324",
+          "state_signature": "101000100"
+        },
+        {
+          "realm_id": "APS-REALM-346",
+          "state_signature": "101011010"
+        },
+        {
+          "realm_id": "APS-REALM-392",
+          "state_signature": "110001000"
+        },
+        {
+          "realm_id": "APS-REALM-406",
+          "state_signature": "110010110"
+        },
+        {
+          "realm_id": "APS-REALM-494",
+          "state_signature": "111101110"
+        },
+        {
+          "realm_id": "APS-REALM-496",
+          "state_signature": "111110000"
+        }
+      ],
+      "orbit_id": "APS-ORBIT-14",
+      "ordering_rank": 14,
+      "representative_realm_id": "APS-REALM-014",
+      "representative_signature": "000001110"
+    },
+    {
+      "b8": 1,
+      "member_count": 16,
+      "members": [
+        {
+          "realm_id": "APS-REALM-015",
+          "state_signature": "000001111"
+        },
+        {
+          "realm_id": "APS-REALM-017",
+          "state_signature": "000010001"
+        },
+        {
+          "realm_id": "APS-REALM-105",
+          "state_signature": "001101001"
+        },
+        {
+          "realm_id": "APS-REALM-119",
+          "state_signature": "001110111"
+        },
+        {
+          "realm_id": "APS-REALM-165",
+          "state_signature": "010100101"
+        },
+        {
+          "realm_id": "APS-REALM-187",
+          "state_signature": "010111011"
+        },
+        {
+          "realm_id": "APS-REALM-195",
+          "state_signature": "011000011"
+        },
+        {
+          "realm_id": "APS-REALM-221",
+          "state_signature": "011011101"
+        },
+        {
+          "realm_id": "APS-REALM-291",
+          "state_signature": "100100011"
+        },
+        {
+          "realm_id": "APS-REALM-317",
+          "state_signature": "100111101"
+        },
+        {
+          "realm_id": "APS-REALM-325",
+          "state_signature": "101000101"
+        },
+        {
+          "realm_id": "APS-REALM-347",
+          "state_signature": "101011011"
+        },
+        {
+          "realm_id": "APS-REALM-393",
+          "state_signature": "110001001"
+        },
+        {
+          "realm_id": "APS-REALM-407",
+          "state_signature": "110010111"
+        },
+        {
+          "realm_id": "APS-REALM-495",
+          "state_signature": "111101111"
+        },
+        {
+          "realm_id": "APS-REALM-497",
+          "state_signature": "111110001"
+        }
+      ],
+      "orbit_id": "APS-ORBIT-15",
+      "ordering_rank": 15,
+      "representative_realm_id": "APS-REALM-015",
+      "representative_signature": "000001111"
+    },
+    {
+      "b8": 0,
+      "member_count": 16,
+      "members": [
+        {
+          "realm_id": "APS-REALM-032",
+          "state_signature": "000100000"
+        },
+        {
+          "realm_id": "APS-REALM-062",
+          "state_signature": "000111110"
+        },
+        {
+          "realm_id": "APS-REALM-070",
+          "state_signature": "001000110"
+        },
+        {
+          "realm_id": "APS-REALM-088",
+          "state_signature": "001011000"
+        },
+        {
+          "realm_id": "APS-REALM-138",
+          "state_signature": "010001010"
+        },
+        {
+          "realm_id": "APS-REALM-148",
+          "state_signature": "010010100"
+        },
+        {
+          "realm_id": "APS-REALM-236",
+          "state_signature": "011101100"
+        },
+        {
+          "realm_id": "APS-REALM-242",
+          "state_signature": "011110010"
+        },
+        {
+          "realm_id": "APS-REALM-268",
+          "state_signature": "100001100"
+        },
+        {
+          "realm_id": "APS-REALM-274",
+          "state_signature": "100010010"
+        },
+        {
+          "realm_id": "APS-REALM-362",
+          "state_signature": "101101010"
+        },
+        {
+          "realm_id": "APS-REALM-372",
+          "state_signature": "101110100"
+        },
+        {
+          "realm_id": "APS-REALM-422",
+          "state_signature": "110100110"
+        },
+        {
+          "realm_id": "APS-REALM-440",
+          "state_signature": "110111000"
+        },
+        {
+          "realm_id": "APS-REALM-448",
+          "state_signature": "111000000"
+        },
+        {
+          "realm_id": "APS-REALM-478",
+          "state_signature": "111011110"
+        }
+      ],
+      "orbit_id": "APS-ORBIT-16",
+      "ordering_rank": 16,
+      "representative_realm_id": "APS-REALM-032",
+      "representative_signature": "000100000"
+    },
+    {
+      "b8": 1,
+      "member_count": 16,
+      "members": [
+        {
+          "realm_id": "APS-REALM-033",
+          "state_signature": "000100001"
+        },
+        {
+          "realm_id": "APS-REALM-063",
+          "state_signature": "000111111"
+        },
+        {
+          "realm_id": "APS-REALM-071",
+          "state_signature": "001000111"
+        },
+        {
+          "realm_id": "APS-REALM-089",
+          "state_signature": "001011001"
+        },
+        {
+          "realm_id": "APS-REALM-139",
+          "state_signature": "010001011"
+        },
+        {
+          "realm_id": "APS-REALM-149",
+          "state_signature": "010010101"
+        },
+        {
+          "realm_id": "APS-REALM-237",
+          "state_signature": "011101101"
+        },
+        {
+          "realm_id": "APS-REALM-243",
+          "state_signature": "011110011"
+        },
+        {
+          "realm_id": "APS-REALM-269",
+          "state_signature": "100001101"
+        },
+        {
+          "realm_id": "APS-REALM-275",
+          "state_signature": "100010011"
+        },
+        {
+          "realm_id": "APS-REALM-363",
+          "state_signature": "101101011"
+        },
+        {
+          "realm_id": "APS-REALM-373",
+          "state_signature": "101110101"
+        },
+        {
+          "realm_id": "APS-REALM-423",
+          "state_signature": "110100111"
+        },
+        {
+          "realm_id": "APS-REALM-441",
+          "state_signature": "110111001"
+        },
+        {
+          "realm_id": "APS-REALM-449",
+          "state_signature": "111000001"
+        },
+        {
+          "realm_id": "APS-REALM-479",
+          "state_signature": "111011111"
+        }
+      ],
+      "orbit_id": "APS-ORBIT-17",
+      "ordering_rank": 17,
+      "representative_realm_id": "APS-REALM-033",
+      "representative_signature": "000100001"
+    },
+    {
+      "b8": 0,
+      "member_count": 16,
+      "members": [
+        {
+          "realm_id": "APS-REALM-034",
+          "state_signature": "000100010"
+        },
+        {
+          "realm_id": "APS-REALM-060",
+          "state_signature": "000111100"
+        },
+        {
+          "realm_id": "APS-REALM-068",
+          "state_signature": "001000100"
+        },
+        {
+          "realm_id": "APS-REALM-090",
+          "state_signature": "001011010"
+        },
+        {
+          "realm_id": "APS-REALM-136",
+          "state_signature": "010001000"
+        },
+        {
+          "realm_id": "APS-REALM-150",
+          "state_signature": "010010110"
+        },
+        {
+          "realm_id": "APS-REALM-238",
+          "state_signature": "011101110"
+        },
+        {
+          "realm_id": "APS-REALM-240",
+          "state_signature": "011110000"
+        },
+        {
+          "realm_id": "APS-REALM-270",
+          "state_signature": "100001110"
+        },
+        {
+          "realm_id": "APS-REALM-272",
+          "state_signature": "100010000"
+        },
+        {
+          "realm_id": "APS-REALM-360",
+          "state_signature": "101101000"
+        },
+        {
+          "realm_id": "APS-REALM-374",
+          "state_signature": "101110110"
+        },
+        {
+          "realm_id": "APS-REALM-420",
+          "state_signature": "110100100"
+        },
+        {
+          "realm_id": "APS-REALM-442",
+          "state_signature": "110111010"
+        },
+        {
+          "realm_id": "APS-REALM-450",
+          "state_signature": "111000010"
+        },
+        {
+          "realm_id": "APS-REALM-476",
+          "state_signature": "111011100"
+        }
+      ],
+      "orbit_id": "APS-ORBIT-18",
+      "ordering_rank": 18,
+      "representative_realm_id": "APS-REALM-034",
+      "representative_signature": "000100010"
+    },
+    {
+      "b8": 1,
+      "member_count": 16,
+      "members": [
+        {
+          "realm_id": "APS-REALM-035",
+          "state_signature": "000100011"
+        },
+        {
+          "realm_id": "APS-REALM-061",
+          "state_signature": "000111101"
+        },
+        {
+          "realm_id": "APS-REALM-069",
+          "state_signature": "001000101"
+        },
+        {
+          "realm_id": "APS-REALM-091",
+          "state_signature": "001011011"
+        },
+        {
+          "realm_id": "APS-REALM-137",
+          "state_signature": "010001001"
+        },
+        {
+          "realm_id": "APS-REALM-151",
+          "state_signature": "010010111"
+        },
+        {
+          "realm_id": "APS-REALM-239",
+          "state_signature": "011101111"
+        },
+        {
+          "realm_id": "APS-REALM-241",
+          "state_signature": "011110001"
+        },
+        {
+          "realm_id": "APS-REALM-271",
+          "state_signature": "100001111"
+        },
+        {
+          "realm_id": "APS-REALM-273",
+          "state_signature": "100010001"
+        },
+        {
+          "realm_id": "APS-REALM-361",
+          "state_signature": "101101001"
+        },
+        {
+          "realm_id": "APS-REALM-375",
+          "state_signature": "101110111"
+        },
+        {
+          "realm_id": "APS-REALM-421",
+          "state_signature": "110100101"
+        },
+        {
+          "realm_id": "APS-REALM-443",
+          "state_signature": "110111011"
+        },
+        {
+          "realm_id": "APS-REALM-451",
+          "state_signature": "111000011"
+        },
+        {
+          "realm_id": "APS-REALM-477",
+          "state_signature": "111011101"
+        }
+      ],
+      "orbit_id": "APS-ORBIT-19",
+      "ordering_rank": 19,
+      "representative_realm_id": "APS-REALM-035",
+      "representative_signature": "000100011"
+    },
+    {
+      "b8": 0,
+      "member_count": 16,
+      "members": [
+        {
+          "realm_id": "APS-REALM-036",
+          "state_signature": "000100100"
+        },
+        {
+          "realm_id": "APS-REALM-058",
+          "state_signature": "000111010"
+        },
+        {
+          "realm_id": "APS-REALM-066",
+          "state_signature": "001000010"
+        },
+        {
+          "realm_id": "APS-REALM-092",
+          "state_signature": "001011100"
+        },
+        {
+          "realm_id": "APS-REALM-142",
+          "state_signature": "010001110"
+        },
+        {
+          "realm_id": "APS-REALM-144",
+          "state_signature": "010010000"
+        },
+        {
+          "realm_id": "APS-REALM-232",
+          "state_signature": "011101000"
+        },
+        {
+          "realm_id": "APS-REALM-246",
+          "state_signature": "011110110"
+        },
+        {
+          "realm_id": "APS-REALM-264",
+          "state_signature": "100001000"
+        },
+        {
+          "realm_id": "APS-REALM-278",
+          "state_signature": "100010110"
+        },
+        {
+          "realm_id": "APS-REALM-366",
+          "state_signature": "101101110"
+        },
+        {
+          "realm_id": "APS-REALM-368",
+          "state_signature": "101110000"
+        },
+        {
+          "realm_id": "APS-REALM-418",
+          "state_signature": "110100010"
+        },
+        {
+          "realm_id": "APS-REALM-444",
+          "state_signature": "110111100"
+        },
+        {
+          "realm_id": "APS-REALM-452",
+          "state_signature": "111000100"
+        },
+        {
+          "realm_id": "APS-REALM-474",
+          "state_signature": "111011010"
+        }
+      ],
+      "orbit_id": "APS-ORBIT-20",
+      "ordering_rank": 20,
+      "representative_realm_id": "APS-REALM-036",
+      "representative_signature": "000100100"
+    },
+    {
+      "b8": 1,
+      "member_count": 16,
+      "members": [
+        {
+          "realm_id": "APS-REALM-037",
+          "state_signature": "000100101"
+        },
+        {
+          "realm_id": "APS-REALM-059",
+          "state_signature": "000111011"
+        },
+        {
+          "realm_id": "APS-REALM-067",
+          "state_signature": "001000011"
+        },
+        {
+          "realm_id": "APS-REALM-093",
+          "state_signature": "001011101"
+        },
+        {
+          "realm_id": "APS-REALM-143",
+          "state_signature": "010001111"
+        },
+        {
+          "realm_id": "APS-REALM-145",
+          "state_signature": "010010001"
+        },
+        {
+          "realm_id": "APS-REALM-233",
+          "state_signature": "011101001"
+        },
+        {
+          "realm_id": "APS-REALM-247",
+          "state_signature": "011110111"
+        },
+        {
+          "realm_id": "APS-REALM-265",
+          "state_signature": "100001001"
+        },
+        {
+          "realm_id": "APS-REALM-279",
+          "state_signature": "100010111"
+        },
+        {
+          "realm_id": "APS-REALM-367",
+          "state_signature": "101101111"
+        },
+        {
+          "realm_id": "APS-REALM-369",
+          "state_signature": "101110001"
+        },
+        {
+          "realm_id": "APS-REALM-419",
+          "state_signature": "110100011"
+        },
+        {
+          "realm_id": "APS-REALM-445",
+          "state_signature": "110111101"
+        },
+        {
+          "realm_id": "APS-REALM-453",
+          "state_signature": "111000101"
+        },
+        {
+          "realm_id": "APS-REALM-475",
+          "state_signature": "111011011"
+        }
+      ],
+      "orbit_id": "APS-ORBIT-21",
+      "ordering_rank": 21,
+      "representative_realm_id": "APS-REALM-037",
+      "representative_signature": "000100101"
+    },
+    {
+      "b8": 0,
+      "member_count": 16,
+      "members": [
+        {
+          "realm_id": "APS-REALM-038",
+          "state_signature": "000100110"
+        },
+        {
+          "realm_id": "APS-REALM-056",
+          "state_signature": "000111000"
+        },
+        {
+          "realm_id": "APS-REALM-064",
+          "state_signature": "001000000"
+        },
+        {
+          "realm_id": "APS-REALM-094",
+          "state_signature": "001011110"
+        },
+        {
+          "realm_id": "APS-REALM-140",
+          "state_signature": "010001100"
+        },
+        {
+          "realm_id": "APS-REALM-146",
+          "state_signature": "010010010"
+        },
+        {
+          "realm_id": "APS-REALM-234",
+          "state_signature": "011101010"
+        },
+        {
+          "realm_id": "APS-REALM-244",
+          "state_signature": "011110100"
+        },
+        {
+          "realm_id": "APS-REALM-266",
+          "state_signature": "100001010"
+        },
+        {
+          "realm_id": "APS-REALM-276",
+          "state_signature": "100010100"
+        },
+        {
+          "realm_id": "APS-REALM-364",
+          "state_signature": "101101100"
+        },
+        {
+          "realm_id": "APS-REALM-370",
+          "state_signature": "101110010"
+        },
+        {
+          "realm_id": "APS-REALM-416",
+          "state_signature": "110100000"
+        },
+        {
+          "realm_id": "APS-REALM-446",
+          "state_signature": "110111110"
+        },
+        {
+          "realm_id": "APS-REALM-454",
+          "state_signature": "111000110"
+        },
+        {
+          "realm_id": "APS-REALM-472",
+          "state_signature": "111011000"
+        }
+      ],
+      "orbit_id": "APS-ORBIT-22",
+      "ordering_rank": 22,
+      "representative_realm_id": "APS-REALM-038",
+      "representative_signature": "000100110"
+    },
+    {
+      "b8": 1,
+      "member_count": 16,
+      "members": [
+        {
+          "realm_id": "APS-REALM-039",
+          "state_signature": "000100111"
+        },
+        {
+          "realm_id": "APS-REALM-057",
+          "state_signature": "000111001"
+        },
+        {
+          "realm_id": "APS-REALM-065",
+          "state_signature": "001000001"
+        },
+        {
+          "realm_id": "APS-REALM-095",
+          "state_signature": "001011111"
+        },
+        {
+          "realm_id": "APS-REALM-141",
+          "state_signature": "010001101"
+        },
+        {
+          "realm_id": "APS-REALM-147",
+          "state_signature": "010010011"
+        },
+        {
+          "realm_id": "APS-REALM-235",
+          "state_signature": "011101011"
+        },
+        {
+          "realm_id": "APS-REALM-245",
+          "state_signature": "011110101"
+        },
+        {
+          "realm_id": "APS-REALM-267",
+          "state_signature": "100001011"
+        },
+        {
+          "realm_id": "APS-REALM-277",
+          "state_signature": "100010101"
+        },
+        {
+          "realm_id": "APS-REALM-365",
+          "state_signature": "101101101"
+        },
+        {
+          "realm_id": "APS-REALM-371",
+          "state_signature": "101110011"
+        },
+        {
+          "realm_id": "APS-REALM-417",
+          "state_signature": "110100001"
+        },
+        {
+          "realm_id": "APS-REALM-447",
+          "state_signature": "110111111"
+        },
+        {
+          "realm_id": "APS-REALM-455",
+          "state_signature": "111000111"
+        },
+        {
+          "realm_id": "APS-REALM-473",
+          "state_signature": "111011001"
+        }
+      ],
+      "orbit_id": "APS-ORBIT-23",
+      "ordering_rank": 23,
+      "representative_realm_id": "APS-REALM-039",
+      "representative_signature": "000100111"
+    },
+    {
+      "b8": 0,
+      "member_count": 16,
+      "members": [
+        {
+          "realm_id": "APS-REALM-040",
+          "state_signature": "000101000"
+        },
+        {
+          "realm_id": "APS-REALM-054",
+          "state_signature": "000110110"
+        },
+        {
+          "realm_id": "APS-REALM-078",
+          "state_signature": "001001110"
+        },
+        {
+          "realm_id": "APS-REALM-080",
+          "state_signature": "001010000"
+        },
+        {
+          "realm_id": "APS-REALM-130",
+          "state_signature": "010000010"
+        },
+        {
+          "realm_id": "APS-REALM-156",
+          "state_signature": "010011100"
+        },
+        {
+          "realm_id": "APS-REALM-228",
+          "state_signature": "011100100"
+        },
+        {
+          "realm_id": "APS-REALM-250",
+          "state_signature": "011111010"
+        },
+        {
+          "realm_id": "APS-REALM-260",
+          "state_signature": "100000100"
+        },
+        {
+          "realm_id": "APS-REALM-282",
+          "state_signature": "100011010"
+        },
+        {
+          "realm_id": "APS-REALM-354",
+          "state_signature": "101100010"
+        },
+        {
+          "realm_id": "APS-REALM-380",
+          "state_signature": "101111100"
+        },
+        {
+          "realm_id": "APS-REALM-430",
+          "state_signature": "110101110"
+        },
+        {
+          "realm_id": "APS-REALM-432",
+          "state_signature": "110110000"
+        },
+        {
+          "realm_id": "APS-REALM-456",
+          "state_signature": "111001000"
+        },
+        {
+          "realm_id": "APS-REALM-470",
+          "state_signature": "111010110"
+        }
+      ],
+      "orbit_id": "APS-ORBIT-24",
+      "ordering_rank": 24,
+      "representative_realm_id": "APS-REALM-040",
+      "representative_signature": "000101000"
+    },
+    {
+      "b8": 1,
+      "member_count": 16,
+      "members": [
+        {
+          "realm_id": "APS-REALM-041",
+          "state_signature": "000101001"
+        },
+        {
+          "realm_id": "APS-REALM-055",
+          "state_signature": "000110111"
+        },
+        {
+          "realm_id": "APS-REALM-079",
+          "state_signature": "001001111"
+        },
+        {
+          "realm_id": "APS-REALM-081",
+          "state_signature": "001010001"
+        },
+        {
+          "realm_id": "APS-REALM-131",
+          "state_signature": "010000011"
+        },
+        {
+          "realm_id": "APS-REALM-157",
+          "state_signature": "010011101"
+        },
+        {
+          "realm_id": "APS-REALM-229",
+          "state_signature": "011100101"
+        },
+        {
+          "realm_id": "APS-REALM-251",
+          "state_signature": "011111011"
+        },
+        {
+          "realm_id": "APS-REALM-261",
+          "state_signature": "100000101"
+        },
+        {
+          "realm_id": "APS-REALM-283",
+          "state_signature": "100011011"
+        },
+        {
+          "realm_id": "APS-REALM-355",
+          "state_signature": "101100011"
+        },
+        {
+          "realm_id": "APS-REALM-381",
+          "state_signature": "101111101"
+        },
+        {
+          "realm_id": "APS-REALM-431",
+          "state_signature": "110101111"
+        },
+        {
+          "realm_id": "APS-REALM-433",
+          "state_signature": "110110001"
+        },
+        {
+          "realm_id": "APS-REALM-457",
+          "state_signature": "111001001"
+        },
+        {
+          "realm_id": "APS-REALM-471",
+          "state_signature": "111010111"
+        }
+      ],
+      "orbit_id": "APS-ORBIT-25",
+      "ordering_rank": 25,
+      "representative_realm_id": "APS-REALM-041",
+      "representative_signature": "000101001"
+    },
+    {
+      "b8": 0,
+      "member_count": 16,
+      "members": [
+        {
+          "realm_id": "APS-REALM-042",
+          "state_signature": "000101010"
+        },
+        {
+          "realm_id": "APS-REALM-052",
+          "state_signature": "000110100"
+        },
+        {
+          "realm_id": "APS-REALM-076",
+          "state_signature": "001001100"
+        },
+        {
+          "realm_id": "APS-REALM-082",
+          "state_signature": "001010010"
+        },
+        {
+          "realm_id": "APS-REALM-128",
+          "state_signature": "010000000"
+        },
+        {
+          "realm_id": "APS-REALM-158",
+          "state_signature": "010011110"
+        },
+        {
+          "realm_id": "APS-REALM-230",
+          "state_signature": "011100110"
+        },
+        {
+          "realm_id": "APS-REALM-248",
+          "state_signature": "011111000"
+        },
+        {
+          "realm_id": "APS-REALM-262",
+          "state_signature": "100000110"
+        },
+        {
+          "realm_id": "APS-REALM-280",
+          "state_signature": "100011000"
+        },
+        {
+          "realm_id": "APS-REALM-352",
+          "state_signature": "101100000"
+        },
+        {
+          "realm_id": "APS-REALM-382",
+          "state_signature": "101111110"
+        },
+        {
+          "realm_id": "APS-REALM-428",
+          "state_signature": "110101100"
+        },
+        {
+          "realm_id": "APS-REALM-434",
+          "state_signature": "110110010"
+        },
+        {
+          "realm_id": "APS-REALM-458",
+          "state_signature": "111001010"
+        },
+        {
+          "realm_id": "APS-REALM-468",
+          "state_signature": "111010100"
+        }
+      ],
+      "orbit_id": "APS-ORBIT-26",
+      "ordering_rank": 26,
+      "representative_realm_id": "APS-REALM-042",
+      "representative_signature": "000101010"
+    },
+    {
+      "b8": 1,
+      "member_count": 16,
+      "members": [
+        {
+          "realm_id": "APS-REALM-043",
+          "state_signature": "000101011"
+        },
+        {
+          "realm_id": "APS-REALM-053",
+          "state_signature": "000110101"
+        },
+        {
+          "realm_id": "APS-REALM-077",
+          "state_signature": "001001101"
+        },
+        {
+          "realm_id": "APS-REALM-083",
+          "state_signature": "001010011"
+        },
+        {
+          "realm_id": "APS-REALM-129",
+          "state_signature": "010000001"
+        },
+        {
+          "realm_id": "APS-REALM-159",
+          "state_signature": "010011111"
+        },
+        {
+          "realm_id": "APS-REALM-231",
+          "state_signature": "011100111"
+        },
+        {
+          "realm_id": "APS-REALM-249",
+          "state_signature": "011111001"
+        },
+        {
+          "realm_id": "APS-REALM-263",
+          "state_signature": "100000111"
+        },
+        {
+          "realm_id": "APS-REALM-281",
+          "state_signature": "100011001"
+        },
+        {
+          "realm_id": "APS-REALM-353",
+          "state_signature": "101100001"
+        },
+        {
+          "realm_id": "APS-REALM-383",
+          "state_signature": "101111111"
+        },
+        {
+          "realm_id": "APS-REALM-429",
+          "state_signature": "110101101"
+        },
+        {
+          "realm_id": "APS-REALM-435",
+          "state_signature": "110110011"
+        },
+        {
+          "realm_id": "APS-REALM-459",
+          "state_signature": "111001011"
+        },
+        {
+          "realm_id": "APS-REALM-469",
+          "state_signature": "111010101"
+        }
+      ],
+      "orbit_id": "APS-ORBIT-27",
+      "ordering_rank": 27,
+      "representative_realm_id": "APS-REALM-043",
+      "representative_signature": "000101011"
+    },
+    {
+      "b8": 0,
+      "member_count": 16,
+      "members": [
+        {
+          "realm_id": "APS-REALM-044",
+          "state_signature": "000101100"
+        },
+        {
+          "realm_id": "APS-REALM-050",
+          "state_signature": "000110010"
+        },
+        {
+          "realm_id": "APS-REALM-074",
+          "state_signature": "001001010"
+        },
+        {
+          "realm_id": "APS-REALM-084",
+          "state_signature": "001010100"
+        },
+        {
+          "realm_id": "APS-REALM-134",
+          "state_signature": "010000110"
+        },
+        {
+          "realm_id": "APS-REALM-152",
+          "state_signature": "010011000"
+        },
+        {
+          "realm_id": "APS-REALM-224",
+          "state_signature": "011100000"
+        },
+        {
+          "realm_id": "APS-REALM-254",
+          "state_signature": "011111110"
+        },
+        {
+          "realm_id": "APS-REALM-256",
+          "state_signature": "100000000"
+        },
+        {
+          "realm_id": "APS-REALM-286",
+          "state_signature": "100011110"
+        },
+        {
+          "realm_id": "APS-REALM-358",
+          "state_signature": "101100110"
+        },
+        {
+          "realm_id": "APS-REALM-376",
+          "state_signature": "101111000"
+        },
+        {
+          "realm_id": "APS-REALM-426",
+          "state_signature": "110101010"
+        },
+        {
+          "realm_id": "APS-REALM-436",
+          "state_signature": "110110100"
+        },
+        {
+          "realm_id": "APS-REALM-460",
+          "state_signature": "111001100"
+        },
+        {
+          "realm_id": "APS-REALM-466",
+          "state_signature": "111010010"
+        }
+      ],
+      "orbit_id": "APS-ORBIT-28",
+      "ordering_rank": 28,
+      "representative_realm_id": "APS-REALM-044",
+      "representative_signature": "000101100"
+    },
+    {
+      "b8": 1,
+      "member_count": 16,
+      "members": [
+        {
+          "realm_id": "APS-REALM-045",
+          "state_signature": "000101101"
+        },
+        {
+          "realm_id": "APS-REALM-051",
+          "state_signature": "000110011"
+        },
+        {
+          "realm_id": "APS-REALM-075",
+          "state_signature": "001001011"
+        },
+        {
+          "realm_id": "APS-REALM-085",
+          "state_signature": "001010101"
+        },
+        {
+          "realm_id": "APS-REALM-135",
+          "state_signature": "010000111"
+        },
+        {
+          "realm_id": "APS-REALM-153",
+          "state_signature": "010011001"
+        },
+        {
+          "realm_id": "APS-REALM-225",
+          "state_signature": "011100001"
+        },
+        {
+          "realm_id": "APS-REALM-255",
+          "state_signature": "011111111"
+        },
+        {
+          "realm_id": "APS-REALM-257",
+          "state_signature": "100000001"
+        },
+        {
+          "realm_id": "APS-REALM-287",
+          "state_signature": "100011111"
+        },
+        {
+          "realm_id": "APS-REALM-359",
+          "state_signature": "101100111"
+        },
+        {
+          "realm_id": "APS-REALM-377",
+          "state_signature": "101111001"
+        },
+        {
+          "realm_id": "APS-REALM-427",
+          "state_signature": "110101011"
+        },
+        {
+          "realm_id": "APS-REALM-437",
+          "state_signature": "110110101"
+        },
+        {
+          "realm_id": "APS-REALM-461",
+          "state_signature": "111001101"
+        },
+        {
+          "realm_id": "APS-REALM-467",
+          "state_signature": "111010011"
+        }
+      ],
+      "orbit_id": "APS-ORBIT-29",
+      "ordering_rank": 29,
+      "representative_realm_id": "APS-REALM-045",
+      "representative_signature": "000101101"
+    },
+    {
+      "b8": 0,
+      "member_count": 16,
+      "members": [
+        {
+          "realm_id": "APS-REALM-046",
+          "state_signature": "000101110"
+        },
+        {
+          "realm_id": "APS-REALM-048",
+          "state_signature": "000110000"
+        },
+        {
+          "realm_id": "APS-REALM-072",
+          "state_signature": "001001000"
+        },
+        {
+          "realm_id": "APS-REALM-086",
+          "state_signature": "001010110"
+        },
+        {
+          "realm_id": "APS-REALM-132",
+          "state_signature": "010000100"
+        },
+        {
+          "realm_id": "APS-REALM-154",
+          "state_signature": "010011010"
+        },
+        {
+          "realm_id": "APS-REALM-226",
+          "state_signature": "011100010"
+        },
+        {
+          "realm_id": "APS-REALM-252",
+          "state_signature": "011111100"
+        },
+        {
+          "realm_id": "APS-REALM-258",
+          "state_signature": "100000010"
+        },
+        {
+          "realm_id": "APS-REALM-284",
+          "state_signature": "100011100"
+        },
+        {
+          "realm_id": "APS-REALM-356",
+          "state_signature": "101100100"
+        },
+        {
+          "realm_id": "APS-REALM-378",
+          "state_signature": "101111010"
+        },
+        {
+          "realm_id": "APS-REALM-424",
+          "state_signature": "110101000"
+        },
+        {
+          "realm_id": "APS-REALM-438",
+          "state_signature": "110110110"
+        },
+        {
+          "realm_id": "APS-REALM-462",
+          "state_signature": "111001110"
+        },
+        {
+          "realm_id": "APS-REALM-464",
+          "state_signature": "111010000"
+        }
+      ],
+      "orbit_id": "APS-ORBIT-30",
+      "ordering_rank": 30,
+      "representative_realm_id": "APS-REALM-046",
+      "representative_signature": "000101110"
+    },
+    {
+      "b8": 1,
+      "member_count": 16,
+      "members": [
+        {
+          "realm_id": "APS-REALM-047",
+          "state_signature": "000101111"
+        },
+        {
+          "realm_id": "APS-REALM-049",
+          "state_signature": "000110001"
+        },
+        {
+          "realm_id": "APS-REALM-073",
+          "state_signature": "001001001"
+        },
+        {
+          "realm_id": "APS-REALM-087",
+          "state_signature": "001010111"
+        },
+        {
+          "realm_id": "APS-REALM-133",
+          "state_signature": "010000101"
+        },
+        {
+          "realm_id": "APS-REALM-155",
+          "state_signature": "010011011"
+        },
+        {
+          "realm_id": "APS-REALM-227",
+          "state_signature": "011100011"
+        },
+        {
+          "realm_id": "APS-REALM-253",
+          "state_signature": "011111101"
+        },
+        {
+          "realm_id": "APS-REALM-259",
+          "state_signature": "100000011"
+        },
+        {
+          "realm_id": "APS-REALM-285",
+          "state_signature": "100011101"
+        },
+        {
+          "realm_id": "APS-REALM-357",
+          "state_signature": "101100101"
+        },
+        {
+          "realm_id": "APS-REALM-379",
+          "state_signature": "101111011"
+        },
+        {
+          "realm_id": "APS-REALM-425",
+          "state_signature": "110101001"
+        },
+        {
+          "realm_id": "APS-REALM-439",
+          "state_signature": "110110111"
+        },
+        {
+          "realm_id": "APS-REALM-463",
+          "state_signature": "111001111"
+        },
+        {
+          "realm_id": "APS-REALM-465",
+          "state_signature": "111010001"
+        }
+      ],
+      "orbit_id": "APS-ORBIT-31",
+      "ordering_rank": 31,
+      "representative_realm_id": "APS-REALM-047",
+      "representative_signature": "000101111"
+    }
+  ],
+  "version": "completion-baseline-1"
+}

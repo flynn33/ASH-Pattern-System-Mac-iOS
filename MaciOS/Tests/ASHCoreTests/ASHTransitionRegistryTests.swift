@@ -10,8 +10,33 @@ final class ASHTransitionRegistryTests: XCTestCase {
     let first = registry.availableTransitions(from: .zero)
     let second = registry.availableTransitions(from: .zero)
 
-    XCTAssertFalse(first.isEmpty)
+    XCTAssertEqual(first.count, 16)
     XCTAssertEqual(first, second)
+  }
+
+  func testCanonicalTransitionMatrixCoversEveryRealmAndCodeword() throws {
+    let registry = ASHTransitionRegistry(stateModel: stateModel)
+    let codewords = stateModel.codewordSet.sorted()
+    XCTAssertEqual(codewords.count, 16)
+
+    var transitionCount = 0
+    for rawValue in UInt16(0)..<ASHState.maxRawValue {
+      let state = try XCTUnwrap(ASHState(rawValue: rawValue))
+      let availableTransitions = registry.availableTransitions(from: state)
+      XCTAssertEqual(availableTransitions.count, codewords.count)
+
+      for codeword in codewords {
+        let result = registry.applyCodeword(from: state, codeword: codeword)
+        let applied = try XCTUnwrap(result.applied)
+
+        XCTAssertEqual(applied.fromState, state)
+        XCTAssertEqual(applied.codeword, codeword)
+        XCTAssertEqual(applied.toState, state.xor(codeword))
+        transitionCount += 1
+      }
+    }
+
+    XCTAssertEqual(transitionCount, 8_192)
   }
 
   func testApplyCodewordTransitionAndInvolution() throws {

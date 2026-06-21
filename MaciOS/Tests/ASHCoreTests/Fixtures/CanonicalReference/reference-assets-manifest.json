@@ -1,0 +1,36 @@
+{
+  "assets": [
+    {
+      "path": "canonical-codewords.json",
+      "sha256": "cf5c17238bd433648fe6e8f24fc94be58b2005d50f37bbb9767cf442ef8c481b",
+      "size_bytes": 4451
+    },
+    {
+      "path": "canonical-orbits.json",
+      "sha256": "2ff9f1294a43909bca71965155dc1c82954379aa5a1d8e20e5c502b6d83725e2",
+      "size_bytes": 59377
+    },
+    {
+      "path": "canonical-realms.json",
+      "sha256": "9ef35947d7138f5dd03f3d96cb0591262fb01f33869e76af2a4921551db52ad2",
+      "size_bytes": 144845
+    },
+    {
+      "path": "canonical-transitions.json",
+      "sha256": "f96b3e26529e342e04dec0d8a68a57103992cb1c14e027b5b63ab89963c1fbb5",
+      "size_bytes": 3493
+    },
+    {
+      "path": "canonical-transformations.jsonl",
+      "sha256": "d0ba20d167409e84ac60c368f366ad8e4dde7669d72f4ca16a46b5b107111cb6",
+      "size_bytes": 2637824
+    },
+    {
+      "path": "mathematical-properties.json",
+      "sha256": "68ca53047162d330ba972a950e4af169edf5ec0b5c47bac2688c08e21564d5e3",
+      "size_bytes": 539
+    }
+  ],
+  "generator": "tools/build_reference_assets.py",
+  "version": "completion-baseline-1"
+}

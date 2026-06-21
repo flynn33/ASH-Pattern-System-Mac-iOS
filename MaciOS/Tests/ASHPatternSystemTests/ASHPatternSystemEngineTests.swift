@@ -33,7 +33,8 @@ final class ASHPatternSystemEngineTests: XCTestCase {
   }
 
   func testBootstrapFallsBackToKnownValidWhenNormalizationFails() {
-    let engine = ASHPatternSystemEngine()
+    let restrictedStateModel = ASHStateModel(knownValidStates: [.zero])
+    let engine = ASHPatternSystemEngine(stateModel: restrictedStateModel)
     let incompatible = ASHState(bitString: "000000001")!
 
     let report = engine.bootstrap(from: incompatible)

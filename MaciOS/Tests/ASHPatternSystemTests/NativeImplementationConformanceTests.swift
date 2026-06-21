@@ -25,8 +25,12 @@ final class NativeImplementationConformanceTests: XCTestCase {
 
     for fileURL in files {
       let ext = fileURL.pathExtension.lowercased()
+      let isCanonicalJSONLFixture = ext == "jsonl"
+        && fileURL.pathComponents.contains("Fixtures")
+        && fileURL.pathComponents.contains("CanonicalReference")
+
       XCTAssertTrue(
-        allowedExtensions.contains(ext),
+        allowedExtensions.contains(ext) || isCanonicalJSONLFixture,
         "Disallowed file type detected: \(fileURL.path)"
       )
     }

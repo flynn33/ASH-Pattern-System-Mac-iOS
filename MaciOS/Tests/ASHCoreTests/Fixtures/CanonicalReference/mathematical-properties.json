@@ -1,0 +1,24 @@
+{
+  "all_codewords_preserve_b8": true,
+  "code_dimension": 4,
+  "codeword_count": 16,
+  "expected_codeword_count": 16,
+  "expected_orbit_count": 32,
+  "expected_state_count": 512,
+  "expected_transformation_count": 8192,
+  "members_per_orbit": [
+    16
+  ],
+  "minimum_nonzero_weight": 4,
+  "minimum_pairwise_distance": 4,
+  "orbit_count": 32,
+  "reachable_ordered_pair_count": 8192,
+  "realm_id_count": 512,
+  "state_count": 512,
+  "transformation_vector_count": 8192,
+  "weight_distribution": {
+    "0": 1,
+    "4": 14,
+    "8": 1
+  }
+}
