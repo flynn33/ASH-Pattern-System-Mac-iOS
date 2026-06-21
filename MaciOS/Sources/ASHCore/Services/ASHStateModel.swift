@@ -6,7 +6,7 @@ public final class ASHStateModel: ASHStateModelProtocol {
 
   public init(
     codewordSet: Set<ASHState> = ASHStateModel.canonicalCodewordSet,
-    knownValidStates: Set<ASHState> = [.zero]
+    knownValidStates: Set<ASHState> = ASHStateModel.canonicalStateSpace
   ) {
     precondition(!codewordSet.isEmpty, "Codeword set cannot be empty")
     precondition(codewordSet.contains(.zero), "Codeword set must include zero")
@@ -190,6 +190,7 @@ public final class ASHStateModel: ASHStateModelProtocol {
     let containsKnownValid = !orbitStates.isDisjoint(with: knownValidStates)
     return OrbitInfo(
       orbitRepresentative: representative,
+      orbitID: Self.canonicalOrbitIDByRepresentative[representative],
       orbitSize: orbitStates.count,
       containsKnownValidState: containsKnownValid
     )
@@ -205,7 +206,7 @@ public final class ASHStateModel: ASHStateModelProtocol {
 
     switch admissibility {
     case .valid:
-      notes.append("State is a recognized valid state in the configured valid-state set.")
+      notes.append("State is a well-formed realm in the configured valid-state set.")
     case .transformationCompatible:
       notes.append("State is transformation-compatible via canonical codeword orbit membership.")
     case .transformationIncompatible:
@@ -262,6 +263,10 @@ public final class ASHStateModel: ASHStateModelProtocol {
 }
 
 extension ASHStateModel {
+  public static let canonicalStateSpace: Set<ASHState> = {
+    Set((UInt16(0)..<ASHState.maxRawValue).compactMap(ASHState.init(rawValue:)))
+  }()
+
   public static let canonicalCodewordSet: Set<ASHState> = {
     let vectors: [[UInt8]] = [
       [0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -282,5 +287,16 @@ extension ASHStateModel {
       [1, 1, 1, 1, 1, 1, 1, 1, 0]
     ]
     return Set(vectors.compactMap(ASHState.init(bits:)))
+  }()
+
+  private static let canonicalOrbitIDByRepresentative: [ASHState: String] = {
+    let representatives = Set(canonicalStateSpace.compactMap { state in
+      Set(canonicalCodewordSet.map { state.xor($0) }).min()
+    })
+    return Dictionary(
+      uniqueKeysWithValues: representatives.sorted().enumerated().map { index, representative in
+        (representative, String(format: "APS-ORBIT-%02d", index))
+      }
+    )
   }()
 }

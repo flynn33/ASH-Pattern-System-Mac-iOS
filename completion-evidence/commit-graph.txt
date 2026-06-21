@@ -1,0 +1,55 @@
+*   cc253f3  (upstream/main, upstream/HEAD)
+|\  
+| * 51f48e5 
+| * 639e0cf 
+|/  
+| * cb71b06  (HEAD -> release/aps-ios-1.0.0-completion-clean, origin/main, origin/HEAD, release/aps-macos-1.0.0-completion-clean, main)
+| * 3fde067 
+* |   74df3d0 
+|\ \  
+| * | 47d90a6  (upstream/fix/product-manifest-release-readiness)
+|/ /  
+* |   4be0df8 
+|\ \  
+| * | e620c12  (upstream/release/aps-1.0.0-release-corrections)
+| * | 09d07b5 
+|/ /  
+* |   4ff9f40 
+|\ \  
+| * | fe10a8c 
+|/ /  
+* |   7d15822 
+|\ \  
+| * | 586534a 
+|/ /  
+* |   0f5488d 
+|\ \  
+| * | 44a2898  (upstream/release/aps-1.0.0-completion-clean)
+|/ /  
+* |   aa91716 
+|\ \  
+| * | 5cdd09c 
+| * | 4088e6d 
+| * | 1c59c2e 
+|/ /  
+* | e123f5d 
+* | 1ac5c7f 
+* | a1ead20 
+| * c580022 
+| * 4d0a4c4 
+| * 50321e8 
+|/  
+* 6c84ac0 
+* ee677ef 
+* 6310479 
+* bd889e7 
+* c9c2235 
+* f1f6823 
+* aab23f7 
+* f2c76c5 
+* c18be40 
+* edd79b3 
+* 422e406 
+* 7dcfa88 
+* 36d5f62 
+* 35b5aad 

@@ -31,7 +31,10 @@ let package = Package(
     ),
     .testTarget(
       name: "ASHCoreTests",
-      dependencies: ["ASHCore"]
+      dependencies: ["ASHCore"],
+      resources: [
+        .process("Fixtures")
+      ]
     ),
     .testTarget(
       name: "ASHPatternSystemTests",
