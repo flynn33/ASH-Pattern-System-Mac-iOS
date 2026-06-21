@@ -11,6 +11,6 @@
 
 ## Remaining Gaps
 
-- No macOS/iOS binary packaging or signing evidence exists.
-- No device, simulator, notarization, App Store, or TestFlight validation was run in this pass.
+- No iOS binary packaging or signing evidence exists.
+- No iOS simulator, physical-device, App Store, or TestFlight validation was run in this pass.
 - No platform release tag exists locally.

@@ -3,7 +3,7 @@
 ## Resolved Branch
 
 - Selected platform base: `origin/main` at `cb71b06819fff9c32e3fa5ac971557d2a54055dc`
-- Completion branch: `release/aps-macos-1.0.0-completion-clean`
+- Completion branch: `release/aps-ios-1.0.0-completion-clean`
 - Canonical baseline: `upstream/main` at `cc253f3d137a27f0eeb471bed62bbdb939e3b6d1`
 - Merge base: `6c84ac0ddde8b22c502276b471906aaf0c8d4f71`
 
@@ -23,5 +23,5 @@ The implementation work remains on the platform branch. Canonical `upstream/main
 
 - Canonical release tag is not visible in the fetched local tag set.
 - The split platform repository does not currently contain the package-named `tools/verify_protected_surface.py` verifier.
-- Product branch work has not produced signed macOS or iOS distribution artifacts.
+- Product branch work has not produced signed iOS distribution artifacts.
 - Server-side ruleset state was not independently re-queried during this local implementation pass.

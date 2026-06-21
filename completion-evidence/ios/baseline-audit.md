@@ -3,7 +3,7 @@
 ## Repository State
 
 - Repository: `https://github.com/flynn33/ASH-Pattern-System-Mac-iOS.git`
-- Working branch: `release/aps-macos-1.0.0-completion-clean`
+- Working branch: `release/aps-ios-1.0.0-completion-clean`
 - Base commit: `cb71b06819fff9c32e3fa5ac971557d2a54055dc`
 - Canonical baseline commit: `cc253f3d137a27f0eeb471bed62bbdb939e3b6d1`
 - Package root: `MaciOS/Package.swift`
@@ -21,8 +21,8 @@
 | `swift package --package-path MaciOS clean` | PASS, run before each full build/test pass |
 | `swift build --package-path MaciOS -c release` | PASS, 2 clean runs |
 | `swift test --package-path MaciOS` | PASS, 42 tests, 2 clean runs |
-| `xcodebuild -scheme ASHCore -destination 'generic/platform=macOS' -configuration Release build -quiet` | PASS |
-| `xcodebuild -scheme ASHPatternSystem -destination 'generic/platform=macOS' -configuration Release build -quiet` | PASS |
+| `xcodebuild -scheme ASHCore -destination 'generic/platform=iOS' -configuration Release build -quiet` | PASS |
+| `xcodebuild -scheme ASHPatternSystem -destination 'generic/platform=iOS' -configuration Release build -quiet` | PASS |
 | `python3 -m unittest discover -s tools/tests -v` | PASS, 2 tests |
 | `gh repo view flynn33/ASH-Pattern-System-Mac-iOS --json defaultBranchRef,isPrivate,nameWithOwner` | PASS, default branch `main` |
 | `gh api repos/flynn33/ASH-Pattern-System-Mac-iOS/rulesets --jq 'length'` | PASS, `0` active rulesets |

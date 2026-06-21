@@ -15,11 +15,10 @@
 
 ## Not Present In This Repository State
 
-- macOS app user interface
 - iOS app user interface
 - Accessibility validation target
 - Localization resources
 - App storage or migration layer
-- App signing, notarization, App Store, or TestFlight artifacts
+- App signing, App Store, or TestFlight artifacts
 - Clean install, upgrade, migration, and uninstall evidence
 - SBOM or release manifest for platform binaries

@@ -1,0 +1,20 @@
+{
+  "package_root": "MaciOS/Package.swift",
+  "swift_tools_version": "5.10",
+  "platforms": {
+    "ios": "16.0",
+    "macos": "14.0"
+  },
+  "products": [
+    "ASHCore",
+    "ASHPatternSystem"
+  ],
+  "targets": [
+    "ASHCore",
+    "ASHPatternSystem",
+    "ASHCoreTests",
+    "ASHPatternSystemTests"
+  ],
+  "external_swift_package_dependencies": [],
+  "dependency_status": "No external Swift package dependencies are declared."
+}

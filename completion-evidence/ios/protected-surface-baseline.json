@@ -1,6 +1,6 @@
 {
-  "baseline_commit": "cb71b06819fff9c32e3fa5ac971557d2a54055dc",
-  "branch": "release/aps-macos-1.0.0-completion-clean",
+  "baseline_commit": "a2ccf52ee5546544539f79fb82b1eb3ac063f432",
+  "branch": "release/aps-ios-1.0.0-completion-clean",
   "mode": "product",
   "protected_items": [
     {

@@ -1,7 +1,7 @@
 {
   "findings": [
     {
-      "id": "APS-MACIOS-001",
+      "id": "APS-IOS-001",
       "severity": "blocker",
       "title": "Default native state model did not cover all 512 canonical realms",
       "status": "resolved",
@@ -25,7 +25,7 @@
       ]
     },
     {
-      "id": "APS-MACIOS-002",
+      "id": "APS-IOS-002",
       "severity": "high",
       "title": "Realm IDs used non-canonical native prefix",
       "status": "resolved",
@@ -49,7 +49,7 @@
       ]
     },
     {
-      "id": "APS-MACIOS-003",
+      "id": "APS-IOS-003",
       "severity": "high",
       "title": "Package-required protected-surface verifier is absent",
       "status": "resolved",
@@ -73,18 +73,18 @@
       ]
     },
     {
-      "id": "APS-MACIOS-004",
+      "id": "APS-IOS-004",
       "severity": "blocker",
-      "title": "Platform packaging and signing evidence is not present",
+      "title": "iOS packaging and signing evidence is not present",
       "status": "open",
-      "evidence": "SwiftPM and Xcode package scheme builds pass, but the repository contains Swift package products only; no app archive, signing, notarization, App Store, or TestFlight artifacts are present.",
+      "evidence": "SwiftPM and Xcode package scheme builds pass, but the repository contains Swift package products only; no iOS app archive, signing, App Store, or TestFlight artifacts are present.",
       "evidence_path": "completion-evidence/packaging-and-signing-baseline.md:10",
-      "affected_capability": "signed platform distribution",
-      "root_cause": "The repository has no app targets, archive schemes, signing settings, entitlements, or distribution credentials.",
-      "remediation": "Define the app targets and distribution choices, add archive/export workflows, configure signing inputs, then verify archive, signing, notarization, store upload, and install paths.",
+      "affected_capability": "signed iOS distribution",
+      "root_cause": "The repository has no iOS app target, archive scheme, signing settings, entitlements, or distribution credentials.",
+      "remediation": "Define the iOS app target and distribution choices, add archive/export workflows, configure signing inputs, then verify archive, signing, store upload, TestFlight, and installation paths.",
       "tests": [
-        "xcodebuild -scheme ASHCore -destination 'generic/platform=macOS' -configuration Release build -quiet",
-        "xcodebuild -scheme ASHPatternSystem -destination 'generic/platform=macOS' -configuration Release build -quiet"
+        "xcodebuild -scheme ASHCore -destination 'generic/platform=iOS' -configuration Release build -quiet",
+        "xcodebuild -scheme ASHPatternSystem -destination 'generic/platform=iOS' -configuration Release build -quiet"
       ],
       "owner": "repository owner",
       "linked_requirements": [
@@ -98,30 +98,7 @@
       ]
     },
     {
-      "id": "APS-MACIOS-005",
-      "severity": "info",
-      "title": "Exact iOS completion branch is tracked in a separate worktree",
-      "status": "tracked",
-      "evidence": "Current branch is release/aps-macos-1.0.0-completion-clean; iOS package work is present on release/aps-ios-1.0.0-completion-clean in a separate worktree.",
-      "evidence_path": "completion-evidence/branch-resolution.json:7",
-      "affected_capability": "branch-specific package execution",
-      "root_cause": "The macOS and iOS package branch names are separate while the repository source tree is shared.",
-      "remediation": "Keep branch-specific evidence in separate worktrees and verify both branches independently.",
-      "tests": [
-        "git status --short --branch",
-        "swift test --package-path MaciOS"
-      ],
-      "owner": "repository owner",
-      "linked_requirements": [
-        "BRANCH-IDENTIFICATION-AND-BASELINE",
-        "CROSS-BRANCH-GOVERNANCE"
-      ],
-      "files": [
-        "completion-evidence/branch-resolution.json"
-      ]
-    },
-    {
-      "id": "APS-MACIOS-006",
+      "id": "APS-IOS-005",
       "severity": "blocker",
       "title": "Hosted branch protection is not active",
       "status": "open",

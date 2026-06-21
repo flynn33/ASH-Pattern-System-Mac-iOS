@@ -3,7 +3,7 @@
 | * 51f48e5 
 | * 639e0cf 
 |/  
-| * cb71b06  (HEAD -> release/aps-ios-1.0.0-completion-clean, origin/main, origin/HEAD, release/aps-macos-1.0.0-completion-clean, main)
+| * cb71b06  (HEAD -> release/aps-macos-1.0.0-completion-clean, origin/main, origin/HEAD, release/aps-ios-1.0.0-completion-clean, main)
 | * 3fde067 
 * |   74df3d0 
 |\ \  

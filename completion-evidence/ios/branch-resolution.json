@@ -30,7 +30,7 @@
   ],
   "branch_history_complete_or_shallow": "complete",
   "is_shallow_repository": false,
-  "completion_branch_created": "release/aps-macos-1.0.0-completion-clean",
-  "active_branch_scope": "macOS package completion branch for the shared Mac/iOS Swift package",
-  "companion_ios_branch_status": "The iOS package defines release/aps-ios-1.0.0-completion-clean as a separate exact branch; this worktree is currently on the macOS package branch."
+  "completion_branch_created": "release/aps-ios-1.0.0-completion-clean",
+  "active_branch_scope": "iOS package completion branch for the shared Mac/iOS Swift package",
+  "companion_macos_branch_status": "The macOS package defines release/aps-macos-1.0.0-completion-clean as a separate exact branch."
 }

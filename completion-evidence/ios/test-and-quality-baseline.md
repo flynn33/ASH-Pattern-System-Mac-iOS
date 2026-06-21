@@ -8,8 +8,8 @@
 | `swift package --package-path MaciOS clean` | PASS, run before each full build/test pass |
 | `swift build --package-path MaciOS -c release` | PASS, 2 clean runs |
 | `swift test --package-path MaciOS` | PASS, 42 tests, 2 clean runs |
-| `xcodebuild -scheme ASHCore -destination 'generic/platform=macOS' -configuration Release build -quiet` | PASS |
-| `xcodebuild -scheme ASHPatternSystem -destination 'generic/platform=macOS' -configuration Release build -quiet` | PASS |
+| `xcodebuild -scheme ASHCore -destination 'generic/platform=iOS' -configuration Release build -quiet` | PASS |
+| `xcodebuild -scheme ASHPatternSystem -destination 'generic/platform=iOS' -configuration Release build -quiet` | PASS |
 | `python3 .github/scripts/no_attribution_check.py` | PASS |
 | `python3 .github/scripts/attribution_guard_check.py --mode ci` | PASS; no refs to evaluate |
 | `python3 tools/verify_protected_surface.py --mode product --write-baseline` | PASS |
@@ -26,8 +26,6 @@
 
 ## Not Run
 
-- Xcode archive
-- macOS notarization validation
 - iOS simulator matrix
 - iOS physical-device matrix
 - Accessibility audits
