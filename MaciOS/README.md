@@ -1,33 +1,46 @@
 # Mac/iOS ASH Pattern System
 
-This package implements the Mac/iOS **ASH Pattern System** as a standalone foundation layer.
+This Swift package implements the Mac/iOS edition of the ASH Pattern System as an Apple-native foundation layer.
 
-It is intentionally independent of product/runtime frameworks and focuses only on canonical ASH behavior.
+The package is intentionally independent of app targets and product UI. It focuses on APS semantic behavior for macOS and iOS consumers.
 
-## Targets
+## Package
 
-- `ASHCore`: ASH domain models and services:
-  - `ASHStateModel`
-  - `ASHAxiomEvaluator`
-  - `ASHTransitionRegistry`
-  - `ASHTopologyGenerator`
-  - `ASHRealmEncoder`
-  - `ASHGenerationPlanner`
-  - `ASHArtifactEmitter`
-  - `ASHDiagnosticsModule`
-  - `ASHRecoveryEngine`
-- `ASHPatternSystem`: orchestration layer (`ASHPatternSystemEngine`) that composes `ASHCore` into a deterministic bootstrap pipeline.
+- Package name: `MaciOS`
+- Swift tools version: 5.10
+- Platforms: iOS 16+, macOS 14+
+- External package dependencies: none
+
+## Products
+
+- `ASHCore`: ASH domain models and semantic services.
+- `ASHPatternSystem`: orchestration layer that composes `ASHCore` into a deterministic bootstrap pipeline.
+
+## Semantic Modules
+
+`ASHCore` implements:
+
+- `ASHStateModel`
+- `ASHAxiomEvaluator`
+- `ASHTransitionRegistry`
+- `ASHTopologyGenerator`
+- `ASHRealmEncoder`
+- `ASHGenerationPlanner`
+- `ASHArtifactEmitter`
+- `ASHDiagnosticsModule`
+- `ASHRecoveryEngine`
 
 ## Native Boundary
 
 - Source language: Swift only.
-- Frameworks/libraries: Apple-native only (for example: Foundation, SwiftUI, Combine, SwiftData, CoreData, XCTest).
+- Apple frameworks/libraries: Foundation and XCTest in the current package.
+- SwiftUI, Combine, SwiftData, Core Data, and other Apple frameworks may be used by future app/product layers when needed.
 - Neutral artifacts: `.json` and `.md` are allowed.
 - Third-party package dependencies are not allowed in this base layer.
 
-This keeps the ASH Pattern System implementation cleanly separated from any product layer and runtime framework layer.
+This keeps the APS semantic implementation separated from app UI, signing, distribution, and runtime product concerns.
 
-## ASH Pattern System API
+## API
 
 - Engine class: `ASHPatternSystemEngine`
 - Bootstrap report: `ASHPatternSystemBootstrapReport`
@@ -40,7 +53,14 @@ let engine = ASHPatternSystemEngine()
 let report = engine.bootstrap()
 ```
 
-## Platforms
+## Build And Test
 
-- iOS 16+
-- macOS 14+
+```bash
+swift package --package-path MaciOS dump-package
+swift build --package-path MaciOS -c release
+swift test --package-path MaciOS
+```
+
+## Release Boundary
+
+The package provides Swift libraries and tests. It does not currently provide macOS or iOS app targets, signing configuration, archive/export workflows, notarization, App Store, or TestFlight distribution evidence.

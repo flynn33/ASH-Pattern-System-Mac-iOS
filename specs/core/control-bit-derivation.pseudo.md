@@ -6,7 +6,7 @@
 >
 > The canonical ASH mathematical foundation is now the **full 9-dimensional research baseline** defined in `ash-state-space.pseudo.md` and the research-baseline algorithm specs.
 >
-> **This file must not be used as authority for downstream implementation work.**
+> **This file must not be used as authority for Apple implementation work.**
 > It is retained for historical reference only and is pending replacement in later realignment packages (R2).
 
 ---
@@ -24,7 +24,7 @@ The control-bit derivation function exists to:
 - enable detection of state corruption or unauthorized mutation
 - support self-referential state semantics (the state can verify its own integrity)
 - provide a foundation for normalization, validity checking, and diagnostic reporting
-- prevent downstream implementations from treating the 9th coordinate as an ordinary peer bit
+- prevent Apple implementation modules from treating the 9th coordinate as an ordinary peer bit
 
 ## Inputs
 
@@ -157,7 +157,7 @@ It is **not** a free semantic degree of freedom during ordinary normalized opera
 - **Deterministic** — the same 8-bit core always produces the same control bit.
 - **Consistent with code structure** — the formula is algebraically aligned with the [8,4,4] extended Hamming code: all 16 admissible codewords have even parity, so derivation produces `0` for every admissible core.
 
-### What downstream implementations must do
+### What Apple implementation modules must do
 
 1. Implementations must use **exactly this formula** — overall parity (XOR of all 8 core bits).
 2. Implementations must not substitute a different derivation function.

@@ -6,7 +6,7 @@ This specification defines the **canonical structure and governance for rule ide
 
 Every diagnostic record must reference one or more rule IDs. Rule IDs provide traceability from a diagnostic back to the specific specification rule that was evaluated. This taxonomy ensures that rule IDs are consistent, unique, stable, and machine-parseable across all specifications and implementations.
 
-This taxonomy is **canonical** (Design Package D). Downstream implementation repositories must not invent local rule-ID formats.
+This taxonomy is **canonical** (Design Package D). The Mac/iOS implementation must not invent local rule-ID formats.
 
 ## Canonical rule-ID pattern
 
@@ -90,4 +90,4 @@ Example: `ASH-STATE-VALIDITY-001`
 - **state-validity-diagnostics.pseudo.md** — uses `ASH-STATE` family rule IDs
 - **recovery-fallback-semantics.pseudo.md** — uses `ASH-RECOVERY` and `ASH-FALLBACK` family rule IDs
 - **containment-safe-failure-semantics.pseudo.md** — uses `ASH-CONTAINMENT` and `ASH-HALT` family rule IDs
-- **semantic-contracts.md** — requires downstream implementations to emit taxonomy-compliant rule IDs
+- **semantic-contracts.md** — requires Apple implementation modules to emit taxonomy-compliant rule IDs

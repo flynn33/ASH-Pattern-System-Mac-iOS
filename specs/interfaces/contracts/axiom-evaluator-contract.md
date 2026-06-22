@@ -31,7 +31,7 @@ The `AxiomEvaluator` module is the single authority for:
 ### Explainable results
 - Pass results must explain what conditions were satisfied
 - Fail results must explain what conditions were violated and why
-- The explanation must be sufficient for a human operator or downstream system to understand the result
+- The explanation must be sufficient for a human operator or receiving system to understand the result
 
 ### No silent pass/fail
 - The evaluator must never return a bare boolean without an accompanying diagnostic

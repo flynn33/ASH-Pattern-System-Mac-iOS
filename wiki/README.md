@@ -1,7 +1,7 @@
-# Wiki Source Directory
+# ASH Pattern System Mac/iOS Wiki Source
 
-This directory stores the version-controlled source for the GitHub Wiki pages for `flynn33/ASH-Pattern-System`.
+This directory contains the source-controlled wiki mirror for the Mac/iOS edition.
 
 - Keep page names stable.
-- Update wiki pages when canonical docs/specs/governance materially change.
-- Validate with: `python3 .github/scripts/wiki_maintenance_check.py`
+- Update wiki pages when repository docs, package docs, specs, or completion evidence materially change.
+- Keep the tracked wiki mirror and separate live wiki checkout aligned before publication.

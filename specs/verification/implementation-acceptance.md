@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This specification defines the **minimum acceptance threshold** for a downstream implementation to be considered conformant with the ASH Pattern System, grounded in the full 9D research baseline.
+This specification defines the **minimum acceptance threshold** for the Apple implementation to be considered conformant with the ASH Pattern System, grounded in the full 9D research baseline.
 
 **Codeword-set closure**: The codeword set `C ⊂ F2^9` is fully closed. `C` is a [9, 4, 4] doubly-even linear code with 16 members, extracted from published research (see `specs/core/codeword-set.pseudo.md`). All codeword-dependent invariants can now be fully assessed. Implementations must use exactly the specified 16-codeword set.
 
@@ -10,7 +10,7 @@ This specification defines the **minimum acceptance threshold** for a downstream
 
 ## Minimum acceptance conditions
 
-A downstream implementation is **accepted as conformant** if and only if:
+The Apple implementation is **accepted as conformant** if and only if:
 
 1. **All invariants pass** — every invariant in `invariant-spec.md` must be verified and must pass.
 
@@ -24,7 +24,7 @@ A downstream implementation is **accepted as conformant** if and only if:
 
 ## Failure conditions
 
-A downstream implementation is **non-conformant** if any of the following:
+The Apple implementation is **non-conformant** if any of the following:
 
 1. Any non-codeword-dependent invariant fails
 2. Any conformance category is missing from the test suite

@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This specification defines the **canonical invariant set** that every downstream implementation of the ASH Pattern System must verify. All invariants are grounded in the full 9-dimensional research baseline.
+This specification defines the **canonical invariant set** that the Apple implementation of the ASH Pattern System must verify. All invariants are grounded in the full 9-dimensional research baseline.
 
 **Codeword-set closure**: The codeword set `C ⊂ F2^9` is fully closed — a [9, 4, 4] doubly-even linear code with 16 members, extracted from published research (see `specs/core/codeword-set.pseudo.md`). All codeword-dependent invariants can now be fully assessed against the specified set.
 

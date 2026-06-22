@@ -6,7 +6,7 @@ This specification defines the **canonical fallback-policy registry** for the AS
 
 The fallback-policy registry governs **deterministic fallback selection** when a system state is classified as `DEGRADED` and direct correction is not possible. Every fallback selection must be traceable to a registry entry, ordered deterministically, and validated after selection.
 
-This registry is **normative**. Downstream implementation repositories must not invent, hardcode, or heuristically select fallback states outside of this registry structure.
+This registry is **normative**. The Mac/iOS implementation must not invent, hardcode, or heuristically select fallback states outside of this registry structure.
 
 ## Normative status
 
@@ -174,6 +174,6 @@ Rule IDs used in fallback diagnostics must conform to the `ASH-FALLBACK` family 
 
 - **recovery-fallback-semantics.pseudo.md** — invokes this registry during the `FALLBACK_REQUIRED` recovery path
 - **containment-safe-failure-semantics.pseudo.md** — receives escalation when no valid fallback candidate exists
-- **semantic-contracts.md** — requires downstream implementations to implement fallback selection against this canonical registry
+- **semantic-contracts.md** — requires Apple implementation modules to implement fallback selection against this registry
 - **system-state-classification.pseudo.md** — provides the `DEGRADED` classification that triggers fallback
 - **state-validity-diagnostics.pseudo.md** — provides the diagnostic used for candidate eligibility and post-selection validation

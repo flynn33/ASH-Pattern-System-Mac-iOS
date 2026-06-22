@@ -1,63 +1,96 @@
-# Desktop Implementation Handoff Template
+# macOS Implementation Checklist
 
-## Target class
+## Target Class
 
-**Desktop application** — a native or cross-platform desktop application implementing the ASH Pattern System.
+macOS implementation of the ASH Pattern System.
 
-## Canonical-authority boundary
+## Scope
 
-The canonical agnostic repository is the semantic authority. This template constrains the downstream desktop repository structure, required deliverables, and proof-of-conformance inputs. It does not override canonical semantics, prescribe a specific programming language, or mandate a specific desktop framework.
+This checklist applies to the macOS surface of this repository. It covers native Swift implementation, SwiftPM and Xcode package builds, app-target release blockers, signing, notarization, and macOS release evidence.
 
-## Required sections in downstream repository
+## Required Sections In This Repository
 
-### 1. Target environment
-Document the specific desktop target:
-- Operating system(s)
-- Runtime environment
-- Windowing / UI framework (if applicable)
-- File system access model
-- Concurrency / threading model
+### 1. Target Environment
 
-### 2. Semantic-module mapping
-Map each of the 9 canonical semantic modules to concrete desktop implementation modules. See `common-downstream-handoff-requirements.md` for the full module list.
+Document the specific macOS target:
 
-### 3. Invariant / conformance verification inputs
-Document how the desktop implementation will verify conformance:
-- Test framework and tooling
-- Coverage of all 5 conformance categories
-- How invariants are tested in the desktop environment
-- Any desktop-specific verification considerations
+- supported macOS versions;
+- Swift tools version;
+- runtime framework boundary;
+- app target status;
+- filesystem access model;
+- concurrency and lifecycle model.
 
-### 4. Diagnostics integration
-Document how diagnostics will be surfaced in the desktop context:
-- Diagnostic output format and destination (log files, UI, telemetry)
-- Schema and taxonomy conformance
-- Chain integrity in the desktop execution model
+Active documents: `MaciOS/Package.swift`, `completion-evidence/architecture-inventory.md`.
 
-### 5. Materialization-boundary expectations
+### 2. Semantic-Module Mapping
+
+Map each of the 9 APS semantic modules to concrete Swift modules.
+
+Active document: `completion-evidence/architecture-inventory.md`.
+
+### 3. Verification Inputs
+
+Document how the macOS implementation verifies conformance:
+
+- SwiftPM build and tests;
+- Xcode package-scheme builds;
+- canonical corpus fixture coverage;
+- protected-surface verification;
+- release blockers.
+
+Active document: `completion-evidence/test-and-quality-baseline.md`.
+
+### 4. Diagnostics Integration
+
+Document how diagnostics are represented and validated in the Swift core:
+
+- diagnostic model types;
+- schema and taxonomy conformance;
+- chain integrity;
+- runtime validation behavior.
+
+Active evidence: Swift tests under `MaciOS/Tests/ASHCoreTests/`.
+
+### 5. Materialization Boundary
+
 Document how the planner/emitter boundary is respected:
-- Where planning occurs in the desktop application lifecycle
-- Where materialization occurs (file emission, UI rendering, etc.)
-- How the boundary is enforced architecturally
 
-### 6. Packaging / build / deployment decisions
-Document target-specific decisions:
-- Build system and toolchain
-- Dependency management
-- Installer / distribution format
-- Update / versioning strategy
-- Configuration management
+- where planning occurs;
+- where descriptor emission occurs;
+- how the boundary is enforced by Swift APIs and tests.
 
-### 7. Performance / resource constraints
-Document desktop-specific constraints:
-- Memory budget
-- Startup time requirements
-- Responsiveness requirements
-- Storage constraints
-- Offline / disconnected operation requirements (if applicable)
+Active evidence: Swift sources and tests for `ASHGenerationPlanner` and `ASHArtifactEmitter`.
 
-### 8. Caveat / deviation tracking
-Maintain a deviation log for any departures from canonical semantics. See `common-downstream-handoff-requirements.md` for tracking requirements.
+### 6. Packaging / Build / Deployment Decisions
 
-### 9. Proof-of-conformance deliverables
-Produce all deliverables listed in `common-downstream-handoff-requirements.md` before the desktop implementation is considered implementation-ready.
+Document macOS-specific decisions:
+
+- SwiftPM package layout;
+- Xcode package scheme;
+- app target status;
+- signing and notarization status;
+- archive/export workflow status;
+- install, launch, upgrade, and removal validation.
+
+Active documents: `completion-evidence/packaging-and-signing-baseline.md`, `completion-evidence/final-acceptance-report.md`.
+
+### 7. Performance / Resource Constraints
+
+Document macOS-specific constraints:
+
+- memory behavior;
+- startup time;
+- responsiveness requirements after a UI exists;
+- storage behavior;
+- offline operation requirements if applicable.
+
+### 8. Caveat / Deviation Tracking
+
+Maintain evidence for macOS limitations and release blockers.
+
+Active documents: `completion-evidence/finding-register.json`, `completion-evidence/final-acceptance-report.md`.
+
+### 9. Proof-Of-Conformance Deliverables
+
+Produce the deliverables listed in `common-platform-handoff-requirements.md` before the macOS product can move beyond its current blocked release status.

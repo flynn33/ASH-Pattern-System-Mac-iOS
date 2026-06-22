@@ -118,7 +118,7 @@ The first 8 coordinates of the 16 codewords in `C` are identical to the 16 codew
 
 ---
 
-## Downstream implementation constraints
+## Implementation constraints
 
 ### Implementations must
 

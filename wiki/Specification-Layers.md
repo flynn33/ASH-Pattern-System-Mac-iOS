@@ -1,6 +1,6 @@
 # Specification Layers
 
-This page maps the canonical layers so maintainers and downstream implementers can navigate with minimal ambiguity.
+This page maps the canonical layers so Mac/iOS maintainers can navigate with minimal ambiguity.
 
 ## Layer Stack
 
@@ -29,8 +29,8 @@ flowchart TD
 | Registries | Canonical fallback policy structure and ordering rules | `specs/registries/fallback-policy-registry.md` |
 | Interfaces | Semantic contracts, diagnostic schema, rule ID taxonomy, module contracts | `specs/interfaces/*` |
 | Verification | Invariants, conformance categories, acceptance language | `specs/verification/*` |
-| Handoff templates | Downstream implementation delivery shape and proof artifacts | `handoff-templates/*` |
-| Governance | Repo rules, coding-handoff rules, sentinel agent policy | `governance/*` |
+| Handoff templates | Apple-platform delivery shape and proof artifacts | `handoff-templates/*` |
+| Governance | Repository rules, coding-handoff rules, protected workflow policies | `governance/*` |
 
 ## Reading Sequence For New Maintainers
 

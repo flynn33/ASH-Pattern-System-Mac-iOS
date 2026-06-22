@@ -1,35 +1,34 @@
-# Handoff Templates
+# Apple Platform Implementation Reference Templates
 
 ## Purpose
 
-This directory contains **downstream build handoff templates** for the ASH Pattern System.
+This directory is retained as APS implementation reference material for the Mac/iOS edition.
 
-Each template defines what a downstream implementation repository must contain, how it must map to the canonical specifications, and what proof-of-conformance deliverables it must produce — without prescribing a specific programming language, framework, or implementation stack.
+The active targets for this repository are macOS and iOS. The common, desktop, and mobile files describe the deliverables this repository uses for module mapping, verification, diagnostics, materialization, packaging, release evidence, and acceptance status.
 
-## Authority model
+The service file is retained only to make target-class boundaries explicit. It is not an active release target for this repository.
 
-The **canonical agnostic repository** remains the semantic authority. Handoff templates constrain downstream repository structure, required deliverables, and proof-of-conformance inputs. They do not override canonical semantics.
+## Apple Platform Boundary
 
-Downstream implementations must satisfy:
-1. The canonical specifications in `specs/`
-2. The contract layer in `specs/interfaces/`
-3. The verification layer in `specs/verification/`
-4. The handoff requirements defined here
+The Mac/iOS edition must satisfy the APS semantic contract files under `specs/`, the module contracts under `specs/interfaces/`, and the verification requirements under `specs/verification/`.
+
+These reference files describe how the Apple-platform repository organizes proof of implementation. They do not change APS behavior.
 
 ## Contents
 
-| File | Description |
+| File | Mac/iOS edition role |
 |---|---|
-| `common-downstream-handoff-requirements.md` | Universal requirements every downstream handoff must satisfy |
-| `desktop-implementation-handoff-template.md` | Template for desktop target class |
-| `mobile-implementation-handoff-template.md` | Template for mobile target class |
-| `service-implementation-handoff-template.md` | Template for service/backend target class |
+| `common-platform-handoff-requirements.md` | Shared Apple-platform implementation deliverable checklist |
+| `desktop-implementation-handoff-template.md` | Active macOS target checklist |
+| `mobile-implementation-handoff-template.md` | Active iOS target checklist |
+| `service-implementation-handoff-template.md` | Not applicable to this repository |
 
 ## Usage
 
-A coding agent building a downstream implementation should:
+For Mac/iOS work:
 
-1. Read the canonical specifications, contracts, and verification requirements first
-2. Read `common-downstream-handoff-requirements.md` for universal handoff expectations
-3. Read the appropriate target-class template for the implementation target
-4. Use the template to structure the downstream repository, plan deliverables, and track conformance
+1. Read the APS semantic contract files in `specs/`.
+2. Use `common-platform-handoff-requirements.md` for the required Apple-platform evidence set.
+3. Use `desktop-implementation-handoff-template.md` for macOS-specific release gates.
+4. Use `mobile-implementation-handoff-template.md` for iOS-specific release gates.
+5. Treat service files as out-of-scope markers for this repository.

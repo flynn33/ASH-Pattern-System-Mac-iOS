@@ -1,4 +1,4 @@
-# Containment and Safe-Failure Semantics — agnostic specification
+# Containment and Safe-Failure Semantics - APS Semantic Contract
 
 ## Purpose
 

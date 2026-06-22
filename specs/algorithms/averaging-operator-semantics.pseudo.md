@@ -85,7 +85,7 @@ This specification defines the averaging operator as it appears in the research 
 
 - Overstate the operator's role beyond what the research materials justify
 - Infer additional algebraic properties not established in the research baseline
-- Prescribe how downstream implementations must use the operator beyond preserving its mathematical definition
+- Prescribe how Apple implementation modules must use the operator beyond preserving its mathematical definition
 
 ## Relation to other specifications
 

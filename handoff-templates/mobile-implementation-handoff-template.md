@@ -1,65 +1,97 @@
-# Mobile Implementation Handoff Template
+# iOS Implementation Checklist
 
-## Target class
+## Target Class
 
-**Mobile application** — a native or cross-platform mobile application implementing the ASH Pattern System.
+iOS implementation of the ASH Pattern System.
 
-## Canonical-authority boundary
+## Scope
 
-The canonical agnostic repository is the semantic authority. This template constrains the downstream mobile repository structure, required deliverables, and proof-of-conformance inputs. It does not override canonical semantics, prescribe a specific programming language, or mandate a specific mobile framework.
+This checklist applies to the iOS surface of this repository. It covers native Swift implementation, SwiftPM and Xcode package builds, app-target release blockers, signing, App Store/TestFlight distribution, and iOS release evidence.
 
-## Required sections in downstream repository
+## Required Sections In This Repository
 
-### 1. Target environment
-Document the specific mobile target:
-- Platform(s) (e.g., iOS, Android, cross-platform)
-- Minimum OS version requirements
-- Runtime environment
-- App lifecycle model (foreground, background, suspended)
-- Native UI framework (if applicable)
-- Concurrency / threading model
+### 1. Target Environment
 
-### 2. Semantic-module mapping
-Map each of the 9 canonical semantic modules to concrete mobile implementation modules. See `common-downstream-handoff-requirements.md` for the full module list.
+Document the specific iOS target:
 
-### 3. Invariant / conformance verification inputs
-Document how the mobile implementation will verify conformance:
-- Test framework and tooling
-- Coverage of all 5 conformance categories
-- How invariants are tested on mobile (device, simulator, CI)
-- Any mobile-specific verification considerations
+- supported iOS versions;
+- Swift tools version;
+- app target status;
+- simulator and device validation status;
+- lifecycle model;
+- storage and privacy boundary.
 
-### 4. Diagnostics integration
-Document how diagnostics will be surfaced in the mobile context:
-- Diagnostic output format and destination (on-device logs, remote telemetry, debug UI)
-- Schema and taxonomy conformance
-- Chain integrity under mobile app lifecycle constraints (backgrounding, termination)
+Active documents: `MaciOS/Package.swift`, `completion-evidence/ios/architecture-inventory.md`.
 
-### 5. Materialization-boundary expectations
+### 2. Semantic-Module Mapping
+
+Map each of the 9 APS semantic modules to concrete Swift modules.
+
+Active document: `completion-evidence/ios/architecture-inventory.md`.
+
+### 3. Verification Inputs
+
+Document how the iOS implementation verifies conformance:
+
+- SwiftPM build and tests;
+- Xcode package-scheme builds;
+- canonical corpus fixture coverage;
+- simulator and physical-device blockers;
+- protected-surface verification.
+
+Active document: `completion-evidence/ios/test-and-quality-baseline.md`.
+
+### 4. Diagnostics Integration
+
+Document how diagnostics are represented and validated in the Swift core:
+
+- diagnostic model types;
+- schema and taxonomy conformance;
+- chain integrity;
+- lifecycle constraints once an app target exists.
+
+Active evidence: Swift tests under `MaciOS/Tests/ASHCoreTests/`.
+
+### 5. Materialization Boundary
+
 Document how the planner/emitter boundary is respected:
-- Where planning occurs in the mobile application lifecycle
-- Where materialization occurs (local storage, network emission, UI rendering)
-- How the boundary is enforced given mobile resource constraints
 
-### 6. Packaging / build / deployment decisions
-Document target-specific decisions:
-- Build system and toolchain
-- Dependency management
-- App store packaging and distribution
-- Over-the-air update strategy (if applicable)
-- Configuration management
+- where planning occurs;
+- where descriptor emission occurs;
+- how the boundary is enforced by Swift APIs and tests.
 
-### 7. Performance / resource constraints
-Document mobile-specific constraints:
-- Memory budget (constrained compared to desktop/service)
-- Battery impact requirements
-- Startup time and responsiveness requirements
-- Storage constraints (on-device limits)
-- Network bandwidth / offline operation requirements
-- Thermal / CPU throttling considerations
+Active evidence: Swift sources and tests for `ASHGenerationPlanner` and `ASHArtifactEmitter`.
 
-### 8. Caveat / deviation tracking
-Maintain a deviation log for any departures from canonical semantics. See `common-downstream-handoff-requirements.md` for tracking requirements.
+### 6. Packaging / Build / Deployment Decisions
 
-### 9. Proof-of-conformance deliverables
-Produce all deliverables listed in `common-downstream-handoff-requirements.md` before the mobile implementation is considered implementation-ready.
+Document iOS-specific decisions:
+
+- SwiftPM package layout;
+- Xcode package scheme;
+- app target status;
+- signing, entitlements, and provisioning status;
+- archive/export workflow status;
+- App Store and TestFlight status;
+- install, upgrade, and removal validation.
+
+Active documents: `completion-evidence/ios/packaging-and-signing-baseline.md`, `completion-evidence/ios/final-acceptance-report.md`.
+
+### 7. Performance / Resource Constraints
+
+Document iOS-specific constraints:
+
+- memory behavior;
+- startup time;
+- battery and thermal behavior after an app target exists;
+- storage behavior;
+- offline operation requirements if applicable.
+
+### 8. Caveat / Deviation Tracking
+
+Maintain evidence for iOS limitations and release blockers.
+
+Active documents: `completion-evidence/ios/finding-register.json`, `completion-evidence/ios/final-acceptance-report.md`.
+
+### 9. Proof-Of-Conformance Deliverables
+
+Produce the deliverables listed in `common-platform-handoff-requirements.md` before the iOS product can move beyond its current blocked release status.

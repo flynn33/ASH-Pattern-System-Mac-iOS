@@ -1,4 +1,4 @@
-# Axiom Evaluation — agnostic specification
+# Axiom Evaluation - APS Semantic Contract
 
 ## Purpose
 

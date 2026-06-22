@@ -8,7 +8,7 @@
 
 This specification defines the **canonical diagnostic model** for ASH state validity in the full 9-dimensional research baseline.
 
-Every downstream implementation must be able to produce a structured diagnostic record that explains, for any candidate state:
+The Apple implementation must be able to produce a structured diagnostic record that explains, for any candidate state:
 
 - whether it is valid
 - its admissibility status relative to the codeword structure
@@ -172,7 +172,7 @@ END FUNCTION
 
 ## Diagnostic completeness requirement
 
-Every downstream implementation must be capable of producing a `StateValidityDiagnostic` for any candidate 9-bit state, even when:
+The Apple implementation must be capable of producing a `StateValidityDiagnostic` for any candidate 9-bit state, even when:
 
 - The codeword set is not fully specified (use `UNCLASSIFIED` / `BLOCKED`)
 - The candidate state is malformed (report in notes)
