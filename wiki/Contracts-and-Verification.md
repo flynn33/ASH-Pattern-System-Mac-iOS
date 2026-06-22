@@ -1,6 +1,6 @@
 # Contracts and Verification
 
-Downstream implementations are conformant only when module contracts and verification thresholds are both satisfied.
+The Mac/iOS edition is conformant only when module contracts and verification thresholds are both satisfied.
 
 ## Required Semantic Modules
 
@@ -42,7 +42,7 @@ Only these are valid:
 
 ## Conformance Gate Summary
 
-An implementation is accepted only if all invariants pass, all five categories are covered, contracts are satisfied, and diagnostics are complete.
+The Mac/iOS edition is accepted only if all invariants pass, all five categories are covered, contracts are satisfied, and diagnostics are complete.
 
 ## References
 

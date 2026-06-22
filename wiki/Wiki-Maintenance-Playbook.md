@@ -1,22 +1,24 @@
 # Wiki Maintenance Playbook
 
-This playbook defines how wiki content is maintained as part of canonical repository upkeep.
+This playbook defines how wiki content is maintained for the Mac/iOS edition.
 
-## Source Of Truth
+## Tracked Wiki Content
 
-The `wiki/` directory in the main repository is the source-controlled canonical wiki content set.
+The `wiki/` directory in this repository is the source-controlled wiki mirror. The live GitHub Wiki is a separate repository and must be checked separately before publication.
 
 ## Required Wiki Pages
 
 - `Home.md`
 - `_Sidebar.md`
 - `Getting-Started.md`
-- `Canonical-Math-Baseline.md`
+- `Architecture.md`
+- `Build-and-Test.md`
+- `Conformance-and-Release-Status.md`
 - `Specification-Layers.md`
 - `Recovery-and-Safety-Semantics.md`
 - `Contracts-and-Verification.md`
-- `Governance-and-Agents.md`
-- `Downstream-Handoff-Guide.md`
+- `Governance-and-Repository-Checks.md`
+- `Platform-Implementation-Guide.md`
 - `Glossary.md`
 - `Wiki-Maintenance-Playbook.md`
 
@@ -26,21 +28,19 @@ Update wiki pages when any of these change materially:
 
 - `README.md`
 - `docs/*.md`
+- `MaciOS/README.md`
+- `MaciOS/Package.swift`
 - `specs/**/*.md`
-- `governance/*.md`
-- `.github/workflows/*.yml`
-- `.github/scripts/*.py`
+- `completion-evidence/**/*.md`
 
 ## Maintenance Workflow
 
-1. Update canonical source docs/specs first.
-2. Update affected wiki pages in `wiki/`.
-3. Verify internal wiki links resolve.
-4. Ensure `Home.md` and `_Sidebar.md` include all required pages.
-5. Run `python3 .github/scripts/wiki_maintenance_check.py`.
+1. Update repository docs and package docs first.
+2. Update affected pages in `wiki/`.
+3. Update the separate live wiki checkout when publication is requested.
+4. Verify internal wiki links resolve.
+5. Ensure `Home.md` and `_Sidebar.md` include current pages.
 
-## CI Guardrail
+## Guardrail
 
-`Wiki Maintenance Agent` enforces page presence, heading health, internal link integrity, and change-drift signaling when canonical docs change without wiki updates.
-
-On `push` to `main`, if `wiki/` changed, the workflow also syncs the `wiki/` directory into the GitHub Wiki repository (`<repo>.wiki.git`).
+The tracked wiki and live wiki must describe the same platform state. If one surface is updated without the other, record the mismatch and finish the missing surface before claiming publication.

@@ -1,62 +1,56 @@
 # Design Philosophy
 
-## Primary principle
+## Primary Principle
 
-The ASH Pattern System must be specified in terms of **semantic invariants**, not implementation accidents.
+The Mac/iOS edition implements APS semantics with Apple-native Swift tooling while keeping platform decisions explicit, testable, and auditable.
 
-## Governing ideas
+## Governing Ideas
 
-### 1. State before platform
+### 1. Semantics Before Platform Mechanics
 
-The ASH state model is the root layer.
-Platform behavior, tooling, and materialization must be downstream of that state model.
+Swift package layout, Xcode package schemes, and Apple distribution decisions must support the APS state model and recovery behavior. They must not change what the semantic modules mean.
 
-### 2. Semantics before syntax
+### 2. Apple-Native Tooling
 
-The repository defines what operations mean.
-It does not define the syntax a language must use to express them.
+Production implementation work uses Swift 5.10, SwiftPM, Xcode package builds, Foundation, and XCTest. External package dependencies are not part of the current Swift package.
 
-### 3. Planning before side effects
-
-The engine must first produce an abstract, inspectable generation plan.
-Only then may a downstream adapter materialize files, modules, services, views, or packages.
-
-### 4. Derived control, not arbitrary mutation
-
-The 9th ASH dimension is a derived control/parity dimension.
-It is not treated as a regular peer coordinate under ordinary transitions.
-
-### 5. Stabilization is part of the model
-
-The first 8 coordinates are not just a convenient storage layout.
-They are the stabilizing algebraic substrate of the ASH state model.
-
-### 6. Determinism matters
+### 3. Determinism Matters
 
 Equal inputs must produce equal semantic outputs for:
 
-- normalization
-- control derivation
-- realm identity
-- transition application
-- topology expansion
-- axiom diagnosis
-- generation planning
+- state classification;
+- normalization;
+- realm and orbit identity;
+- transition application;
+- topology generation;
+- axiom evaluation;
+- generation planning;
+- artifact descriptor emission.
 
-### 7. Explanation matters
+### 4. Diagnostics Are Part Of Behavior
 
-The engine should expose diagnostics that explain:
+The Swift core must expose diagnostics that explain:
 
-- why a state is valid or invalid
-- why a transition is allowed or rejected
-- why an axiom passes or fails
-- why a plan is acceptable or unstable
+- why a state is valid or invalid;
+- why a transition is accepted or rejected;
+- why recovery, fallback, containment, or safe halt occurred;
+- why an axiom passed, failed, or was indeterminate;
+- why an emission request was accepted or blocked.
 
-### 8. Implementations are replaceable
+Silent correction and silent failure are not acceptable behavior.
 
-No single language implementation should become the identity of the engine.
-The engine must be portable by design.
+### 5. Planning Before Materialization
 
-## Design test
+`ASHGenerationPlanner` produces an inspectable plan before any output is materialized. `ASHArtifactEmitter` consumes that plan and produces traceable descriptors. The current Swift package does not provide app-bundle materialization.
 
-A design decision is aligned only if it preserves the semantic model while leaving room for multiple correct implementations.
+### 6. Fail Closed On Missing Release Evidence
+
+If archive, signing, notarization, App Store, TestFlight, accessibility, device, simulator, install, upgrade, or removal evidence is missing, the Mac/iOS edition remains blocked for signed platform release.
+
+### 7. Platform Decisions Stay Local
+
+Apple-specific choices, such as Swift tools version, platform minimums, package products, XCTest layout, and Xcode build destinations, are documented as implementation decisions for this edition. They do not redefine APS semantics.
+
+## Design Test
+
+A design decision is aligned only if it preserves APS behavior, fits the Apple-native architecture, and can be verified through code, tests, or release evidence.

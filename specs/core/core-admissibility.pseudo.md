@@ -6,7 +6,7 @@
 >
 > The canonical ASH mathematical foundation is now the **full 9-dimensional research baseline** defined in `ash-state-space.pseudo.md` and the research-baseline algorithm specs.
 >
-> **This file must not be used as authority for downstream implementation work.**
+> **This file must not be used as authority for Apple implementation work.**
 > It is retained for historical reference only and is pending replacement in later realignment packages (R2).
 
 ---
@@ -227,7 +227,7 @@ The complete row-space of G consists of exactly **16 codewords**:
 11111111
 ```
 
-This codeword set is **normative**. A downstream implementation may internally use an equivalent matrix representation only if it generates **exactly this same 16-codeword set** and therefore preserves the same admissibility, correction, and corrected-core semantics.
+This codeword set is **normative**. The Apple implementation may internally use an equivalent matrix representation only if it generates **exactly this same 16-codeword set** and therefore preserves the same admissibility, correction, and corrected-core semantics.
 
 ### Locked code properties
 
@@ -250,7 +250,7 @@ This codeword set is **normative**. A downstream implementation may internally u
 | 2 | `INADMISSIBLE_DETECTABLE` | Detected but correction ambiguous; fallback required |
 | ≥ 3 | `INADMISSIBLE_UNRECOVERABLE` | Beyond reliable correction; safe failure required |
 
-### What downstream implementations must do
+### What Apple implementation modules must do
 
 1. Implementations must use **exactly this normative 16-codeword set** for admissibility classification.
 2. Implementations must not substitute a different codeword set, generator matrix, or code structure.

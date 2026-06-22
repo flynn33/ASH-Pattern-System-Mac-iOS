@@ -1,4 +1,4 @@
-# Semantic Contracts for Future Implementations
+# Semantic Contracts for Apple Implementation
 
 ## Authority status (post-R3)
 
@@ -12,7 +12,7 @@ This file is the **umbrella contract document** for the ASH Pattern System. It l
 
 ## Required semantic modules
 
-Every downstream implementation must provide semantic equivalents of the following modules:
+The Apple implementation must provide semantic equivalents of the following modules:
 
 | # | Module | Detailed contract |
 |---|--------|------------------|
@@ -37,7 +37,7 @@ The boundary between `GenerationPlanner` and `ArtifactEmitter` is a **locked des
 
 ## Research-baseline algebraic conformance
 
-A downstream implementation **must**:
+The Apple implementation **must**:
 
 - treat the full F2^9 state space as canonical
 - use XOR-by-codeword transformations as the canonical state transformation mechanism
@@ -53,9 +53,9 @@ A downstream implementation **must**:
 
 ## Prohibited shortcuts
 
-A downstream implementation must not:
+The Apple implementation must not:
 
-- treat syntax as the source of truth over semantics
+- treat syntax as higher priority than semantics
 - skip normalization before encoding or transition application
 - collapse planning and materialization into one opaque semantic step
 - replace semantic validation with superficial metadata checks

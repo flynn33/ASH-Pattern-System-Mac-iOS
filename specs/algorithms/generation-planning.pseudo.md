@@ -1,4 +1,4 @@
-# Generation Planning — agnostic specification
+# Generation Planning - APS Semantic Contract
 
 ## Purpose
 
@@ -8,7 +8,7 @@ It does not directly perform platform side effects.
 ## Core planning idea
 
 The engine first computes what should exist.
-A downstream adapter later decides how that should be materialized.
+A platform adapter later decides how that should be materialized.
 
 ## Canonical records
 
@@ -78,7 +78,7 @@ END FUNCTION
 
 ## Materialization boundary
 
-A downstream adapter is responsible for converting a `GenerationPlan` into concrete outputs such as:
+A platform adapter is responsible for converting a `GenerationPlan` into concrete outputs such as:
 
 - files
 - directories

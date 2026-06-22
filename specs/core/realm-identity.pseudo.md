@@ -48,7 +48,7 @@ END FUNCTION
 ## Notes
 
 This specification intentionally leaves the external string format open.
-A downstream implementation may use different formatting conventions so long as the mapping remains deterministic and semantically faithful.
+The Apple implementation may use different formatting conventions so long as the mapping remains deterministic and semantically faithful.
 
 ## Required invariants
 

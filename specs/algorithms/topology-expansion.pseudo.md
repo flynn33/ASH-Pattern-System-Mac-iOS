@@ -1,4 +1,4 @@
-# Topology Expansion — agnostic specification
+# Topology Expansion - APS Semantic Contract
 
 ## Purpose
 

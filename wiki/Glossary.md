@@ -37,4 +37,4 @@ Canonical naming/governance format for diagnostic rule IDs.
 Locked separation between planning (`GenerationPlanner`) and artifact materialization (`ArtifactEmitter`).
 
 ## Conformance Categories
-Five required verification buckets for downstream acceptance.
+Five required verification buckets for Mac/iOS acceptance.

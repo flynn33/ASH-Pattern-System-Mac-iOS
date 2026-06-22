@@ -1,62 +1,33 @@
-# ASH Pattern System Wiki
+# ASH Pattern System - Mac/iOS Edition
 
-The ASH Pattern System repository is the canonical, platform-neutral specification baseline for resilient software semantics.
+This wiki documents the Mac/iOS edition of the ASH Pattern System.
 
-## Canonical Status Snapshot
+The Mac/iOS edition provides an Apple-native Swift package with `ASHCore` and `ASHPatternSystem` library products, SwiftPM and Xcode package-scheme build evidence, canonical corpus tests, and release-readiness evidence for macOS and iOS targets.
 
-| Area | Status |
-|---|---|
-| Foundational math baseline (R1) | Complete and canonical (full `F2^9`) |
-| State/recovery semantics realignment (R2) | Complete |
-| Contracts and verification rebuild (R3) | Complete |
-| Downstream handoff templates (Phase 4) | Complete |
-| Main repository mode | Maintenance mode (canonical corrections and governance upkeep) |
+## Current Status
 
-## Architecture At A Glance
+Blocked for signed platform release.
 
-```mermaid
-flowchart LR
-    A[Research baseline F2^9] --> B[Core state specs]
-    B --> C[Algorithm semantics]
-    C --> D[Interface contracts]
-    D --> E[Verification invariants]
-    E --> F[Downstream handoff templates]
-    F --> G[Implementation repositories]
-    H[Governance and GitHub agents] --> B
-    H --> C
-    H --> D
-    H --> E
-    H --> F
-```
+The Swift package semantic core is implemented, but the repository still requires app targets, archive/export workflows, signing inputs, notarization, App Store/TestFlight distribution evidence, simulator/device matrices, accessibility validation, install/upgrade/removal validation, hosted protections, and final owner-controlled release approval.
 
 ## Start Here
 
 | If you need to... | Open this page |
 |---|---|
-| Onboard quickly and read in the right order | [Getting Started](Getting-Started) |
-| Understand the canonical 9D math baseline | [Canonical Math Baseline](Canonical-Math-Baseline) |
-| Navigate all specs by layer | [Specification Layers](Specification-Layers) |
-| Understand recovery, fallback, containment, and safe halt | [Recovery and Safety Semantics](Recovery-and-Safety-Semantics) |
-| Implement against contracts and prove conformance | [Contracts and Verification](Contracts-and-Verification) |
-| Understand governance and CI sentinels | [Governance and Agents](Governance-and-Agents) |
-| Build downstream repositories from canonical handoff templates | [Downstream Handoff Guide](Downstream-Handoff-Guide) |
-| Maintain this wiki and keep it current | [Wiki Maintenance Playbook](Wiki-Maintenance-Playbook) |
-| Decode canonical terminology quickly | [Glossary](Glossary) |
+| Understand the platform package | [Architecture](Architecture) |
+| Build and test the package | [Build and Test](Build-and-Test) |
+| Review conformance and release blockers | [Conformance and Release Status](Conformance-and-Release-Status) |
+| Understand APS contract layers used by the package | [Specification Layers](Specification-Layers) |
+| Review recovery, fallback, containment, and safe halt | [Recovery and Safety Semantics](Recovery-and-Safety-Semantics) |
+| Review contracts and verification requirements | [Contracts and Verification](Contracts-and-Verification) |
+| Review repository checks | [Governance and Checks](Governance-and-Repository-Checks) |
+| Review platform implementation checklists | [Platform Implementation Guide](Platform-Implementation-Guide) |
+| Maintain this wiki | [Wiki Maintenance Playbook](Wiki-Maintenance-Playbook) |
 
-## Canonical Guardrails
+## Repository Areas
 
-1. Main is canonical semantics, not implementation code.
-2. Full 9-bit state space (`F2^9`) is canonical.
-3. Canonical transition is XOR-by-codeword (`x' = x XOR c`).
-4. Branching is first-class.
-5. Diagnostics are mandatory across detection, recovery, escalation, and terminal halt.
-6. Planner/emitter materialization boundary is locked.
-
-## Primary Source Documents
-
-- [README.md](https://github.com/flynn33/ASH-Pattern-System/blob/main/README.md)
-- [docs/03-design-roadmap.md](https://github.com/flynn33/ASH-Pattern-System/blob/main/docs/03-design-roadmap.md)
-- [specs/core/codeword-set.pseudo.md](https://github.com/flynn33/ASH-Pattern-System/blob/main/specs/core/codeword-set.pseudo.md)
-- [specs/interfaces/semantic-contracts.md](https://github.com/flynn33/ASH-Pattern-System/blob/main/specs/interfaces/semantic-contracts.md)
-- [specs/verification/invariant-spec.md](https://github.com/flynn33/ASH-Pattern-System/blob/main/specs/verification/invariant-spec.md)
-- [governance/github-agents-governance.md](https://github.com/flynn33/ASH-Pattern-System/blob/main/governance/github-agents-governance.md)
+- `MaciOS/Sources/` - Swift semantic core and package orchestration code.
+- `MaciOS/Tests/` - XCTest coverage and canonical corpus fixtures.
+- `MaciOS/Package.swift` - Swift package manifest for iOS 16+ and macOS 14+.
+- `completion-evidence/` - macOS release-readiness evidence.
+- `completion-evidence/ios/` - iOS release-readiness evidence.

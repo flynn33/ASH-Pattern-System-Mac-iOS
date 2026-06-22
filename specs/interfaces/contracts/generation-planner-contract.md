@@ -35,7 +35,7 @@ The `GenerationPlanner` module is the single authority for:
 ### Abstract planning
 - The plan must describe what should be materialized without actually materializing it
 - The plan must be a complete, self-contained specification of the intended output
-- The plan must be inspectable — a human or downstream system must be able to review it before materialization
+- The plan must be inspectable — a human or receiving system must be able to review it before materialization
 
 ### Target-aware but non-materialized
 - The plan may incorporate target platform/runtime constraints to shape artifact descriptions
