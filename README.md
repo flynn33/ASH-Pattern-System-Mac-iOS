@@ -102,3 +102,10 @@ The Swift package semantic core is implemented, but signed platform release rema
 - missing simulator, device, install, upgrade, and removal matrices;
 - inactive hosted branch protection noted in the current evidence;
 - final owner-controlled release approval.
+
+## License
+
+Copyright 2026 James Daley
+
+This project is licensed under the Apache License, Version 2.0.
+See the [LICENSE](LICENSE) file for the full terms.
