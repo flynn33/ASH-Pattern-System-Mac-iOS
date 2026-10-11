@@ -1,0 +1,15 @@
+{
+  "invalid_vectors": [
+    {
+      "expected_failure": "STATE_SIGNATURE_PATTERN",
+      "path": "invalid-state-signature.json",
+      "schema": "schemas/1.0/ash-state.schema.json"
+    },
+    {
+      "expected_failure": "UNDECLARED_RULE_ID",
+      "path": "undeclared-rule-id.json",
+      "schema": "schemas/1.0/conformance-vector.schema.json"
+    }
+  ],
+  "version": "1.0"
+}

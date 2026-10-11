@@ -1,6 +1,6 @@
 import Foundation
 
-public protocol ASHDiagnosticsModuleProtocol: AnyObject {
+public protocol ASHDiagnosticsModuleProtocol: AnyObject, Sendable {
   func validateEnvelope(_ envelope: ASHDiagnosticEnvelope) -> ASHDiagnosticValidationResult
   func validateChain(_ chain: [ASHDiagnosticEnvelope]) -> ASHDiagnosticChainValidationResult
   func detectOmissions(

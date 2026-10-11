@@ -1,0 +1,25 @@
+{
+  "data": {
+    "chain_root_diagnostic_id": "APS-DIAG-29BDF38D1F32F89D98D60837",
+    "diagnostic_id": "APS-DIAG-29BDF38D1F32F89D98D60837",
+    "diagnostic_kind": "INPUT_VALIDATION",
+    "disposition": "RECORDED",
+    "notes": [
+      "The candidate has exactly nine binary coordinates and was preserved without coercion."
+    ],
+    "occurrence_metadata": null,
+    "parent_diagnostic_id": null,
+    "rule_ids": [
+      "ASH-DIAGNOSTIC-001"
+    ],
+    "schema_version": "1.0",
+    "sequence_number": 1,
+    "severity": "INFO",
+    "stage": "PARSE",
+    "subject_reference": "APS-CHAIN-MODERN-SAFETY",
+    "summary": "Candidate parsing succeeded"
+  },
+  "id": "APS-DIAG-29BDF38D1F32F89D98D60837",
+  "product_version": "1.0.0-rc.3",
+  "schema_version": "1.0"
+}

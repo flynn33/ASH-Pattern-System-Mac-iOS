@@ -1,281 +1,147 @@
 import Foundation
 
+/// Stateless validation of canonical records and their ordered causal occurrences.
 public final class ASHDiagnosticsModule: ASHDiagnosticsModuleProtocol {
-  private let ruleIDPattern = try! NSRegularExpression(
-    pattern: #"^ASH-(STATE|CODEWORD|ADMISSIBILITY|CLASSIFICATION|RECOVERY|FALLBACK|CONTAINMENT|HALT)-[A-Z0-9_]+-[0-9]{3}$"#
-  )
-
   public init() {}
 
   public func validateEnvelope(_ envelope: ASHDiagnosticEnvelope) -> ASHDiagnosticValidationResult {
     var issues: [ASHDiagnosticValidationIssue] = []
-
-    if envelope.diagnosticReference.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-      issues.append(
-        makeIssue(
-          code: "DIAG-MISSING-REFERENCE",
-          summary: "Diagnostic reference must be populated.",
-          notes: ["diagnostic_reference was empty."]
-        )
-      )
+    func reject(_ code: String, _ summary: String, _ note: String) {
+      issues.append(makeIssue(code: code, summary: summary, notes: [note]))
     }
-
-    if envelope.subjectReference.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-      issues.append(
-        makeIssue(
-          code: "DIAG-MISSING-SUBJECT",
-          summary: "Diagnostic subject reference must be populated.",
-          notes: ["subject_reference was empty."]
-        )
-      )
+    if envelope.schemaVersion != "1.0" {
+      reject("DIAG-SCHEMA-VERSION", "Unsupported diagnostic schema version.", "schema_version must be 1.0.")
     }
-
-    if envelope.chainRootReference.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-      issues.append(
-        makeIssue(
-          code: "DIAG-MISSING-ROOT",
-          summary: "Diagnostic chain root reference must be populated.",
-          notes: ["chain_root_reference was empty."]
-        )
-      )
+    if !isDiagnosticID(envelope.diagnosticReference) {
+      reject("DIAG-MISSING-REFERENCE", "Diagnostic identity must use the canonical SHA-256 format.", "Expected APS-DIAG- followed by 24 uppercase hexadecimal characters.")
     }
-
+    if envelope.diagnosticReference != envelope.expectedDiagnosticReference {
+      reject("DIAG-STALE-IDENTITY", "Diagnostic identity does not match its semantic payload.", "Identity covers nine semantic fields; occurrence and chain placement are excluded.")
+    }
+    if isBlank(envelope.subjectReference) {
+      reject("DIAG-MISSING-SUBJECT", "Diagnostic subject must be meaningful.", "subject_reference was empty or whitespace-only.")
+    }
+    if !isDiagnosticID(envelope.chainRootReference) {
+      reject("DIAG-MISSING-ROOT", "Diagnostic chain root must use a canonical identity.", "chain_root_diagnostic_id was missing or malformed.")
+    }
+    if let parent = envelope.parentDiagnosticReference, !isDiagnosticID(parent) {
+      reject("DIAG-MISSING-PARENT", "Diagnostic parent identity is malformed.", "parent_diagnostic_id must be null or a canonical identity.")
+    }
+    if envelope.sequenceNumber < 1 {
+      reject("DIAG-SEQUENCE", "Diagnostic sequence must be positive.", "sequence_number must be an integer greater than or equal to 1.")
+    }
     if envelope.ruleIDs.isEmpty {
-      issues.append(
-        makeIssue(
-          code: "DIAG-MISSING-RULE-IDS",
-          summary: "Diagnostics must include at least one rule ID.",
-          notes: ["rule_ids list was empty."]
-        )
-      )
-    } else {
-      for ruleID in envelope.ruleIDs where !isValidRuleID(ruleID) {
-        issues.append(
-          makeIssue(
-            code: "DIAG-INVALID-RULE-ID",
-            summary: "Rule ID '\(ruleID)' does not conform to taxonomy.",
-            notes: ["Expected ASH family taxonomy with three-digit suffix."]
-          )
-        )
-      }
+      reject("DIAG-MISSING-RULE-IDS", "Diagnostics require at least one rule ID.", "rule_ids was empty.")
     }
-
-    if envelope.summary.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-      issues.append(
-        makeIssue(
-          code: "DIAG-MISSING-SUMMARY",
-          summary: "Diagnostic summary must be populated.",
-          notes: ["summary was empty."]
-        )
-      )
+    for rule in envelope.ruleIDs where !isValidRuleID(rule) {
+      reject("DIAG-INVALID-RULE-ID", "Rule ID does not conform to canonical taxonomy.", "Rejected rule ID: \(rule).")
     }
-
-    if envelope.notes.isEmpty {
-      issues.append(
-        makeIssue(
-          code: "DIAG-MISSING-NOTES",
-          summary: "Diagnostic notes must include at least one entry.",
-          notes: ["notes list was empty."]
-        )
-      )
+    if isBlank(envelope.summary) {
+      reject("DIAG-MISSING-SUMMARY", "Diagnostic summary must be meaningful.", "summary was empty or whitespace-only.")
     }
-
-    if envelope.parentDiagnosticReference == nil {
-      if envelope.chainRootReference != envelope.diagnosticReference {
-        issues.append(
-          makeIssue(
-            code: "DIAG-ROOT-MISMATCH",
-            summary: "Root diagnostics must self-reference chain root.",
-            notes: ["Root diagnostic chain_root_reference must equal diagnostic_reference."]
-          )
-        )
-      }
-    } else if envelope.parentDiagnosticReference == envelope.diagnosticReference {
-      issues.append(
-        makeIssue(
-          code: "DIAG-PARENT-SELF-REFERENCE",
-          summary: "Diagnostic parent reference cannot point to itself.",
-          notes: ["parent_diagnostic_reference matched diagnostic_reference."]
-        )
-      )
+    if envelope.summary.contains("\r") || envelope.summary.contains("\n") {
+      reject("DIAG-MULTILINE-SUMMARY", "Diagnostic summary must be one line.", "summary contained a carriage return or newline.")
     }
-
-    return ASHDiagnosticValidationResult(
-      envelope: issues.isEmpty ? envelope : nil,
-      issues: issues
-    )
+    if envelope.notes.isEmpty || envelope.notes.contains(where: isBlank) {
+      reject("DIAG-MISSING-NOTES", "Every diagnostic note must be meaningful.", "notes must contain at least one nonblank explanatory entry and no blank entries.")
+    }
+    if !envelope.details.isPortable || envelope.occurrenceMetadata?.isPortable == false {
+      reject("DIAG-JSON-VALUE", "Diagnostic objects must have distinct scalar keys and portable values.", "Duplicate object keys are not valid canonical JSON.")
+    }
+    return ASHDiagnosticValidationResult(envelope: issues.isEmpty ? envelope : nil, issues: issues)
   }
 
   public func validateChain(_ chain: [ASHDiagnosticEnvelope]) -> ASHDiagnosticChainValidationResult {
-    guard !chain.isEmpty else {
-      let issue = makeIssue(
-        code: "DIAG-EMPTY-CHAIN",
-        summary: "Diagnostic chain cannot be empty.",
-        notes: ["No diagnostics were provided for validation."]
-      )
-      return ASHDiagnosticChainValidationResult(
-        validatedChain: [],
-        issues: [issue],
-        metaDiagnostics: [makeMetaDiagnostic(issue: issue, chainRootReference: "DIAG-CHAIN-EMPTY")]
-      )
-    }
-
     var issues: [ASHDiagnosticValidationIssue] = []
-    for envelope in chain {
-      let validation = validateEnvelope(envelope)
-      issues.append(contentsOf: validation.issues)
+    func reject(_ code: String, _ summary: String, _ notes: [String]) {
+      issues.append(makeIssue(code: code, summary: summary, notes: notes))
     }
-
-    let byReference = Dictionary(grouping: chain, by: \.diagnosticReference)
-    for (reference, entries) in byReference where entries.count > 1 {
-      issues.append(
-        makeIssue(
-          code: "DIAG-DUPLICATE-REFERENCE",
-          summary: "Duplicate diagnostic reference '\(reference)' detected.",
-          notes: ["diagnostic_reference values must be globally unique in a chain."]
-        )
-      )
+    guard let root = chain.first else {
+      let issue = makeIssue(code: "DIAG-EMPTY-CHAIN", summary: "Diagnostic chain cannot be empty.", notes: ["No records were supplied."])
+      return ASHDiagnosticChainValidationResult(validatedChain: [], issues: [issue], metaDiagnostics: [makeMetaDiagnostic(issue)])
     }
-
-    let references = Set(chain.map(\.diagnosticReference))
-    for envelope in chain {
-      if let parent = envelope.parentDiagnosticReference, !references.contains(parent) {
-        issues.append(
-          makeIssue(
-            code: "DIAG-MISSING-PARENT",
-            summary: "Diagnostic \(envelope.diagnosticReference) has missing parent '\(parent)'.",
-            notes: ["Every non-root diagnostic must reference an in-chain parent."]
-          )
-        )
+    if root.parentDiagnosticReference != nil || root.sequenceNumber != 1 {
+      reject("DIAG-INVALID-ROOT", "The first diagnostic must be the root occurrence.", ["Root requires null parent and sequence 1."])
+    }
+    var previousPhase: Int?
+    var occurrences: [String: Set<Int>] = [:]
+    for (index, record) in chain.enumerated() {
+      issues.append(contentsOf: validateEnvelope(record).issues)
+      if occurrences[record.diagnosticReference, default: []].contains(record.sequenceNumber) {
+        reject("DIAG-DUPLICATE-REFERENCE", "Duplicate diagnostic occurrence.", ["Identity and sequence pair repeats at index \(index)."])
       }
-    }
-
-    let rootReferences = Set(chain.map(\.chainRootReference))
-    if rootReferences.count != 1 {
-      issues.append(
-        makeIssue(
-          code: "DIAG-INCONSISTENT-ROOT",
-          summary: "Diagnostics in a single chain must share one chain root reference.",
-          notes: ["Observed roots: \(rootReferences.sorted().joined(separator: ", "))."]
-        )
-      )
-    }
-
-    let byID = Dictionary(uniqueKeysWithValues: chain.map { ($0.diagnosticReference, $0) })
-    for envelope in chain {
-      guard let parentReference = envelope.parentDiagnosticReference,
-        let parent = byID[parentReference] else {
-        continue
+      occurrences[record.diagnosticReference, default: []].insert(record.sequenceNumber)
+      if record.chainRootReference != root.diagnosticReference {
+        reject("DIAG-INCONSISTENT-ROOT", "All occurrences must reference the first diagnostic as root.", ["Invalid root at index \(index)."])
       }
-
-      if stageRank(for: envelope.stage) < stageRank(for: parent.stage) {
-        issues.append(
-          makeIssue(
-            code: "DIAG-STAGE-REGRESSION",
-            summary: "Diagnostic stages must be monotonic along the chain.",
-            notes: [
-              "child=\(envelope.diagnosticReference) stage=\(envelope.stage.rawValue)",
-              "parent=\(parent.diagnosticReference) stage=\(parent.stage.rawValue)"
-            ]
-          )
-        )
+      if record.sequenceNumber != index + 1 {
+        reject("DIAG-SEQUENCE", "Diagnostic occurrences must be consecutive and ordered.", ["Expected sequence \(index + 1) at index \(index); observed \(record.sequenceNumber)."])
       }
+      let phase = record.stage.safetyPhase
+      if index > 0 {
+        let parent = chain[index - 1]
+        if record.parentDiagnosticReference != parent.diagnosticReference {
+          reject("DIAG-MISSING-PARENT", "A child must reference its immediate predecessor.", ["Invalid parent at index \(index); orphan, cycle or multiple root detected."])
+        }
+        if record.severity.rank < parent.severity.rank {
+          reject("DIAG-SEVERITY-REGRESSION", "Severity cannot decrease within a causal chain.", ["Severity decreased at index \(index)."])
+        }
+        if parent.stage == .terminal || parent.stage == .halt || parent.diagnosticKind == .safeHalt || parent.disposition == .terminal {
+          reject("DIAG-TERMINAL-CHILD", "Terminal diagnostics forbid further occurrences.", ["Child at index \(index) follows a terminal parent."])
+        }
+        if phase == nil, let previousPhase, previousPhase >= 3 {
+          reject("DIAG-OPERATION-AFTER-CONTAINMENT", "Ordinary operations are forbidden after containment.", ["Operation stage \(record.stage.rawValue) at index \(index)."])
+        }
+        if let phase, let previousPhase, phase < previousPhase {
+          reject("DIAG-STAGE-REGRESSION", "Safety phases cannot move backwards.", ["Phase decreased at index \(index)."])
+        }
+        if phase == 3 && previousPhase != 3 && previousPhase != 1 && previousPhase != 2 {
+          reject("DIAG-CONTAINMENT-PRECONDITION", "Containment requires preceding assessment or recovery.", ["Invalid containment entry at index \(index)."])
+        }
+        if phase == 3 && previousPhase == 3 && record.diagnosticKind != .containment {
+          reject("DIAG-CONTAINMENT-KIND", "Containment management requires CONTAINMENT kind.", ["Invalid same-phase management at index \(index)."])
+        }
+        if phase == 4 && previousPhase != 2 && previousPhase != 3 {
+          reject("DIAG-HALT-PRECONDITION", "Halt requires preceding recovery or containment.", ["Invalid terminal entry at index \(index)."])
+        }
+      }
+      if let phase { previousPhase = phase }
     }
-
-    let sharedRoot = chain.first?.chainRootReference ?? "DIAG-CHAIN-UNKNOWN"
-    let metaDiagnostics = issues.map { makeMetaDiagnostic(issue: $0, chainRootReference: sharedRoot) }
-
-    return ASHDiagnosticChainValidationResult(
-      validatedChain: issues.isEmpty ? chain : [],
-      issues: issues,
-      metaDiagnostics: metaDiagnostics
-    )
+    return ASHDiagnosticChainValidationResult(validatedChain: issues.isEmpty ? chain : [], issues: issues, metaDiagnostics: issues.map(makeMetaDiagnostic))
   }
 
-  public func detectOmissions(
-    expectedDiagnosticReferences: [String],
-    actualChain: [ASHDiagnosticEnvelope],
-    chainRootReference: String
-  ) -> ASHDiagnosticEnvelope? {
+  /// Omission reports are standalone validation records, outside the preserved input chain.
+  public func detectOmissions(expectedDiagnosticReferences: [String], actualChain: [ASHDiagnosticEnvelope], chainRootReference: String) -> ASHDiagnosticEnvelope? {
     let actual = Set(actualChain.map(\.diagnosticReference))
-    let missing = expectedDiagnosticReferences
-      .filter { !actual.contains($0) }
-      .sorted()
+    let missing = Set(expectedDiagnosticReferences.filter { !actual.contains($0) }).sorted()
+    guard !missing.isEmpty else { return nil }
+    return .canonical(kind: .schemaValidation, severity: .error, stage: .validate, disposition: .blocked,
+      subject: "diagnostic-chain", ruleIDs: ["ASH-DIAGNOSTIC-001"], summary: "Diagnostic chain omission detected.",
+      notes: ["Expected occurrences are missing; the original chain was preserved."],
+      details: ["missing": .array(missing.map(ASHDiagnosticValue.string)), "reported_chain_root": .string(chainRootReference)])
+  }
 
-    guard !missing.isEmpty else {
-      return nil
+  private func makeIssue(code: String, summary: String, notes: [String]) -> ASHDiagnosticValidationIssue {
+    .init(code: code, summary: summary, ruleIDs: ["ASH-DIAGNOSTIC-001"], notes: notes)
+  }
+  private func makeMetaDiagnostic(_ issue: ASHDiagnosticValidationIssue) -> ASHDiagnosticEnvelope {
+    .canonical(kind: .schemaValidation, severity: .error, stage: .validate, disposition: .blocked,
+      subject: "diagnostic-chain", ruleIDs: issue.ruleIDs, summary: issue.summary, notes: issue.notes,
+      details: ["validation_code": .string(issue.code)])
+  }
+  private func isDiagnosticID(_ value: String) -> Bool {
+    let bytes = Array(value.utf8)
+    return bytes.count == 33 && bytes.prefix(9).elementsEqual("APS-DIAG-".utf8) && bytes.dropFirst(9).allSatisfy { (48...57).contains($0) || (65...70).contains($0) }
+  }
+  private func isValidRuleID(_ value: String) -> Bool {
+    let pattern = #"^ASH-(?:INPUT|STATE|CODEWORD|ORBIT|REALM|TRANSITION|TOPOLOGY|AXIOM|CLASSIFICATION|RECOVERY|FALLBACK|CONTAINMENT|HALT|GENERATION|EMISSION|DIAGNOSTIC|CONFORMANCE|RELEASE|SECURITY|ADMISSIBILITY)(?:-[A-Z]+)*-[0-9]{3}$"#
+    guard let range = value.range(of: pattern, options: .regularExpression) else { return false }
+    return range.lowerBound == value.startIndex && range.upperBound == value.endIndex
+  }
+  private func isBlank(_ value: String) -> Bool {
+    value.unicodeScalars.allSatisfy { scalar in
+      let c = scalar.value
+      return (9...13).contains(c) || (28...32).contains(c) || c == 0x85 || c == 0xA0 || c == 0x1680 || (0x2000...0x200A).contains(c) || c == 0x2028 || c == 0x2029 || c == 0x202F || c == 0x205F || c == 0x3000
     }
-
-    let signature = missing.joined(separator: "-")
-    let diagnosticReference = "DIAG-META-OMISSION-\(signature)"
-    let parentReference = actualChain.last?.diagnosticReference
-    let resolvedRootReference = parentReference == nil ? diagnosticReference : chainRootReference
-
-    return ASHDiagnosticEnvelope(
-      diagnosticReference: diagnosticReference,
-      diagnosticKind: .meta,
-      severity: .error,
-      stage: .escalation,
-      disposition: .blocked,
-      subjectReference: "diagnostic-chain",
-      parentDiagnosticReference: parentReference,
-      chainRootReference: resolvedRootReference,
-      ruleIDs: ["ASH-RECOVERY-DIAGNOSTICS-001"],
-      summary: "Diagnostic chain omission detected.",
-      notes: ["Missing diagnostic references: \(missing.joined(separator: ", "))."]
-    )
-  }
-
-  private func isValidRuleID(_ ruleID: String) -> Bool {
-    let range = NSRange(location: 0, length: ruleID.utf16.count)
-    return ruleIDPattern.firstMatch(in: ruleID, options: [], range: range) != nil
-  }
-
-  private func stageRank(for stage: ASHDiagnosticStage) -> Int {
-    switch stage {
-    case .detection:
-      return 0
-    case .classification:
-      return 1
-    case .recovery:
-      return 2
-    case .escalation:
-      return 3
-    case .terminal:
-      return 4
-    }
-  }
-
-  private func makeIssue(
-    code: String,
-    summary: String,
-    notes: [String]
-  ) -> ASHDiagnosticValidationIssue {
-    ASHDiagnosticValidationIssue(
-      code: code,
-      summary: summary,
-      ruleIDs: ["ASH-RECOVERY-DIAGNOSTICS-001"],
-      notes: notes
-    )
-  }
-
-  private func makeMetaDiagnostic(
-    issue: ASHDiagnosticValidationIssue,
-    chainRootReference: String
-  ) -> ASHDiagnosticEnvelope {
-    let diagnosticReference = "DIAG-META-\(issue.code)"
-    return ASHDiagnosticEnvelope(
-      diagnosticReference: diagnosticReference,
-      diagnosticKind: .meta,
-      severity: .error,
-      stage: .escalation,
-      disposition: .blocked,
-      subjectReference: "diagnostic-chain",
-      parentDiagnosticReference: nil,
-      chainRootReference: chainRootReference == "DIAG-CHAIN-EMPTY" ? diagnosticReference : chainRootReference,
-      ruleIDs: issue.ruleIDs,
-      summary: issue.summary,
-      notes: issue.notes
-    )
   }
 }

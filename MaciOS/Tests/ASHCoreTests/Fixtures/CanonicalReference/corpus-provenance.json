@@ -1,0 +1,221 @@
+{
+  "acquisitionScript": "tools/acquire_canonical_corpus.py",
+  "acquisitionScriptSha256": "51a9d21acb8483fd29f670b954d5d33b262c65ea27d6f3d303f85fe9c0dfae5b",
+  "assets": [
+    {
+      "fixturePath": "Corpus/averaging.jsonl",
+      "sha256": "4cfa0476f6b246d4e977c25fd7d2deb1ed3662c3084b4fe0faf8a26b45e3eb5d",
+      "sizeBytes": 275735,
+      "sourcePath": "conformance/1.0/vectors/averaging.jsonl",
+      "vectorCount": 545
+    },
+    {
+      "fixturePath": "Corpus/axioms.jsonl",
+      "sha256": "fdbd0d34cbbd11195e473a7b5131df6d1c63f3a53cb42bedad79db0873ee6ee0",
+      "sizeBytes": 793,
+      "sourcePath": "conformance/1.0/vectors/axioms.jsonl",
+      "vectorCount": 3
+    },
+    {
+      "fixturePath": "Corpus/codewords.jsonl",
+      "sha256": "a1360d6d8d1f3bbced6379f0094e816428f66ee7c4c3f9210eaa7be38e389781",
+      "sizeBytes": 5909,
+      "sourcePath": "conformance/1.0/vectors/codewords.jsonl",
+      "vectorCount": 16
+    },
+    {
+      "fixturePath": "Corpus/containment.jsonl",
+      "sha256": "3963c87e559267f74aab826af60beff3a38976f107baa58f8b9a5c8b20bf71e6",
+      "sizeBytes": 1717,
+      "sourcePath": "conformance/1.0/vectors/containment.jsonl",
+      "vectorCount": 3
+    },
+    {
+      "fixturePath": "Corpus/diagnostic-chains.jsonl",
+      "sha256": "498e8d88d535985ee11bfcef4dd7f6b1017cbc167d969b7de939b3b06dde1741",
+      "sizeBytes": 29624,
+      "sourcePath": "conformance/1.0/vectors/diagnostic-chains.jsonl",
+      "vectorCount": 5
+    },
+    {
+      "fixturePath": "Corpus/diagnostics.jsonl",
+      "sha256": "66f14244354e0ef052f90ece5f9f80ec613d9efa804fa3ca2c15a714efd58376",
+      "sizeBytes": 17668,
+      "sourcePath": "conformance/1.0/vectors/diagnostics.jsonl",
+      "vectorCount": 14
+    },
+    {
+      "fixturePath": "Corpus/fallback.jsonl",
+      "sha256": "fb7155d61d9563ca15830f024034f0c81a9bfbc2df61b7d6cdd1314a4f091318",
+      "sizeBytes": 947,
+      "sourcePath": "conformance/1.0/vectors/fallback.jsonl",
+      "vectorCount": 3
+    },
+    {
+      "fixturePath": "Corpus/generation-plans.jsonl",
+      "sha256": "3a864dbb9cd898ab06f6b6af675cc3e99de52599f93151cfe581be6b6949015a",
+      "sizeBytes": 943,
+      "sourcePath": "conformance/1.0/vectors/generation-plans.jsonl",
+      "vectorCount": 3
+    },
+    {
+      "fixturePath": "Corpus/materialization-boundary.jsonl",
+      "sha256": "1f3e56be2587f17edd7893235191aa748c1d7ed7ff42b9ea8102b76fb424701b",
+      "sizeBytes": 653,
+      "sourcePath": "conformance/1.0/vectors/materialization-boundary.jsonl",
+      "vectorCount": 2
+    },
+    {
+      "fixturePath": "Corpus/reachability.jsonl",
+      "sha256": "39b82a99273834ef699cd650203abfae8f7e3bf835b2e43b2775a37fa9b90b64",
+      "sizeBytes": 315392,
+      "sourcePath": "conformance/1.0/vectors/reachability.jsonl",
+      "vectorCount": 512
+    },
+    {
+      "fixturePath": "Corpus/realm-identities.jsonl",
+      "sha256": "31fa01998c6b44f1f77668059df8145b7507d4d16c9f2d230f9b2f2f9516f4c0",
+      "sizeBytes": 193426,
+      "sourcePath": "conformance/1.0/vectors/realm-identities.jsonl",
+      "vectorCount": 512
+    },
+    {
+      "fixturePath": "Corpus/recovery.jsonl",
+      "sha256": "86d1b68c7d7ec35fac3c322869d90c9f38a33e534990e6cb162abc0687048f40",
+      "sizeBytes": 910,
+      "sourcePath": "conformance/1.0/vectors/recovery.jsonl",
+      "vectorCount": 3
+    },
+    {
+      "fixturePath": "Corpus/safe-halt.jsonl",
+      "sha256": "fc120f9381e34d1818393f5beda43f1375f670e0a25a5a746b7ba39673bbada5",
+      "sizeBytes": 864,
+      "sourcePath": "conformance/1.0/vectors/safe-halt.jsonl",
+      "vectorCount": 2
+    },
+    {
+      "fixturePath": "Corpus/state-assessments.jsonl",
+      "sha256": "aa6461037ebd33ae0bd9936e21424bb97d995708ccc6640b0c6f4dc5569c168b",
+      "sizeBytes": 2032,
+      "sourcePath": "conformance/1.0/vectors/state-assessments.jsonl",
+      "vectorCount": 6
+    },
+    {
+      "fixturePath": "Corpus/states.jsonl",
+      "sha256": "37c9b985928d3c853571a0a7db38dd784e1e16bfa97bac8a15d9a16df1103f3d",
+      "sizeBytes": 205202,
+      "sourcePath": "conformance/1.0/vectors/states.jsonl",
+      "vectorCount": 512
+    },
+    {
+      "fixturePath": "Corpus/topology.jsonl",
+      "sha256": "36b590e34d6d1c50c0cd49f04edfe77377fd0b3b3dacb9b4c3466901f01f3d7c",
+      "sizeBytes": 422400,
+      "sourcePath": "conformance/1.0/vectors/topology.jsonl",
+      "vectorCount": 7
+    },
+    {
+      "fixturePath": "Corpus/transformations.jsonl",
+      "sha256": "20067082c3034a87ed072df17be28756848ed9813833bae9a532ead70a1ecab6",
+      "sizeBytes": 3596288,
+      "sourcePath": "conformance/1.0/vectors/transformations.jsonl",
+      "vectorCount": 8192
+    },
+    {
+      "fixturePath": "Corpus/corpus-manifest.json",
+      "sha256": "ed750977f91c31c66fa438f938d5313b897f8cac408bf68de0afb58a6ebef434",
+      "sizeBytes": 3719,
+      "sourcePath": "conformance/1.0/manifest.json"
+    },
+    {
+      "fixturePath": "Corpus/corpus-SHA256SUMS",
+      "sha256": "f0baee1cdda5ba2e3498cfc25426f0e0fe134e515870c6bfadea725b9a629b6f",
+      "sizeBytes": 2034,
+      "sourcePath": "conformance/1.0/SHA256SUMS"
+    },
+    {
+      "fixturePath": "Invalid/invalid-state-signature.json",
+      "sha256": "593699c70e7f30b57b604760be7650db8d58f86a2c0a1b0bc5590e656a745d6c",
+      "sizeBytes": 32,
+      "sourcePath": "conformance/1.0/invalid/invalid-state-signature.json"
+    },
+    {
+      "fixturePath": "Invalid/undeclared-rule-id.json",
+      "sha256": "dbdaede72b17cb18db8fd3ad7d9fadb56ef6d2ac753b54eeafcbc773ae3d417a",
+      "sizeBytes": 46,
+      "sourcePath": "conformance/1.0/invalid/undeclared-rule-id.json"
+    },
+    {
+      "fixturePath": "Invalid/invalid-vector-manifest.json",
+      "sha256": "a2b538e86d0986e0c68949bcd58f582af7046bcbceaa0d2a400b2af32135015a",
+      "sizeBytes": 377,
+      "sourcePath": "conformance/1.0/invalid/manifest.json"
+    },
+    {
+      "fixturePath": "Invalid/diagnostic-empty-notes.json",
+      "sha256": "00ef551c6f1bf9deee8f7039a6744d7d84a001bcc92805d919fb5a3296a66191",
+      "sizeBytes": 754,
+      "sourcePath": "examples/invalid/diagnostic-empty-notes.json"
+    },
+    {
+      "fixturePath": "Invalid/diagnostic-missing-details.json",
+      "sha256": "2309f12a80873a072327c62cf914099cfe70fe5f5e67088571c95f3001f8e52d",
+      "sizeBytes": 761,
+      "sourcePath": "examples/invalid/diagnostic-missing-details.json"
+    },
+    {
+      "fixturePath": "Invalid/invalid-example-manifest.json",
+      "sha256": "fd1ef5dffd83e086e9bad60f47b61db12fa296ef00421fcc11be8ae8403d97ba",
+      "sizeBytes": 583,
+      "sourcePath": "examples/invalid/manifest.json"
+    },
+    {
+      "fixturePath": "Corpus/fallback-policy-definitions.json",
+      "sha256": "c48ab7ea22723fbc323ce812ca90ca57ce7de824ce28036cc064a46de5b03e30",
+      "sizeBytes": 940,
+      "sourcePath": "canonical-data/1.0/fallback-policy-definitions.json"
+    },
+    {
+      "fixturePath": "Corpus/rule-registry.json",
+      "sha256": "13b7dfe259a7dbf4760fb44a8c18fca9f6a61b6cc030b7bc29c0b17aa22bb03f",
+      "sizeBytes": 4632,
+      "sourcePath": "canonical-data/1.0/rule-registry.json"
+    }
+  ],
+  "generatorCommands": [
+    "tools/product/generate_canonical_data.py",
+    "tools/product/generate_conformance_corpus.py"
+  ],
+  "generatorFiles": [
+    {
+      "sha256": "6bb1a8d37c54fa9f8489c88f9dbc36897ffb1c6ff8b4402a88c306fdf2bff6a8",
+      "sourcePath": "tools/product/__init__.py"
+    },
+    {
+      "sha256": "2e7c14a68a7934e4006513ae81ae8d7b79d46550bdf4f180fa23c359e4746614",
+      "sourcePath": "tools/product/aps_product.py"
+    },
+    {
+      "sha256": "04dffaa3014f2f0adde8a5cf2fd62c36447835642fcf22ee26763413fdf65e72",
+      "sourcePath": "tools/product/diagnostic_contract.py"
+    },
+    {
+      "sha256": "4a255fc937e87320d4c2da72c7c18091ee1a5cca1568b459b27dd1cf2c725545",
+      "sourcePath": "tools/product/cli.py"
+    },
+    {
+      "sha256": "07d4e88a8aff7ceab7afd38cfe538571e5fd161c4f04c70d33d71d34d6aa1cfc",
+      "sourcePath": "tools/product/generate_canonical_data.py"
+    },
+    {
+      "sha256": "370928adf67a9f9faac8fd9bc0794b098f314cbcc7d3e1bf9103a063b020a77b",
+      "sourcePath": "tools/product/generate_conformance_corpus.py"
+    }
+  ],
+  "generatorReproduction": "Exact pinned-byte comparison for every mapped generated JSON/JSONL artifact.",
+  "productVersion": "1.0.0-rc.3",
+  "schemaVersion": "1.0",
+  "scope": "Explicit raw XCTest fixtures; excluded from runtime products and SDK payloads.",
+  "sourceCommit": "50d7e5ab88932a4a967ffc2c83bd18fae45b73c8",
+  "sourceRepository": "https://github.com/flynn33/ASH-Pattern-System"
+}

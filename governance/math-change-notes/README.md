@@ -1,3 +1,5 @@
+> Historical canonical-repository process reference retained from the pre-SDK baseline. The Math Integrity Agent and PR labels described below belong to the separate canonical authority; the Apple producer currently has only the two attribution workflows documented in governance/github-agents-governance.md. Current semantic bindings and reviewed change discipline are in docs/sdk-authority-and-conformance.md and governance/repository-governance.md.
+
 # Math Change Notes
 
 This directory holds the change notes that the Math Integrity Agent requires when any math-critical file in the canonical ASH Pattern System repository is edited.

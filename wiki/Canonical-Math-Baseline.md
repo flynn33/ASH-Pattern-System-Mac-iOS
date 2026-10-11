@@ -24,7 +24,7 @@ The canonical codeword set `C` is fully closed and fixed.
 - Weight distribution: `{0: 1, 4: 14, 8: 1}`
 - Orbit count: `512 / 16 = 32`
 
-Reference: `specs/core/codeword-set.pseudo.md`
+Reference: immutable canonical 1.0.0-rc.3 at `50d7e5ab88932a4a967ffc2c83bd18fae45b73c8`; local spec bodies are historical. SDK version is independently 1.0.0-rc.1.
 
 ## Critical Invariants
 

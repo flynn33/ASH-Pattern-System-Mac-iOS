@@ -60,4 +60,12 @@ final class ASHAxiomEvaluatorTests: XCTestCase {
       ])
     )
   }
+  func testMissingAndNegativeMeasurementIsIndeterminateWithoutInventingEvidence() {
+    for subject in [ASHAxiomSubject(), ASHAxiomSubject(relationCount:-1)] {
+      let result = evaluator.evaluate(subject:subject)
+      XCTAssertEqual(result.status,.indeterminate)
+      XCTAssertFalse(result.overallPass)
+      XCTAssertEqual(result.results.first?.status,.indeterminate)
+    }
+  }
 }

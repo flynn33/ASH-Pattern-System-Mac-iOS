@@ -13,7 +13,7 @@ public struct ASHPatternSystemEngineConfiguration: Codable, Hashable, Sendable {
 
   public init(
     topologyDepth: Int = 1,
-    topologySeedToken: String = "F"
+    topologySeedToken: String = "R"
   ) {
     self.topologyDepth = topologyDepth
     self.topologySeedToken = topologySeedToken

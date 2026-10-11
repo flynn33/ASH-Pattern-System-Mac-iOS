@@ -1,34 +1,7 @@
-# Platform Implementation Guide
+# Apple platform guide — 1.0.0-rc.1
 
-This page summarizes the Apple-platform implementation deliverables for the Mac/iOS edition.
+Native Swift source is shared by both manifests and explicit library-evolution framework targets. Runtime dependencies are Apple native modules; per-framework PrivacyInfo.xcprivacy resources cover reviewed SDK behavior. The caller owns context, product UI, signing, permissions, support destinations and any upload.
 
-## Required Deliverables
+Archives include macOS arm64/x86_64, device arm64 and simulator arm64/x86_64. Actual native arm64 host/simulator execution is distinguished from cross-build/interface checks. Minimum deployment metadata does not prove oldest-system compatibility. Sample simulator ad-hoc signing is distinct from unsigned publisher frameworks and physical-device signing.
 
-The repository should maintain:
-
-1. module mapping evidence;
-2. SwiftPM build and test evidence;
-3. Xcode package-scheme build evidence for macOS and iOS;
-4. diagnostics conformance evidence;
-5. materialization-boundary evidence;
-6. deviation and blocker evidence;
-7. macOS and iOS acceptance judgments;
-8. signing, archive, distribution, install, accessibility, security, and release evidence when product targets exist.
-
-## Template Sources
-
-- `handoff-templates/common-platform-handoff-requirements.md`
-- `handoff-templates/desktop-implementation-handoff-template.md`
-- `handoff-templates/mobile-implementation-handoff-template.md`
-- `handoff-templates/service-implementation-handoff-template.md`
-
-## Platform Principles
-
-1. Templates define structure and evidence, not new APS behavior.
-2. macOS and iOS release claims must be backed by platform evidence.
-3. Conformance evidence must map to APS invariants and contracts.
-4. Deviation and blocker records are mandatory when release evidence is missing.
-
-## Current Boundaries
-
-The repository currently provides Swift libraries and tests. App targets, signing, archive/export workflows, notarization, App Store/TestFlight distribution, accessibility audits, and install/device matrices remain release blockers.
+[Compatibility](https://github.com/flynn33/ASH-Pattern-System-Mac-iOS/blob/v1.0.0-rc.1/docs/sdk-compatibility.md), [security/privacy](https://github.com/flynn33/ASH-Pattern-System-Mac-iOS/blob/v1.0.0-rc.1/docs/sdk-security.md) and [owner validation](https://github.com/flynn33/ASH-Pattern-System-Mac-iOS/blob/v1.0.0-rc.1/docs/sdk-owner-validation.md) identify actual toolchain, environment gaps and the hardware procedure.

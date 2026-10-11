@@ -6,19 +6,25 @@ public struct ASHTargetRuntimeConstraints: Codable, Hashable, Sendable {
   public let profileID: String
   public let emissionTargetKind: String
   public let capabilityTags: [String]
+  public let namingPolicyID: String
+  public let registryVersions: [String:String]
 
   public init(
     platform: String = "APPLE",
     runtime: String = "NATIVE",
     profileID: String = "DEFAULT",
     emissionTargetKind: String = "IN_MEMORY",
-    capabilityTags: [String] = []
+    capabilityTags: [String] = [],
+    namingPolicyID: String = "ORDINAL",
+    registryVersions: [String:String] = ["profiles":"1.0", "naming":"1.0", "targets":"1.0"]
   ) {
     self.platform = platform
     self.runtime = runtime
     self.profileID = profileID
     self.emissionTargetKind = emissionTargetKind
     self.capabilityTags = capabilityTags.sorted()
+    self.namingPolicyID = namingPolicyID
+    self.registryVersions = registryVersions
   }
 }
 
@@ -46,7 +52,8 @@ public struct ASHRoleAssignment: Codable, Hashable, Sendable {
 
 public struct ASHAxiomSummary: Codable, Hashable, Sendable {
   public let axiomID: ASHAxiomID
-  public let passed: Bool
+  public let status: ASHAxiomStatus
+  public var passed: Bool { status == .pass }
   public let explanation: String
   public let ruleIDs: [String]
 
@@ -57,9 +64,12 @@ public struct ASHAxiomSummary: Codable, Hashable, Sendable {
     ruleIDs: [String]
   ) {
     self.axiomID = axiomID
-    self.passed = passed
+    self.status = passed ? .pass : .fail
     self.explanation = explanation
     self.ruleIDs = ruleIDs
+  }
+  public init(axiomID: ASHAxiomID, status: ASHAxiomStatus, explanation: String, ruleIDs: [String]) {
+    self.axiomID = axiomID; self.status = status; self.explanation = explanation; self.ruleIDs = ruleIDs
   }
 }
 

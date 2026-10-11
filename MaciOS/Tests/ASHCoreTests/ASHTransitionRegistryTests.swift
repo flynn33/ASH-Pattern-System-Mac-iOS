@@ -73,24 +73,22 @@ final class ASHTransitionRegistryTests: XCTestCase {
     XCTAssertEqual(failure?.reason, .codewordNotAllowed)
   }
 
-  func testStateSpecificApplicabilityCanRejectTransition() {
-    let registry = ASHTransitionRegistry(
-      stateModel: stateModel,
-      orderedTransitions: [
-        ASHTransitionDefinition(
-          transitionID: "restricted",
-          displayName: "Restricted Transition",
-          description: "Requires b0 to be set",
-          codeword: .zero,
-          applicability: .requireBitSet(0)
-        )
-      ]
-    )
-
-    let stateWithB0Clear = ASHState(bitString: "000000000")!
-    let result = registry.applyTransition(from: stateWithB0Clear, transitionID: "restricted")
-    let failure = try? XCTUnwrap(result.failureDiagnostic)
-
-    XCTAssertEqual(failure?.reason, .transitionNotApplicable)
+  func testMalformedInjectedRegistriesThrowInsteadOfTrapping() throws {
+    let canonical = ASHTransitionRegistry(stateModel: stateModel).orderedTransitions
+    for invalid in [[], Array(canonical.dropLast()), canonical + [canonical[0]], [canonical[0], canonical[0]]] {
+      XCTAssertThrowsError(try ASHTransitionRegistry(stateModel: stateModel, validatingTransitions: invalid))
+    }
+    var duplicateID = canonical
+    duplicateID[1] = ASHTransitionDefinition(transitionID: canonical[0].transitionID, displayName: "Duplicate", description: "Contradictory ID", codeword: canonical[1].codeword)
+    XCTAssertThrowsError(try ASHTransitionRegistry(stateModel: stateModel, validatingTransitions: duplicateID))
+    var arbitraryWord = canonical
+    arbitraryWord[0] = ASHTransitionDefinition(transitionID: canonical[0].transitionID, displayName: "Wrong word", description: "Not canonical", codeword: ASHState(rawValue: 1)!)
+    XCTAssertThrowsError(try ASHTransitionRegistry(stateModel: stateModel, validatingTransitions: arbitraryWord))
+    var alteredApplicability = canonical
+    alteredApplicability[0] = ASHTransitionDefinition(transitionID: canonical[0].transitionID, displayName: "Altered applicability", description: "Not the canonical registry", codeword: .zero, applicability: .requireBitSet(-1))
+    XCTAssertThrowsError(try ASHTransitionRegistry(stateModel: stateModel, validatingTransitions: alteredApplicability))
+    XCTAssertFalse(ASHTransitionApplicability.requireBitSet(-1).isApplicable(to: .zero))
+    let reordered = try ASHTransitionRegistry(stateModel: stateModel, validatingTransitions: Array(canonical.reversed()))
+    XCTAssertEqual(reordered.orderedTransitions, canonical)
   }
 }

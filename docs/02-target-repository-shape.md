@@ -1,65 +1,7 @@
-# Target Repository Shape
+# Repository shape — 1.0.0-rc.1
 
-## Mac/iOS Edition Structure
+Root `Package.swift` and `MaciOS/Package.swift` compile the same public graph. `MaciOS/Sources/ASHCore` owns the core services and diagnostic profiles. `MaciOS/Sources/ASHOrchestration` supplies the public ASHPatternSystem module. `MaciOS/ASHSDK.xcodeproj` lists those same production files explicitly; shared framework schemes archive every required platform. Resources include each module's privacy manifest.
 
-```text
-ash-pattern-system-mac-ios/
-├── README.md
-├── docs/
-│   ├── 00-repository-purpose.md
-│   ├── 01-design-philosophy.md
-│   ├── 02-target-repository-shape.md
-│   └── 03-design-roadmap.md
-├── MaciOS/
-│   ├── Package.swift
-│   ├── README.md
-│   ├── Sources/
-│   │   ├── ASHCore/
-│   │   └── ASHPatternSystem/
-│   └── Tests/
-│       ├── ASHCoreTests/
-│       └── ASHPatternSystemTests/
-├── specs/
-│   ├── core/
-│   ├── algorithms/
-│   ├── interfaces/
-│   ├── registries/
-│   └── verification/
-├── handoff-templates/
-└── completion-evidence/
-    └── ios/
-```
+`MaciOS/Tests` contains public-surface XCTest and precisely acquired immutable canonical fixtures. `tools/acquire_canonical_corpus.py` records raw source and adapter identity. `Examples/SDKConsumer` contains product-owned public-only native and command-line verification. `tools/sdk` builds, curates and checks the SDK and consumers.
 
-## Structural Rules
-
-### `docs/`
-
-Contains repository-level Mac/iOS Edition documentation: purpose, design philosophy, repository shape, and roadmap.
-
-### `MaciOS/`
-
-Contains the Swift package. `Package.swift` defines the `ASHCore` and `ASHPatternSystem` library products, platform minimums, targets, and test resources.
-
-### `MaciOS/Sources/`
-
-Contains native Swift implementation code. `ASHCore` owns the semantic modules. `ASHPatternSystem` provides the composition root.
-
-### `MaciOS/Tests/`
-
-Contains XCTest coverage and canonical corpus fixtures used to verify realms, orbits, codewords, transitions, transformations, and public-record round trips.
-
-### `specs/`
-
-Contains APS semantic contract material bundled with this repository for implementation reference. These files describe the behavior the Swift implementation must preserve.
-
-### `handoff-templates/`
-
-Contains Apple platform implementation reference checklists for the active macOS and iOS target classes. Service/backend deployment is out of scope for this repository.
-
-### `completion-evidence/`
-
-Contains macOS completion and release-readiness evidence at the root, with iOS-specific evidence under `completion-evidence/ios/`.
-
-## Exclusions From This Repository Shape
-
-The Mac/iOS edition should not add unrelated platform implementations, service packaging, third-party runtime frameworks, or product claims that cannot be verified by macOS or iOS evidence.
+`docs` and `wiki` contain current SDK information. `specs` and `handoff-templates` preserve historical reference; their banners point to current external authority. `completion-evidence` preserves previous dated receipts. The instruction package, raw runtime evidence, full canonical/policy checkouts, archive stages and release assets live outside the product source and curated payload.

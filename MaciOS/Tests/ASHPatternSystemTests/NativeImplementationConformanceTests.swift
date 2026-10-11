@@ -29,8 +29,12 @@ final class NativeImplementationConformanceTests: XCTestCase {
         && fileURL.pathComponents.contains("Fixtures")
         && fileURL.pathComponents.contains("CanonicalReference")
 
+      let isSDKPrivacyManifest = fileURL.lastPathComponent == "PrivacyInfo.xcprivacy"
+        && fileURL.pathComponents.contains("Resources")
+        && fileURL.pathComponents.contains("Sources")
+      let isCanonicalCorpusChecksum = fileURL.path.hasSuffix("/Tests/ASHCoreTests/Fixtures/CanonicalReference/Corpus/corpus-SHA256SUMS")
       XCTAssertTrue(
-        allowedExtensions.contains(ext) || isCanonicalJSONLFixture,
+        allowedExtensions.contains(ext) || isCanonicalJSONLFixture || isSDKPrivacyManifest || isCanonicalCorpusChecksum,
         "Disallowed file type detected: \(fileURL.path)"
       )
     }
@@ -42,6 +46,7 @@ final class NativeImplementationConformanceTests: XCTestCase {
 
     let allowedImports: Set<String> = [
       "Foundation",
+      "Darwin",
       "XCTest",
       "PackageDescription",
       "SwiftUI",

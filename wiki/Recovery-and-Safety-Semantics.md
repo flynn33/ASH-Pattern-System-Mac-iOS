@@ -1,52 +1,9 @@
-# Recovery and Safety Semantics
+# Recovery and safety semantics — 1.0.0-rc.1
 
-The ASH model is resilient because it defines deterministic behavior for recovery, fallback, containment, and terminal halt.
+All 512 states are structurally valid and normalize without realm mutation. Operational classification requires a validated context: STABLE, CORRECTABLE, UNSTABLE, DEGRADED, CONTAINED, FAILED and SAFE_HALT remain distinct. Multiple unselected reachable targets block recovery; no hidden target heuristic is used.
 
-## Canonical System-State Classes
+Correction applies the selected canonical codeword and reassesses immediately. Replacement fallback uses explicit ordered policy evidence, records attempted candidate and failed post assessment, and escalates when no validated replacement exists. Containment restricts transitions while allowing diagnostics/inspection/external-resolution recording. Prevented attempts do not prove breach; inconsistent observations are rejected. Confirmed propagation despite restrictions freezes terminal SAFE_HALT with the full chain.
 
-| Class | Meaning | Action category |
-|---|---|---|
-| `STABLE` | Healthy valid state | `NO_ACTION` |
-| `UNSTABLE` | Transformation-compatible, needs normalization | `NORMALIZE_STATE` |
-| `CORRECTABLE` | Known correction path exists | `APPLY_CORRECTION` |
-| `DEGRADED` | Incompatible or ambiguous correction | `FALLBACK_REQUIRED` |
-| `CONTAINED` | Restricted mode to prevent propagation | `CONTAINMENT_REQUIRED` |
-| `FAILED` | No automated recovery path | `ESCALATION_REQUIRED` |
-| `SAFE_HALT` | Intentional terminal state | `TERMINAL_NO_RECOVERY` |
+Snapshots expose full canonical containment/halt wrappers, original/action records, once-stored times and immutable terminal data. Every subsequent mutation entry returns the same frozen snapshot. Current context always supports containment, so the special UNRESOLVABLE_BLOCKED_RECOVERY no-containment trigger is refused; operator/policy halt remains available. The SDK does not terminate the host process.
 
-## Deterministic Escalation Flow
-
-```mermaid
-flowchart LR
-    A[State diagnostic] --> B{Class}
-    B -->|STABLE| C[No action]
-    B -->|UNSTABLE or CORRECTABLE| D[Normalize or correct]
-    B -->|DEGRADED| E[Fallback selection]
-    E -->|No valid fallback| F[Containment]
-    F -->|Containment breach or halt policy| G[Safe halt]
-    B -->|FAILED| H[Escalate to authority]
-    H --> G
-```
-
-## Required Recovery Properties
-
-1. Deterministic class-to-recovery mapping.
-2. No silent healing.
-3. Fallback only through canonical registry policy ordering.
-4. Monotonic escalation.
-5. SAFE_HALT is terminal and non-reversible.
-
-## Diagnostic Chain Requirement
-
-Every stage must emit diagnostics conforming to:
-
-- Shared envelope (`specs/interfaces/diagnostic-schema.md`)
-- Canonical rule-ID taxonomy (`specs/interfaces/rule-id-taxonomy.md`)
-
-## References
-
-- `specs/core/state-validity-diagnostics.pseudo.md`
-- `specs/core/system-state-classification.pseudo.md`
-- `specs/core/recoverability-semantics.pseudo.md`
-- `specs/algorithms/recovery-fallback-semantics.pseudo.md`
-- `specs/algorithms/containment-safe-failure-semantics.pseudo.md`
+[Lifecycle/API](https://github.com/flynn33/ASH-Pattern-System-Mac-iOS/blob/v1.0.0-rc.1/docs/sdk-api-and-lifecycle.md) and [canonical authority](https://github.com/flynn33/ASH-Pattern-System-Mac-iOS/blob/v1.0.0-rc.1/docs/sdk-authority-and-conformance.md) describe exact policy and evidence boundaries.

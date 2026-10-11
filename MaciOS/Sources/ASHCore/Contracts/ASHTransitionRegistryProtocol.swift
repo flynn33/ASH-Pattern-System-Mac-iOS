@@ -1,6 +1,6 @@
 import Foundation
 
-public protocol ASHTransitionRegistryProtocol: AnyObject {
+public protocol ASHTransitionRegistryProtocol: AnyObject, Sendable {
   var orderedTransitions: [ASHTransitionDefinition] { get }
 
   func availableTransitions(from state: ASHState) -> [ASHTransitionDefinition]

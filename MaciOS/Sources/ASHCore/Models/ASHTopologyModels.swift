@@ -15,6 +15,9 @@ public struct ASHTopologyNode: Codable, Hashable, Sendable {
   public let branchKind: ASHTopologyBranchKind
   public let pathToken: String
   public let state: ASHState
+  public let generationOrdinal: Int
+  public let transitionID: String?
+  public var parentPath: String? { depth == 0 ? nil : pathToken.split(separator: "/").dropLast().joined(separator: "/") }
 
   public init(
     nodeID: String,
@@ -23,7 +26,9 @@ public struct ASHTopologyNode: Codable, Hashable, Sendable {
     ordinal: Int,
     branchKind: ASHTopologyBranchKind,
     pathToken: String,
-    state: ASHState
+    state: ASHState,
+    generationOrdinal: Int = 0,
+    transitionID: String? = nil
   ) {
     self.nodeID = nodeID
     self.parentID = parentID
@@ -32,6 +37,8 @@ public struct ASHTopologyNode: Codable, Hashable, Sendable {
     self.branchKind = branchKind
     self.pathToken = pathToken
     self.state = state
+    self.generationOrdinal = generationOrdinal
+    self.transitionID = transitionID
   }
 }
 
@@ -39,6 +46,7 @@ public struct ASHTopology: Codable, Hashable, Sendable {
   public let seedToken: String
   public let depth: Int
   public let nodes: [ASHTopologyNode]
+  public var leaves: [ASHTopologyNode] { nodes.filter { $0.depth == depth } }
 
   public init(seedToken: String, depth: Int, nodes: [ASHTopologyNode]) {
     self.seedToken = seedToken

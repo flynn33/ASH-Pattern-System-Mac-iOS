@@ -21,17 +21,20 @@ let package = Package(
   dependencies: [],
   targets: [
     .target(
-      name: "ASHCore"
+      name: "ASHCore",
+      resources: [.copy("Resources/PrivacyInfo.xcprivacy")]
     ),
     .target(
       name: "ASHPatternSystem",
       dependencies: [
         "ASHCore"
-      ]
+      ],
+      path: "Sources/ASHOrchestration",
+      resources: [.copy("Resources/PrivacyInfo.xcprivacy")]
     ),
     .testTarget(
       name: "ASHCoreTests",
-      dependencies: ["ASHCore"],
+      dependencies: ["ASHCore", "ASHPatternSystem"],
       resources: [
         .process("Fixtures")
       ]

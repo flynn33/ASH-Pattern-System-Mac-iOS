@@ -1,0 +1,157 @@
+{
+  "rules": [
+    {
+      "introduced_version": "1.0.0",
+      "normative_source_path": "specs/",
+      "rule_family": "ASH-INPUT",
+      "rule_id": "ASH-INPUT-001",
+      "status": "ACTIVE",
+      "title": "ASH-INPUT baseline requirement"
+    },
+    {
+      "introduced_version": "1.0.0",
+      "normative_source_path": "specs/",
+      "rule_family": "ASH-STATE",
+      "rule_id": "ASH-STATE-001",
+      "status": "ACTIVE",
+      "title": "ASH-STATE baseline requirement"
+    },
+    {
+      "introduced_version": "1.0.0",
+      "normative_source_path": "specs/",
+      "rule_family": "ASH-CODEWORD",
+      "rule_id": "ASH-CODEWORD-001",
+      "status": "ACTIVE",
+      "title": "ASH-CODEWORD baseline requirement"
+    },
+    {
+      "introduced_version": "1.0.0",
+      "normative_source_path": "specs/",
+      "rule_family": "ASH-ORBIT",
+      "rule_id": "ASH-ORBIT-001",
+      "status": "ACTIVE",
+      "title": "ASH-ORBIT baseline requirement"
+    },
+    {
+      "introduced_version": "1.0.0",
+      "normative_source_path": "specs/",
+      "rule_family": "ASH-REALM",
+      "rule_id": "ASH-REALM-001",
+      "status": "ACTIVE",
+      "title": "ASH-REALM baseline requirement"
+    },
+    {
+      "introduced_version": "1.0.0",
+      "normative_source_path": "specs/",
+      "rule_family": "ASH-TRANSITION",
+      "rule_id": "ASH-TRANSITION-001",
+      "status": "ACTIVE",
+      "title": "ASH-TRANSITION baseline requirement"
+    },
+    {
+      "introduced_version": "1.0.0",
+      "normative_source_path": "specs/",
+      "rule_family": "ASH-TOPOLOGY",
+      "rule_id": "ASH-TOPOLOGY-001",
+      "status": "ACTIVE",
+      "title": "ASH-TOPOLOGY baseline requirement"
+    },
+    {
+      "introduced_version": "1.0.0",
+      "normative_source_path": "specs/",
+      "rule_family": "ASH-AXIOM",
+      "rule_id": "ASH-AXIOM-001",
+      "status": "ACTIVE",
+      "title": "ASH-AXIOM baseline requirement"
+    },
+    {
+      "introduced_version": "1.0.0",
+      "normative_source_path": "specs/",
+      "rule_family": "ASH-CLASSIFICATION",
+      "rule_id": "ASH-CLASSIFICATION-001",
+      "status": "ACTIVE",
+      "title": "ASH-CLASSIFICATION baseline requirement"
+    },
+    {
+      "introduced_version": "1.0.0",
+      "normative_source_path": "specs/",
+      "rule_family": "ASH-RECOVERY",
+      "rule_id": "ASH-RECOVERY-001",
+      "status": "ACTIVE",
+      "title": "ASH-RECOVERY baseline requirement"
+    },
+    {
+      "introduced_version": "1.0.0",
+      "normative_source_path": "specs/",
+      "rule_family": "ASH-FALLBACK",
+      "rule_id": "ASH-FALLBACK-001",
+      "status": "ACTIVE",
+      "title": "ASH-FALLBACK baseline requirement"
+    },
+    {
+      "introduced_version": "1.0.0",
+      "normative_source_path": "specs/",
+      "rule_family": "ASH-CONTAINMENT",
+      "rule_id": "ASH-CONTAINMENT-001",
+      "status": "ACTIVE",
+      "title": "ASH-CONTAINMENT baseline requirement"
+    },
+    {
+      "introduced_version": "1.0.0",
+      "normative_source_path": "specs/",
+      "rule_family": "ASH-HALT",
+      "rule_id": "ASH-HALT-001",
+      "status": "ACTIVE",
+      "title": "ASH-HALT baseline requirement"
+    },
+    {
+      "introduced_version": "1.0.0",
+      "normative_source_path": "specs/",
+      "rule_family": "ASH-GENERATION",
+      "rule_id": "ASH-GENERATION-001",
+      "status": "ACTIVE",
+      "title": "ASH-GENERATION baseline requirement"
+    },
+    {
+      "introduced_version": "1.0.0",
+      "normative_source_path": "specs/",
+      "rule_family": "ASH-EMISSION",
+      "rule_id": "ASH-EMISSION-001",
+      "status": "ACTIVE",
+      "title": "ASH-EMISSION baseline requirement"
+    },
+    {
+      "introduced_version": "1.0.0",
+      "normative_source_path": "specs/",
+      "rule_family": "ASH-DIAGNOSTIC",
+      "rule_id": "ASH-DIAGNOSTIC-001",
+      "status": "ACTIVE",
+      "title": "ASH-DIAGNOSTIC baseline requirement"
+    },
+    {
+      "introduced_version": "1.0.0",
+      "normative_source_path": "specs/",
+      "rule_family": "ASH-CONFORMANCE",
+      "rule_id": "ASH-CONFORMANCE-001",
+      "status": "ACTIVE",
+      "title": "ASH-CONFORMANCE baseline requirement"
+    },
+    {
+      "introduced_version": "1.0.0",
+      "normative_source_path": "specs/",
+      "rule_family": "ASH-RELEASE",
+      "rule_id": "ASH-RELEASE-001",
+      "status": "ACTIVE",
+      "title": "ASH-RELEASE baseline requirement"
+    },
+    {
+      "introduced_version": "1.0.0",
+      "normative_source_path": "specs/",
+      "rule_family": "ASH-SECURITY",
+      "rule_id": "ASH-SECURITY-001",
+      "status": "ACTIVE",
+      "title": "ASH-SECURITY baseline requirement"
+    }
+  ],
+  "version": "1.0"
+}

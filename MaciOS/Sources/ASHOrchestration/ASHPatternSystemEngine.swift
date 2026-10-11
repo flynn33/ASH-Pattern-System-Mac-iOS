@@ -1,7 +1,7 @@
 import Foundation
 import ASHCore
 
-public final class ASHPatternSystemEngine {
+public final class ASHPatternSystemEngine: Sendable {
   public let stateModel: any ASHStateModelProtocol
   public let axiomEvaluator: any ASHAxiomEvaluatorProtocol
   public let transitionRegistry: any ASHTransitionRegistryProtocol
@@ -31,38 +31,11 @@ public final class ASHPatternSystemEngine {
     from requestedState: ASHState? = nil,
     configuration: ASHPatternSystemEngineConfiguration = .init()
   ) -> ASHPatternSystemBootstrapReport {
-    let candidate = requestedState ?? stateModel.knownValidStates.sorted().first ?? .zero
+    let candidate = requestedState ?? .zero
     let requestedStateDiagnostic = stateModel.diagnose(candidate)
-
-    let bootState: ASHState
-    let startupStatus: ASHPatternSystemStartupStatus
-    var startupNotes: [String] = []
-
-    if let normalized = stateModel.normalize(candidate) {
-      bootState = normalized
-      if normalized == candidate {
-        startupStatus = .usedRequestedState
-        startupNotes.append("Requested state was already suitable for bootstrap.")
-      } else {
-        startupStatus = .normalizedRequestedState
-        startupNotes.append(
-          "Requested state normalized from \(candidate.description) to \(normalized.description)."
-        )
-      }
-    } else {
-      let fallbackState = stateModel.knownValidStates.sorted().first ?? candidate
-      bootState = fallbackState
-      startupStatus = .fallbackToKnownValid
-      startupNotes.append(
-        "Requested state \(candidate.description) could not be normalized."
-      )
-      startupNotes.append(
-        "Fallback bootstrap state selected: \(fallbackState.description)."
-      )
-      startupNotes.append(
-        "Requested-state normalization status: \(requestedStateDiagnostic.normalizationStatus.rawValue)."
-      )
-    }
+    let bootState = candidate
+    let startupStatus: ASHPatternSystemStartupStatus = .usedRequestedState
+    let startupNotes = ["Structural bootstrap preserves the requested realm. Operational mutation is owned by ASHPatternSystemSession under a validated context."]
 
     let stateDiagnostic = stateModel.diagnose(bootState)
     let axiomEvaluation = axiomEvaluator.evaluate(state: bootState)
@@ -86,6 +59,11 @@ public final class ASHPatternSystemEngine {
     )
   }
 
+  public func assessState(bitString: String, context: ASHOperationalContext?) -> ASHStateAssessment {
+    stateModel.assess(bitString:bitString,context:context)
+  }
+
+  @available(*, deprecated, message:"Use assessState(bitString:context:) for explicit malformed-input diagnostics.")
   public func diagnoseState(bitString: String) -> StateValidityDiagnostic? {
     guard let state = ASHState(bitString: bitString) else {
       return nil

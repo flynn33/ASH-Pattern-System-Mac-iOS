@@ -5,7 +5,7 @@ import ASHCore
 final class ASHPatternSystemEngineTests: XCTestCase {
   func testBootstrapProducesDeterministicFoundationReport() throws {
     let engine = ASHPatternSystemEngine()
-    let config = ASHPatternSystemEngineConfiguration(topologyDepth: 2, topologySeedToken: "F")
+    let config = ASHPatternSystemEngineConfiguration(topologyDepth: 2, topologySeedToken: "R")
 
     let first = engine.bootstrap(configuration: config)
     let second = engine.bootstrap(configuration: config)
@@ -29,20 +29,23 @@ final class ASHPatternSystemEngineTests: XCTestCase {
 
   func testDiagnoseStateRejectsMalformedBitString() {
     let engine = ASHPatternSystemEngine()
-    XCTAssertNil(engine.diagnoseState(bitString: "bad-input"))
+    let result = engine.assessState(bitString:"bad-input",context:nil)
+    XCTAssertNil(result.stateClass)
+    XCTAssertEqual(result.inputStatus,.malformed)
+    XCTAssertFalse(result.diagnostics.isEmpty)
   }
 
-  func testBootstrapFallsBackToKnownValidWhenNormalizationFails() {
-    let restrictedStateModel = ASHStateModel(knownValidStates: [.zero])
+  func testBootstrapPreservesDifferentOrbitWithoutInventedFallback() {
+    let restrictedStateModel = ASHStateModel()
     let engine = ASHPatternSystemEngine(stateModel: restrictedStateModel)
     let incompatible = ASHState(bitString: "000000001")!
 
     let report = engine.bootstrap(from: incompatible)
 
     XCTAssertEqual(report.requestedState, incompatible)
-    XCTAssertEqual(report.requestedStateDiagnostic.normalizationStatus, .notNormalizable)
-    XCTAssertEqual(report.startupStatus, .fallbackToKnownValid)
-    XCTAssertEqual(report.state, .zero)
+    XCTAssertEqual(report.requestedStateDiagnostic.normalizationStatus, .alreadyValid)
+    XCTAssertEqual(report.startupStatus, .usedRequestedState)
+    XCTAssertEqual(report.state, incompatible)
     XCTAssertFalse(report.startupNotes.isEmpty)
   }
 }

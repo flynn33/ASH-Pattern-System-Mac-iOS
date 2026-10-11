@@ -1,35 +1,7 @@
-# Governance and Repository Checks
+# Governance and repository checks
 
-This page summarizes the repository checks and protected boundaries that apply to the Mac/iOS edition.
+The Apple repository owns native production/build/test/documentation concerns; ASH-Pattern-System is the separate semantic authority. Inherited canonical-only repository descriptions were corrected for this producer. Full authority repositories, raw execution bundles, test corpora and producer source do not belong in curated binary assets or consumer runtime.
 
-## Governance Scope
+Existing attribution workflows and protected-surface script remain unchanged. The dirty-path guard is not a semantic baseline comparator. Intentional reviewed governance edits are committed before clean-state verification. Owner-authorized administrative integration does not dismiss failed tests or establish hosted CI acceptance.
 
-Primary governance documents:
-
-- `governance/repository-governance.md`
-- protected workflow and ruleset governance documents
-- local completion-package protected-boundary documents
-
-## Protected Surfaces
-
-Product documentation work must not modify:
-
-- inherited workflow files;
-- inherited governance scripts;
-- `.github/CODEOWNERS`;
-- protected governance documents;
-- branch-protection or ruleset definitions.
-
-## Required Checks
-
-The current package evidence records:
-
-- SwiftPM package dump, release build, and tests;
-- Xcode package-scheme builds for generic macOS and iOS;
-- repository-local protected-surface verification;
-- attribution-marker checks;
-- Python unit tests for protected-surface tooling.
-
-## Handling Check Failures
-
-A failed repository check is evidence. Do not weaken the check, bypass it, or edit protected control files inside product documentation work. Record the failure, fix the product surface when appropriate, or route governance changes through an owner-reviewed governance-only path.
+[Repository policy](https://github.com/flynn33/ASH-Pattern-System-Mac-iOS/blob/v1.0.0-rc.1/governance/repository-governance.md) and [actual checks](https://github.com/flynn33/ASH-Pattern-System-Mac-iOS/blob/v1.0.0-rc.1/governance/github-agents-governance.md) describe the current two workflows and local gates.

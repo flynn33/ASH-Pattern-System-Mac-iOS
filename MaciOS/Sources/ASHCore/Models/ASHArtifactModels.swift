@@ -8,6 +8,7 @@ public enum ASHArtifactEmissionDisposition: String, Codable, Sendable {
 public struct ASHMaterializedArtifact: Codable, Hashable, Sendable {
   public let artifactID: String
   public let planArtifactID: String
+  public let planID: String
   public let artifactKind: String
   public let targetPathHint: String
   public let content: String
@@ -21,10 +22,12 @@ public struct ASHMaterializedArtifact: Codable, Hashable, Sendable {
     targetPathHint: String,
     content: String,
     ruleIDs: [String],
-    notes: [String]
+    notes: [String],
+    planID: String = ""
   ) {
     self.artifactID = artifactID
     self.planArtifactID = planArtifactID
+    self.planID = planID
     self.artifactKind = artifactKind
     self.targetPathHint = targetPathHint
     self.content = content

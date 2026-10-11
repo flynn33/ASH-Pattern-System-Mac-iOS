@@ -1,0 +1,19 @@
+{
+  "examples": [
+    {
+      "path": "ash-state-too-short.json",
+      "reason": "state_signature must contain exactly nine binary characters",
+      "schema": "schemas/1.0/ash-state.schema.json"
+    },
+    {
+      "path": "diagnostic-empty-notes.json",
+      "reason": "Diagnostic notes must explain the condition",
+      "schema": "schemas/1.0/diagnostic-envelope.schema.json"
+    },
+    {
+      "path": "diagnostic-missing-details.json",
+      "reason": "Diagnostic details are required even when empty",
+      "schema": "schemas/1.0/diagnostic-envelope.schema.json"
+    }
+  ]
+}

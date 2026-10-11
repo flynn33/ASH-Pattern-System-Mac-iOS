@@ -1,33 +1,7 @@
-# ASH Pattern System - Mac/iOS Edition
+# ASH Apple SDK 1.0.0-rc.1
 
-This wiki documents the Mac/iOS edition of the ASH Pattern System.
+The native SDK provides ASHCore and ASHPatternSystem as source Swift packages and two Release dynamic XCFrameworks. Apple marketing/build identity is 1.0.0 / 1; deployment metadata is macOS14/iOS16. Runtime uses Apple modules only.
 
-The Mac/iOS edition provides an Apple-native Swift package with `ASHCore` and `ASHPatternSystem` library products, SwiftPM and Xcode package-scheme build evidence, canonical corpus tests, and release-readiness evidence for macOS and iOS targets.
+Read [Getting Started](Getting-Started), [Architecture](Architecture), [Build and Test](Build-and-Test), [Contracts and Verification](Contracts-and-Verification), [Recovery and Safety](Recovery-and-Safety-Semantics), [Specification Layers](Specification-Layers), [Canonical Math](Canonical-Math-Baseline), [Conformance and Release Status](Conformance-and-Release-Status), [Platform Guide](Platform-Implementation-Guide), [Governance](Governance-and-Repository-Checks), [Glossary](Glossary) and [Wiki Maintenance](Wiki-Maintenance-Playbook).
 
-## Current Status
-
-Blocked for signed platform release.
-
-The Swift package semantic core is implemented, but the repository still requires app targets, archive/export workflows, signing inputs, notarization, App Store/TestFlight distribution evidence, simulator/device matrices, accessibility validation, install/upgrade/removal validation, hosted protections, and final owner-controlled release approval.
-
-## Start Here
-
-| If you need to... | Open this page |
-|---|---|
-| Understand the platform package | [Architecture](Architecture) |
-| Build and test the package | [Build and Test](Build-and-Test) |
-| Review conformance and release blockers | [Conformance and Release Status](Conformance-and-Release-Status) |
-| Understand APS contract layers used by the package | [Specification Layers](Specification-Layers) |
-| Review recovery, fallback, containment, and safe halt | [Recovery and Safety Semantics](Recovery-and-Safety-Semantics) |
-| Review contracts and verification requirements | [Contracts and Verification](Contracts-and-Verification) |
-| Review repository checks | [Governance and Checks](Governance-and-Repository-Checks) |
-| Review platform implementation checklists | [Platform Implementation Guide](Platform-Implementation-Guide) |
-| Maintain this wiki | [Wiki Maintenance Playbook](Wiki-Maintenance-Playbook) |
-
-## Repository Areas
-
-- `MaciOS/Sources/` - Swift semantic core and package orchestration code.
-- `MaciOS/Tests/` - XCTest coverage and canonical corpus fixtures.
-- `MaciOS/Package.swift` - Swift package manifest for iOS 16+ and macOS 14+.
-- `completion-evidence/` - macOS release-readiness evidence.
-- `completion-evidence/ios/` - iOS release-readiness evidence.
+[SDK prerelease](https://github.com/flynn33/ASH-Pattern-System-Mac-iOS/releases/tag/v1.0.0-rc.1) assets and verification record identify actual integrated source and authority/profile hashes. Physical-device execution and older-system/compiler/translated Intel runtime remain unverified; unsigned SDK publication is separate from signed product application delivery.

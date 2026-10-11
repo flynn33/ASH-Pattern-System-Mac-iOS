@@ -9,22 +9,22 @@ public enum ASHAxiomID: String, CaseIterable, Codable, Sendable {
 }
 
 public struct ASHAxiomSubject: Codable, Hashable, Sendable {
-  public let relationCount: Int
-  public let compressedMeasure: Int
-  public let rawMeasure: Int
-  public let scaleCount: Int
-  public let erasureCost: Int
-  public let selfReferenceCapable: Bool
-  public let selfModelAvailable: Bool
+  public let relationCount: Int?
+  public let compressedMeasure: Int?
+  public let rawMeasure: Int?
+  public let scaleCount: Int?
+  public let erasureCost: Int?
+  public let selfReferenceCapable: Bool?
+  public let selfModelAvailable: Bool?
 
   public init(
-    relationCount: Int,
-    compressedMeasure: Int,
-    rawMeasure: Int,
-    scaleCount: Int,
-    erasureCost: Int,
-    selfReferenceCapable: Bool,
-    selfModelAvailable: Bool
+    relationCount: Int? = nil,
+    compressedMeasure: Int? = nil,
+    rawMeasure: Int? = nil,
+    scaleCount: Int? = nil,
+    erasureCost: Int? = nil,
+    selfReferenceCapable: Bool? = nil,
+    selfModelAvailable: Bool? = nil
   ) {
     self.relationCount = relationCount
     self.compressedMeasure = compressedMeasure
@@ -57,9 +57,12 @@ public struct ASHAxiomSubject: Codable, Hashable, Sendable {
   }
 }
 
+public enum ASHAxiomStatus: String, Codable, Hashable, Sendable { case pass = "PASS", fail = "FAIL", indeterminate = "INDETERMINATE" }
+
 public struct ASHAxiomCheckResult: Codable, Hashable, Sendable {
   public let axiomID: ASHAxiomID
-  public let passed: Bool
+  public let status: ASHAxiomStatus
+  public var passed: Bool { status == .pass }
   public let explanation: String
   public let ruleIDs: [String]
 
@@ -70,9 +73,12 @@ public struct ASHAxiomCheckResult: Codable, Hashable, Sendable {
     ruleIDs: [String]
   ) {
     self.axiomID = axiomID
-    self.passed = passed
+    self.status = passed ? .pass : .fail
     self.explanation = explanation
     self.ruleIDs = ruleIDs
+  }
+  public init(axiomID: ASHAxiomID, status: ASHAxiomStatus, explanation: String, ruleIDs: [String]) {
+    self.axiomID = axiomID; self.status = status; self.explanation = explanation; self.ruleIDs = ruleIDs
   }
 }
 
@@ -80,6 +86,7 @@ public struct ASHAxiomEvaluation: Codable, Hashable, Sendable {
   public let subject: ASHAxiomSubject
   public let results: [ASHAxiomCheckResult]
   public let overallPass: Bool
+  public var status: ASHAxiomStatus { results.contains { $0.status == .indeterminate } ? .indeterminate : (overallPass ? .pass : .fail) }
   public let notes: [String]
 
   public init(

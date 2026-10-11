@@ -1,27 +1,14 @@
-# Build And Test
-
-## Prerequisites
-
-- Swift 5.10.
-- Xcode with package build support for macOS and iOS generic destinations.
-
-## SwiftPM
+# Build and test — 1.0.0-rc.1
 
 ```bash
-swift package --package-path MaciOS dump-package
-swift build --package-path MaciOS -c release
-swift test --package-path MaciOS
+swift test -c debug -Xswiftc -strict-concurrency=complete -Xswiftc -warnings-as-errors
+swift test -c release -Xswiftc -strict-concurrency=complete -Xswiftc -warnings-as-errors
+swift test --package-path MaciOS -c debug -Xswiftc -strict-concurrency=complete -Xswiftc -warnings-as-errors
+swift test --package-path MaciOS -c release -Xswiftc -strict-concurrency=complete -Xswiftc -warnings-as-errors
+python3 tools/sdk/sdk.py composition
+python3 -m unittest discover -s tools/sdk -p 'test_*.py' -v
 ```
 
-## Xcode Package Builds
+Both manifests have identical public products/minimums and no external packages. Xcode shared schemes ASHCore/ASHPatternSystem archive macOS, iOS device and simulator. Final tooling checks actual architectures, Mach-O platform/minimums, public interfaces, Core linkage, privacy resources, release collector symbols and dSYM UUIDs. Dirty/stale/source-changing stages cannot become release assets.
 
-```bash
-xcodebuild -scheme ASHCore -destination 'generic/platform=macOS' -configuration Release build -quiet
-xcodebuild -scheme ASHPatternSystem -destination 'generic/platform=macOS' -configuration Release build -quiet
-xcodebuild -scheme ASHCore -destination 'generic/platform=iOS' -configuration Release build -quiet
-xcodebuild -scheme ASHPatternSystem -destination 'generic/platform=iOS' -configuration Release build -quiet
-```
-
-## Current Evidence
-
-The current evidence records SwiftPM release builds, Swift tests, and Xcode package-scheme builds for generic macOS and iOS. It does not record app archives, notarization, App Store/TestFlight distribution, simulator matrix, physical-device matrix, accessibility audits, performance budgets, or clean install/upgrade/removal validation.
+[Maintainer procedure](https://github.com/flynn33/ASH-Pattern-System-Mac-iOS/blob/v1.0.0-rc.1/docs/sdk-maintainer-release.md) gives archive/package/provenance commands; [acceptance](https://github.com/flynn33/ASH-Pattern-System-Mac-iOS/blob/v1.0.0-rc.1/docs/sdk-acceptance.md) separates current source tests from integrated artifacts and actual downloads.

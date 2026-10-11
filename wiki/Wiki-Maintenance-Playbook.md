@@ -1,46 +1,5 @@
-# Wiki Maintenance Playbook
+# Wiki maintenance
 
-This playbook defines how wiki content is maintained for the Mac/iOS edition.
+Maintain wiki/ source alongside current SDK README/docs/version. Fetch and inspect the actual .wiki.git repository first, preserve unrelated pages and history, mirror intended pages, commit/push with owner identity and verify remote HEAD/content. Editing wiki/ alone is not remote delivery.
 
-## Tracked Wiki Content
-
-The `wiki/` directory in this repository is the source-controlled wiki mirror. The live GitHub Wiki is a separate repository and must be checked separately before publication.
-
-## Required Wiki Pages
-
-- `Home.md`
-- `_Sidebar.md`
-- `Getting-Started.md`
-- `Architecture.md`
-- `Build-and-Test.md`
-- `Conformance-and-Release-Status.md`
-- `Specification-Layers.md`
-- `Recovery-and-Safety-Semantics.md`
-- `Contracts-and-Verification.md`
-- `Governance-and-Repository-Checks.md`
-- `Platform-Implementation-Guide.md`
-- `Glossary.md`
-- `Wiki-Maintenance-Playbook.md`
-
-## Update Triggers
-
-Update wiki pages when any of these change materially:
-
-- `README.md`
-- `docs/*.md`
-- `MaciOS/README.md`
-- `MaciOS/Package.swift`
-- `specs/**/*.md`
-- `completion-evidence/**/*.md`
-
-## Maintenance Workflow
-
-1. Update repository docs and package docs first.
-2. Update affected pages in `wiki/`.
-3. Update the separate live wiki checkout when publication is requested.
-4. Verify internal wiki links resolve.
-5. Ensure `Home.md` and `_Sidebar.md` include current pages.
-
-## Guardrail
-
-The tracked wiki and live wiki must describe the same platform state. If one surface is updated without the other, record the mismatch and finish the missing surface before claiming publication.
+Keep release source/tag identity distinct from a later main revision. Preserve historical receipts and published asset bytes. Record actual source/wiki heads, divergence, cleanliness and remaining runtime gaps in final delivery evidence.

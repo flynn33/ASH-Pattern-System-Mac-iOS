@@ -31,6 +31,20 @@
       "size_bytes": 539
     }
   ],
-  "generator": "tools/build_reference_assets.py",
-  "version": "completion-baseline-1"
+  "version": "historical-fixture-provenance-1",
+  "provenance": {
+    "status": "HISTORICAL_RETAINED_FIXTURES",
+    "sourceRepository": "https://github.com/flynn33/ASH-Pattern-System-Mac-iOS",
+    "sourceCommit": "5f15dc8acffc32f29b2397bd557df6482987699c",
+    "sourceDirectory": "MaciOS/Tests/ASHCoreTests/Fixtures/CanonicalReference",
+    "verification": "Every retained asset is byte-identical to this producer baseline and its recorded SHA256 and size.",
+    "historicalPayloadVersion": "completion-baseline-1",
+    "originalGenerator": "UNKNOWN: tools/build_reference_assets.py was named by the historical manifest but is absent in the baseline and current checkout.",
+    "canonicalOrigin": "UNKNOWN: no retained asset is byte-identical to the corresponding 1.0.0-rc.3 canonical candidate; similar content does not establish original generator provenance."
+  },
+  "authority": {
+    "completeConformanceManifest": "corpus-provenance.json",
+    "canonicalCommit": "50d7e5ab88932a4a967ffc2c83bd18fae45b73c8",
+    "precedence": "corpus-provenance.json pins the complete raw canonical corpus and its reproducible generators for current SDK conformance. These six historical fixtures provide additional legacy mathematics regressions only."
+  }
 }

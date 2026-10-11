@@ -1,0 +1,35 @@
+{
+  "policies": [
+    {
+      "allows_cross_orbit_replacement": true,
+      "candidate_source": "operational_context",
+      "policy_id": "FALLBACK-STATE-001",
+      "requires_downstream_instance": true,
+      "selection_order": [
+        "configured_rank",
+        "realm_id"
+      ],
+      "title": "Declared Known-Good"
+    },
+    {
+      "allows_cross_orbit_replacement": true,
+      "candidate_source": "downstream_verification_history",
+      "policy_id": "FALLBACK-STATE-002",
+      "requires_downstream_instance": true,
+      "selection_order": [
+        "verification_sequence_desc",
+        "realm_id"
+      ],
+      "title": "Last Verified Stable"
+    },
+    {
+      "allows_cross_orbit_replacement": false,
+      "candidate_source": "none",
+      "policy_id": "FALLBACK-STATE-999",
+      "requires_downstream_instance": false,
+      "selection_order": [],
+      "title": "Containment Escalation"
+    }
+  ],
+  "version": "1.0"
+}

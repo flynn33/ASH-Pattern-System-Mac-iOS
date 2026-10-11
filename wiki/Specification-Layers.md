@@ -1,48 +1,7 @@
-# Specification Layers
+# Specification layers
 
-This page maps the canonical layers so Mac/iOS maintainers can navigate with minimal ambiguity.
+The Apple SDK consumes the external corrected canonical public specification at 50d7e5ab88932a4a967ffc2c83bd18fae45b73c8, version 1.0.0-rc.3. Its explicit public-contract decisions override conflicting older prose. Local specs/handoff templates retain historical bodies with precedence banners; they are not silently relabeled as the new authority.
 
-## Layer Stack
+Math is unchanged: full F2^9, sixteen-member [9,4,4] code, thirty-two orbits, XOR, averaging and structural branching. Native operational context, strict diagnostics, lifecycle, generation profiles and SDK publication are separately reviewed implementation boundaries. Canonical correction and profile successor maintenance remain separate commits/repositories from Apple code.
 
-```mermaid
-flowchart TD
-    A[Docs Layer] --> B[Core Specs]
-    B --> C[Algorithm Specs]
-    C --> D[Interface Contracts]
-    D --> E[Verification Requirements]
-    E --> F[Handoff Templates]
-    G[Governance Layer] --> A
-    G --> B
-    G --> C
-    G --> D
-    G --> E
-    G --> F
-```
-
-## Layer-by-Layer Map
-
-| Layer | Scope | Primary files |
-|---|---|---|
-| Docs | Purpose, philosophy, roadmap, shape | `docs/00..03` |
-| Core specs | State model, codeword set, admissibility, diagnostics, classification | `specs/core/*` |
-| Algorithms | Transform, averaging, branching, transitions, recovery/fallback, containment/safe halt, planning | `specs/algorithms/*` |
-| Registries | Canonical fallback policy structure and ordering rules | `specs/registries/fallback-policy-registry.md` |
-| Interfaces | Semantic contracts, diagnostic schema, rule ID taxonomy, module contracts | `specs/interfaces/*` |
-| Verification | Invariants, conformance categories, acceptance language | `specs/verification/*` |
-| Handoff templates | Apple-platform delivery shape and proof artifacts | `handoff-templates/*` |
-| Governance | Repository rules, coding-handoff rules, protected workflow policies | `governance/*` |
-
-## Reading Sequence For New Maintainers
-
-1. `README.md`
-2. `docs/*`
-3. `specs/core/*`
-4. `specs/algorithms/*`
-5. `specs/interfaces/*`
-6. `specs/verification/*`
-7. `handoff-templates/*`
-8. `governance/*`
-
-## Maintenance Rule
-
-When semantics change, update spec layers first, then contracts/verification as needed, then refresh docs/wiki summaries.
+[Immutable identities and test mapping](https://github.com/flynn33/ASH-Pattern-System-Mac-iOS/blob/v1.0.0-rc.1/docs/sdk-authority-and-conformance.md) records method/profile/corpus roles.

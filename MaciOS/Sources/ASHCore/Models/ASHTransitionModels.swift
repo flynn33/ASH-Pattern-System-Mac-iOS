@@ -18,12 +18,10 @@ public struct ASHTransitionApplicability: Codable, Hashable, Sendable {
   public static let always = ASHTransitionApplicability(kind: .always)
 
   public static func requireBitSet(_ bitIndex: Int) -> ASHTransitionApplicability {
-    precondition((0..<ASHState.bitCount).contains(bitIndex), "bitIndex must be within 0..<ASHState.bitCount")
     return ASHTransitionApplicability(kind: .requireBitSet, bitIndex: bitIndex)
   }
 
   public static func requireBitClear(_ bitIndex: Int) -> ASHTransitionApplicability {
-    precondition((0..<ASHState.bitCount).contains(bitIndex), "bitIndex must be within 0..<ASHState.bitCount")
     return ASHTransitionApplicability(kind: .requireBitClear, bitIndex: bitIndex)
   }
 
@@ -87,10 +85,16 @@ public struct ASHTransitionApplied: Codable, Hashable, Sendable {
 }
 
 public enum ASHTransitionFailureReason: String, Codable, Sendable {
+  case invalidRegistry = "INVALID_REGISTRY"
   case invalidInputState = "INVALID_INPUT_STATE"
   case transitionNotFound = "TRANSITION_NOT_FOUND"
   case transitionNotApplicable = "TRANSITION_NOT_APPLICABLE"
   case codewordNotAllowed = "CODEWORD_NOT_ALLOWED"
+}
+
+public struct ASHRegistryValidationError: Error, Equatable, Sendable {
+  public let issues: [String]
+  public init(issues: [String]) { self.issues = issues }
 }
 
 public struct ASHTransitionFailureDiagnostic: Codable, Hashable, Sendable {

@@ -40,11 +40,11 @@ public enum SystemStateClass: String, Codable, Sendable {
 
 public enum RecoveryCategory: String, Codable, Sendable {
   case noAction = "NO_ACTION"
-  case normalizeState = "NORMALIZE_STATE"
+  case targetResolutionRequired = "TARGET_RESOLUTION_REQUIRED"
   case applyCorrection = "APPLY_CORRECTION"
   case fallbackRequired = "FALLBACK_REQUIRED"
-  case containmentRequired = "CONTAINMENT_REQUIRED"
-  case escalationRequired = "ESCALATION_REQUIRED"
+  case containmentActive = "CONTAINMENT_ACTIVE"
+  case externalEscalationRequired = "EXTERNAL_ESCALATION_REQUIRED"
   case terminalNoRecovery = "TERMINAL_NO_RECOVERY"
 }
 
@@ -98,24 +98,5 @@ public struct StateValidityDiagnostic: Codable, Hashable, Sendable {
     self.orbitInfo = orbitInfo
     self.ruleIDs = ruleIDs
     self.notes = notes
-  }
-}
-
-public struct ASHSystemContext: Codable, Hashable, Sendable {
-  public var isInContainment: Bool
-  public var isInSafeHalt: Bool
-  public var correctionPathKnown: Bool
-  public var fallbackAvailable: Bool
-
-  public init(
-    isInContainment: Bool = false,
-    isInSafeHalt: Bool = false,
-    correctionPathKnown: Bool = false,
-    fallbackAvailable: Bool = false
-  ) {
-    self.isInContainment = isInContainment
-    self.isInSafeHalt = isInSafeHalt
-    self.correctionPathKnown = correctionPathKnown
-    self.fallbackAvailable = fallbackAvailable
   }
 }

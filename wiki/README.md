@@ -1,7 +1,3 @@
-# ASH Pattern System Mac/iOS Wiki Source
+# Wiki source — 1.0.0-rc.1
 
-This directory contains the source-controlled wiki mirror for the Mac/iOS edition.
-
-- Keep page names stable.
-- Update wiki pages when repository docs, package docs, specs, or completion evidence materially change.
-- Keep the tracked wiki mirror and separate live wiki checkout aligned before publication.
+These pages are maintained source for the actual GitHub wiki. Publication requires a separate owner-authored wiki commit/push and remote content/HEAD verification. See Wiki-Maintenance-Playbook.md. Current SDK authority and evidence differ from historical completion receipts.

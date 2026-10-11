@@ -12,12 +12,23 @@ public final class ASHGenerationPlanner: ASHGenerationPlannerProtocol {
     self.realmEncoder = realmEncoder
   }
 
+  public func buildPlan(from state: ASHState, topology: ASHTopology, axiomEvaluation: ASHAxiomEvaluation, targetConstraints: ASHTargetRuntimeConstraints = .init()) -> ASHGenerationPlanResult {
+    buildPlan(from:state, topology:topology, axiomEvaluation:axiomEvaluation, targetConstraints:targetConstraints, transitionID:"APS-TRANSITION-CW-00")
+  }
+
   public func buildPlan(
     from state: ASHState,
     topology: ASHTopology,
     axiomEvaluation: ASHAxiomEvaluation,
-    targetConstraints: ASHTargetRuntimeConstraints = .init()
+    targetConstraints: ASHTargetRuntimeConstraints = .init(),
+    transitionID: String
   ) -> ASHGenerationPlanResult {
+    guard targetConstraints.validationIssues.isEmpty else {
+      return ASHGenerationPlanResult(plan:nil, diagnostics:[ASHGenerationPlanDiagnostic(summary:"Generation profile or target validation failed.", ruleIDs:["ASH-GENERATION-001"], notes:targetConstraints.validationIssues)])
+    }
+    guard axiomEvaluation == ASHAxiomEvaluator().evaluate(subject:axiomEvaluation.subject) else {
+      return ASHGenerationPlanResult(plan:nil, diagnostics:[ASHGenerationPlanDiagnostic(summary:"Axiom evaluation is inconsistent with the declared measurements.", ruleIDs:["ASH-GENERATION-001","ASH-AXIOM-001"], notes:["Planner requires all five measured predicate results, including explicit indeterminate evidence."])])
+    }
     guard !topology.nodes.isEmpty else {
       return ASHGenerationPlanResult(
         plan: nil,
@@ -64,7 +75,10 @@ public final class ASHGenerationPlanner: ASHGenerationPlannerProtocol {
       return lhs.depth < rhs.depth
     }
 
-    let destinationStateCandidate = sortedNodes.last?.state ?? normalizedState
+    guard let requestedTransition = ASHTransitionRegistry(stateModel: ASHStateModel()).applyTransition(from: normalizedState, transitionID: transitionID).applied else {
+      return ASHGenerationPlanResult(plan:nil, diagnostics:[ASHGenerationPlanDiagnostic(summary:"Requested canonical transition is not registered.", ruleIDs:["ASH-GENERATION-001"], notes:[transitionID])])
+    }
+    let destinationStateCandidate = requestedTransition.toState
     guard let destinationState = stateModel.normalize(destinationStateCandidate) else {
       return ASHGenerationPlanResult(
         plan: nil,
@@ -95,7 +109,7 @@ public final class ASHGenerationPlanner: ASHGenerationPlannerProtocol {
     let axiomSummaries = axiomEvaluation.results.map {
       ASHAxiomSummary(
         axiomID: $0.axiomID,
-        passed: $0.passed,
+        status: $0.status,
         explanation: $0.explanation,
         ruleIDs: $0.ruleIDs
       )
@@ -108,7 +122,7 @@ public final class ASHGenerationPlanner: ASHGenerationPlannerProtocol {
 
     let warnings = axiomEvaluation.results
       .filter { !$0.passed }
-      .map { "\($0.axiomID.rawValue) failed: \($0.explanation)" }
+      .map { "\($0.axiomID.rawValue) \($0.status.rawValue): \($0.explanation)" }
 
     let plan = ASHGenerationPlan(
       normalizedState: normalizedState,
@@ -124,10 +138,17 @@ public final class ASHGenerationPlanner: ASHGenerationPlannerProtocol {
         "topology_depth": String(topology.depth),
         "topology_seed_token": topology.seedToken,
         "node_count": String(sortedNodes.count),
-        "artifact_count": String(plannedArtifacts.count)
+        "artifact_count": String(plannedArtifacts.count),
+        "transition_id":transitionID,
+        "profile_registry_version":targetConstraints.registryVersions["profiles"] ?? "",
+        "naming_registry_version":targetConstraints.registryVersions["naming"] ?? "",
+        "target_registry_version":targetConstraints.registryVersions["targets"] ?? ""
       ]
     )
 
+    guard plan.validationIssues.isEmpty else {
+      return ASHGenerationPlanResult(plan:nil, diagnostics:[ASHGenerationPlanDiagnostic(summary:"Generation input is incomplete or inconsistent.", ruleIDs:["ASH-GENERATION-001"], notes:plan.validationIssues)])
+    }
     return ASHGenerationPlanResult(
       plan: plan,
       diagnostics: [

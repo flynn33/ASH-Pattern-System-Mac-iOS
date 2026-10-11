@@ -3,6 +3,7 @@
 - [Home](Home)
 - [Getting Started](Getting-Started)
 - [Architecture](Architecture)
+- [Canonical Math Baseline](Canonical-Math-Baseline)
 - [Build and Test](Build-and-Test)
 - [Conformance and Release Status](Conformance-and-Release-Status)
 - [Specification Layers](Specification-Layers)

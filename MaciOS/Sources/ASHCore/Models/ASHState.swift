@@ -3,9 +3,32 @@ import Foundation
 public struct ASHState: Hashable, Codable, Sendable, Comparable, CustomStringConvertible {
   public static let bitCount = 9
   public static let maxRawValue: UInt16 = 1 << bitCount
-  public static let zero = ASHState(rawValue: 0)!
+  public static let zero = ASHState(validatedRawValue: 0)
 
   public let rawValue: UInt16
+
+  private enum CodingKeys: String, CodingKey { case rawValue }
+
+  private init(validatedRawValue: UInt16) {
+    self.rawValue = validatedRawValue
+  }
+
+  public init(from decoder: any Decoder) throws {
+    let container = try decoder.container(keyedBy: CodingKeys.self)
+    let value = try container.decode(UInt16.self, forKey: .rawValue)
+    guard let state = Self(rawValue: value) else {
+      throw DecodingError.dataCorruptedError(
+        forKey: .rawValue, in: container,
+        debugDescription: "ASHState.rawValue must be in 0...511; received \(value)."
+      )
+    }
+    self = state
+  }
+
+  public func encode(to encoder: any Encoder) throws {
+    var container = encoder.container(keyedBy: CodingKeys.self)
+    try container.encode(rawValue, forKey: .rawValue)
+  }
 
   public init?(rawValue: UInt16) {
     guard rawValue < Self.maxRawValue else {
@@ -31,6 +54,7 @@ public struct ASHState: Hashable, Codable, Sendable, Comparable, CustomStringCon
   }
 
   public init?(bitString: String) {
+    guard bitString.utf8.count == Self.bitCount else { return nil }
     let bits = bitString.compactMap { char -> UInt8? in
       switch char {
       case "0":
@@ -65,7 +89,8 @@ public struct ASHState: Hashable, Codable, Sendable, Comparable, CustomStringCon
   }
 
   public func xor(_ other: ASHState) -> ASHState {
-    ASHState(rawValue: rawValue ^ other.rawValue)!
+    // XOR of two nine-bit values is itself a nine-bit value.
+    ASHState(validatedRawValue: rawValue ^ other.rawValue)
   }
 
   public func hammingWeight() -> Int {

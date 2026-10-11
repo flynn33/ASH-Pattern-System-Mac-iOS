@@ -55,7 +55,7 @@ final class ASHArtifactEmitterTests: XCTestCase {
       transitionRegistry: registry
     )
     let topology = try XCTUnwrap(
-      topologyGenerator.generateTopology(from: .zero, depth: 1, seedToken: "F").topology
+      topologyGenerator.generateTopology(from: .zero, depth: 1, seedToken: "R").topology
     )
     let planner = ASHGenerationPlanner(
       stateModel: stateModel,

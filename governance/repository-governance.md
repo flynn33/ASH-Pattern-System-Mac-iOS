@@ -1,71 +1,19 @@
-# Repository Governance
+# Repository governance
 
 ## Repository role
 
-This repository is the canonical semantic definition of the ASH Pattern System.
-It is not a language implementation repository.
+ASH-Pattern-System-Mac-iOS is the Apple native implementation and public SDK producer. The separate ASH-Pattern-System repository defines canonical semantics. Current binding and precedence are recorded in `docs/sdk-authority-and-conformance.md`; retained local specifications are historical reference.
 
-## Governance rules
+## Semantic discipline
 
-### 1. Language neutrality
+Preserve the locked full F2^9 state space, sixteen-codeword [9,4,4] code, thirty-two orbits, XOR transformations, averaging and branching. No derived ninth-bit decomposition, guessed operational policy, alternate codewords or silent healing is permitted. Canonical correction belongs in the separate authority before adoption here. Explicit stable/fallback context is caller-owned.
 
-No programming language may be described as the canonical identity of the engine in this repository.
+## Native ownership
 
-### 2. Platform neutrality
+Native Swift source, SwiftPM/Xcode metadata, Apple resources, tests and SDK tooling belong here. Runtime uses Apple-supported modules; public consumer acquisition is limited to ASHCore and ASHPatternSystem. Full canonical/policy repositories and corpora must not become runtime dependencies or curated SDK payloads. Test-only acquisition has immutable provenance and explicit adapters.
 
-No operating system, runtime family, or device category may be described as the canonical platform identity of the engine in this repository.
+## Evidence and publication
 
-### 3. Spec-first rule
+Run required source, diagnostic, archive/interface, isolated consumer and download gates at the actual delivered revision. Retain failed evidence and honest limitations. Historical reports are not current qualification. Use one SDK VERSION and derived numeric Apple marketing/build mapping; preserve published tags/assets and prior profiles.
 
-Changes that affect semantics must be made in the specification documents first.
-Implementation repositories must follow the specifications, not redefine them.
-
-### 4. Pseudocode rule
-
-When algorithmic examples are needed, use pseudocode unless a target-specific handoff explicitly requires implementation syntax.
-
-### 5. Semantic clarity rule
-
-A document is only complete if a downstream coding agent can determine:
-
-- what the model means
-- what invariants must hold
-- what boundary separates planning from materialization
-- what behaviors are prohibited
-
-### 6. Standalone baseline rule
-
-This repository stands on its own as a canonical agnostic baseline.
-It should not depend on explanation through older implementation layouts.
-
-### 7. State-layer closure discipline
-
-Specifications that define foundational state-layer behavior (control-bit derivation, core admissibility, state-validity diagnostics) are authoritative.
-
-Downstream implementation repositories must not:
-
-- invent foundational semantics that are not defined in this repository
-- substitute alternative values for locked algebraic definitions (the control-bit derivation formula and the admissibility codeword set are locked design decisions)
-- guess values for any remaining unresolved items (e.g., fallback-policy registry)
-- silently use placeholder values for unresolved items in production code
-- treat convenience behavior as canonical if the specifications do not define it
-
-If a specification marks a rule as an **unresolved item**, that item must be resolved by an explicit design decision recorded in this repository before any downstream implementation may treat it as settled. Locked design decisions (marked as **LOCKED** in the specs) are normative and must be implemented exactly.
-
-## Admission rule for future files
-
-A new file belongs in this repository only if it strengthens the semantic source of truth.
-If it mainly expresses one platform's build, runtime, or packaging concerns, it belongs in a downstream implementation repository instead.
-
-## Main-repository closeout
-
-The canonical main repository is closed as the agnostic specification baseline. It remains canonical and implementation-free.
-
-- Main remains canonical. The canonical semantic, contract, verification, and downstream build handoff template layers are the authoritative source of truth for the ASH Pattern System.
-- Main remains implementation-free. Platform-specific source code, build files, package manifests, lockfiles, and platform source trees do not belong in the canonical main repository. Those artifacts belong in downstream implementation repositories that consume the canonical baseline.
-- Future edits to the canonical main repository are limited to canonical corrections, ambiguity resolution, validation and governance maintenance, and other source-of-truth upkeep — typically revealed by downstream implementation work.
-- The sentinel agent layer in `governance/github-agents-governance.md` enforces the canonical-authority boundary and the implementation-free invariant at the CI boundary.
-
-## GitHub governance agents
-
-A sentinel agent layer is defined in `governance/github-agents-governance.md` and enforced via workflows under `.github/workflows/`. The agents detect canonical-repo boundary drift, guard the locked research-baseline math, block reintroduction of superseded canonical language, and provide a reusable conformance workflow for downstream repositories. The agents are gatekeepers only — they do not own or redefine canonical truth.
+Existing attribution and protected-surface guards remain unchanged. Reviewed updates to these governance documents correct inherited canonical-repository claims for the actual Apple producer; clean-tree verification follows their normal commit. Owner-authorized administrative integration does not replace substantive tests. Maintained wiki files must also reach the actual GitHub wiki repository.

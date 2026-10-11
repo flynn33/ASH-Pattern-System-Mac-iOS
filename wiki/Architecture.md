@@ -1,31 +1,7 @@
-# Architecture
+# Architecture — 1.0.0-rc.1
 
-The Mac/iOS edition targets Apple-platform Swift consumers on iOS 16+ and macOS 14+.
+Consumer → ASHPatternSystem → ASHCore → Apple modules. Core-only integration is supported. Root/nested SwiftPM and explicit Xcode framework schemes compile the same production files. Internal ASHOrchestration folder supplies the unchanged public ASHPatternSystem module. No canonical or policy runtime is acquired.
 
-## Core Shape
+Core owns fixed state/math, nine immutable semantic services, complete diagnostic records and caller-created support collectors. The composed actor owns mutable operational context/state/chain and frozen terminal snapshots. Pure services do not reopen a contained or halted session. Plans and emitted descriptors are in-memory; support export writes only to an explicit permitted destination.
 
-- Swift 5.10 package named `MaciOS`.
-- Library products: `ASHCore` and `ASHPatternSystem`.
-- No external package dependencies.
-- SwiftPM and Xcode package-scheme build paths.
-- Canonical corpus fixtures bundled with tests.
-
-## Implemented Modules
-
-- `ASHStateModel`
-- `ASHRecoveryEngine`
-- `ASHRealmEncoder`
-- `ASHTransitionRegistry`
-- `ASHTopologyGenerator`
-- `ASHAxiomEvaluator`
-- `ASHGenerationPlanner`
-- `ASHArtifactEmitter`
-- `ASHDiagnosticsModule`
-
-## Composition Root
-
-`ASHPatternSystemEngine` composes the semantic modules into a deterministic bootstrap pipeline for native platform consumers.
-
-## Release Boundary
-
-The repository currently provides Swift libraries and tests. macOS and iOS app targets, signing, entitlements, provisioning, archive/export workflows, notarization, App Store, and TestFlight distribution remain open release gates.
+[Public API/lifecycle](https://github.com/flynn33/ASH-Pattern-System-Mac-iOS/blob/v1.0.0-rc.1/docs/sdk-api-and-lifecycle.md) and [source graph](https://github.com/flynn33/ASH-Pattern-System-Mac-iOS/blob/v1.0.0-rc.1/docs/02-target-repository-shape.md) describe concrete ownership and member paths.

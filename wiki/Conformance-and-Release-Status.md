@@ -1,31 +1,7 @@
-# Conformance And Release Status
+# Conformance and release status — 1.0.0-rc.1
 
-## Semantic Coverage
+The delivery is an unsigned native SDK prerelease, with canonical 1.0.0-rc.3 independently bound. It is not a signed product application. Historical app-readiness receipts under completion-evidence retain their original scope.
 
-The Mac/iOS edition maps all nine APS semantic modules to native Swift services. The detailed mapping lives in `completion-evidence/architecture-inventory.md` and `completion-evidence/ios/architecture-inventory.md`.
+Source coverage includes all 10,340 pinned raw vectors, strict root/nested Debug/Release tests, canonical chain and actual safety-wrapper validation, bounded support export tests and session ThreadSanitizer. Final delivery additionally requires clean integrated archives, public Git SHA/tag consumers, extracted/downloaded binary consumers, iPhone/iPad runtime, negative artifact gates, six realization reviews and actual source/wiki synchronization. Static contract success is narrower than runtime evidence.
 
-## Verification Evidence
-
-The current evidence records:
-
-- 512 well-formed realm states;
-- 32 orbit representatives;
-- 512 canonical realm identifiers;
-- 8,192 state/codeword transformations;
-- exact codeword signatures, transition identifiers, orbit identifiers, and public-record JSON round trips;
-- SwiftPM release build and test runs;
-- Xcode package-scheme builds for generic macOS and iOS.
-
-## Current Judgment
-
-Blocked for signed platform release.
-
-Release remains blocked by:
-
-- missing macOS and iOS app targets;
-- missing signing, entitlements, provisioning, archive/export, notarization, App Store, and TestFlight evidence;
-- missing iOS simulator and physical-device matrices;
-- missing macOS install, upgrade, removal, and launch validation;
-- missing accessibility audits and performance budgets;
-- inactive hosted branch protection noted in the current evidence;
-- final owner-controlled approvals.
+[Release record](https://github.com/flynn33/ASH-Pattern-System-Mac-iOS/blob/v1.0.0-rc.1/docs/sdk-acceptance.md), [release notes](https://github.com/flynn33/ASH-Pattern-System-Mac-iOS/blob/v1.0.0-rc.1/docs/sdk-release-notes.md) and final release manifests report actual identities/results. [Owner procedure](https://github.com/flynn33/ASH-Pattern-System-Mac-iOS/blob/v1.0.0-rc.1/docs/sdk-owner-validation.md) remains pending for physical devices, older OS/compiler and Intel runtime. No notarization, App Store/TestFlight or product accessibility acceptance is claimed.

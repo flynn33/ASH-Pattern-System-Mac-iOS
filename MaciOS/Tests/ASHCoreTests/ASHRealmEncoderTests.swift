@@ -31,14 +31,15 @@ final class ASHRealmEncoderTests: XCTestCase {
     XCTAssertEqual(realmIDs.count, Int(ASHState.maxRawValue))
   }
 
-  func testEncodeRejectsStateOutsideConfiguredValidSet() {
-    let restrictedStateModel = ASHStateModel(knownValidStates: [.zero])
+  func testEncodeDoesNotConfuseOperationalHealthWithRealmValidity() {
+    let restrictedStateModel = ASHStateModel()
     let encoder = ASHRealmEncoder(stateModel: restrictedStateModel)
     let stateOutsideConfiguredSet = ASHState(bitString: "111100000")!
 
     let result = encoder.encode(state: stateOutsideConfiguredSet)
-    let failure = try? XCTUnwrap(result.failureDiagnostic)
+    let identity = result.identity
 
-    XCTAssertEqual(failure?.reason, .invalidInputState)
+    XCTAssertEqual(identity?.stateSignature, "111100000")
+    XCTAssertEqual(identity?.realmID, "APS-REALM-480")
   }
 }
