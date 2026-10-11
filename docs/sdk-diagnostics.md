@@ -1,4 +1,4 @@
-# SDK diagnostics — 1.0.0-rc.1
+# SDK diagnostics — 1.0.0
 
 ## Two separate contracts
 
@@ -68,4 +68,4 @@ Known secret syntax and sensitive paths are redacted before retention and checke
 
 Markdown escapes untrusted content; observations are data, not instructions. A support record reports what a caller supplied. It is evidence of capture and export, not proof of the caller's causal explanation. A consumer's exported source commit is optional; absence is explicit and never replaced with an invented commit. The SDK release's own source identity is in `SDK-MANIFEST.json`.
 
-See [security and privacy](https://github.com/flynn33/ASH-Pattern-System-Mac-iOS/blob/v1.0.0-rc.1/docs/sdk-security.md), [API and lifecycle](sdk-api-and-lifecycle.md), and [owner validation](https://github.com/flynn33/ASH-Pattern-System-Mac-iOS/blob/v1.0.0-rc.1/docs/sdk-owner-validation.md). Raw diagnostic captures are execution evidence outside the repository and are excluded from SDK assets.
+See [security and privacy](https://github.com/flynn33/ASH-Pattern-System-Mac-iOS/blob/v1.0.0/docs/sdk-security.md), [API and lifecycle](sdk-api-and-lifecycle.md), and [owner validation](https://github.com/flynn33/ASH-Pattern-System-Mac-iOS/blob/v1.0.0/docs/sdk-owner-validation.md). Raw diagnostic captures are execution evidence outside the repository and are excluded from SDK assets.

@@ -1,4 +1,4 @@
-# Getting started — 1.0.0-rc.1
+# Getting started — 1.0.0
 
 ## Select the acquisition route
 
@@ -13,7 +13,7 @@ let package = Package(
   name: "MyConsumer",
   platforms: [.macOS(.v14), .iOS(.v16)],
   dependencies: [
-    .package(url: "https://github.com/flynn33/ASH-Pattern-System-Mac-iOS", exact: "1.0.0-rc.1")
+    .package(url: "https://github.com/flynn33/ASH-Pattern-System-Mac-iOS", exact: "1.0.0")
   ],
   targets: [.target(name: "MyConsumer", dependencies: [
     .product(name: "ASHPatternSystem", package: "ash-pattern-system-mac-ios")
@@ -23,7 +23,7 @@ let package = Package(
 
 For an immutable pre-tag qualification, replace `exact:` with `revision:` and the actual forty-character source commit from the release manifest. Inspect `Package.resolved`; the only package identity is `ash-pattern-system-mac-ios` and its revision must equal the qualified source. A floating branch does not identify released source.
 
-For binary integration, download the curated aggregate ZIP and `SHA256SUMS`, verify the aggregate digest, then extract into a fresh directory. The extracted root contains `Package.swift`, `Frameworks`, six integration documents, a public example, license, version, component inventory, provenance and internal checksums. Verify `CONTENTS.sha256` before using it. Add the extracted package directory in Xcode or with `.package(name: "ASHAppleSDK", path: "/absolute/extracted/ASH-Apple-SDK-1.0.0-rc.1")`; refer to its public products with package name `ASHAppleSDK`. Keep both framework files together. The individual framework ZIPs are alternatives for explicit manual integration, each rooted at its named XCFramework. Link Core alongside the composed framework and embed each dynamic framework once in the consuming application.
+For binary integration, download the curated aggregate ZIP and `SHA256SUMS`, verify the aggregate digest, then extract into a fresh directory. The extracted root contains `Package.swift`, `Frameworks`, six integration documents, a public example, license, version, component inventory, provenance and internal checksums. Verify `CONTENTS.sha256` before using it. Add the extracted package directory in Xcode or with `.package(name: "ASHAppleSDK", path: "/absolute/extracted/ASH-Apple-SDK-1.0.0")`; refer to its public products with package name `ASHAppleSDK`. Keep both framework files together. The individual framework ZIPs are alternatives for explicit manual integration, each rooted at its named XCFramework. Link Core alongside the composed framework and embed each dynamic framework once in the consuming application.
 
 The XCFrameworks contain macOS arm64/x86_64, iOS device arm64 and simulator arm64/x86_64 slices. Xcode selects the correct platform entry. Do not combine an iOS device binary with a simulator target. See [compatibility](sdk-compatibility.md) for actual build/runtime distinctions.
 
@@ -46,7 +46,7 @@ Choose stable targets and fallback evidence from your domain. A syntactically va
 From the extracted `Examples/SDKConsumer`, run:
 
 ```bash
-./verify/verify-consumer.sh --sdk /absolute/extracted/ASH-Apple-SDK-1.0.0-rc.1   --output '/absolute/empty/Consumer Evidence' --simulators
+./verify/verify-consumer.sh --sdk /absolute/extracted/ASH-Apple-SDK-1.0.0   --output '/absolute/empty/Consumer Evidence' --simulators
 ```
 
 The supplied harness builds and runs Core-only, composed-only and dual-product Release consumers, then an iPhone and an iPad simulator sample and an unsigned generic iOS device build. It requires macOS, Xcode with available runtimes, Python 3 and ripgrep. Set `ASH_PRODUCER_ROOT` to a producer checkout to deny its reads during command-line binary build/runtime; networking is denied after acquisition. Every report must contain nonzero unique observations and the real SDK version/profile. Actual qualification results belong to the release verification record, not this procedure. Physical-device execution remains an owner phase.

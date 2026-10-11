@@ -10,7 +10,7 @@ private func supportEvent(_ n: Int = 0) -> ASHSupportEventInput {
 
 final class ASHSupportDiagnosticsTests: XCTestCase {
   private func collector() throws -> any ASHSupportDiagnosticCollecting {
-    try ASHSupportDiagnostics.makeCollector(identity: ASHSupportIdentity(version: "1.0.0-rc.1", build: "1"))
+    try ASHSupportDiagnostics.makeCollector(identity: ASHSupportIdentity(version: "1.0.0", build: "2"))
   }
   private func directory() throws -> URL {
     if let evidence = ProcessInfo.processInfo.environment["ASH_SUPPORT_EVIDENCE_ROOT"] {
@@ -135,11 +135,11 @@ final class ASHSupportDiagnosticsTests: XCTestCase {
   }
   func testStartupIdentityRejectsMalformedMetadataBeforeCapture() {
     for identity in [
-      ASHSupportIdentity(version: "", build: "1"),
-      ASHSupportIdentity(version: "1.0.0-rc.1\n", build: "1"),
-      ASHSupportIdentity(version: "1.0.0-rc.1", build: "1\n"),
-      ASHSupportIdentity(version: "1.0.0-rc.1", build: "1", sourceCommit: String(repeating: "f", count: 40) + "\n"),
-      ASHSupportIdentity(version: "1.0.0-rc.1", build: "1", sourceCommit: "unverified")
+      ASHSupportIdentity(version: "", build: "2"),
+      ASHSupportIdentity(version: "1.0.0\n", build: "2"),
+      ASHSupportIdentity(version: "1.0.0", build: "2\n"),
+      ASHSupportIdentity(version: "1.0.0", build: "2", sourceCommit: String(repeating: "f", count: 40) + "\n"),
+      ASHSupportIdentity(version: "1.0.0", build: "2", sourceCommit: "unverified")
     ] { XCTAssertThrowsError(try ASHSupportDiagnostics.makeCollector(identity: identity)) }
   }
 

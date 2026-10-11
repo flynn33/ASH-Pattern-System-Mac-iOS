@@ -1,4 +1,4 @@
-# Authority and conformance — 1.0.0-rc.1
+# Authority and conformance — 1.0.0
 
 ## Immutable authority
 

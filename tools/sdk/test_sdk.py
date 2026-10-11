@@ -20,10 +20,10 @@ class SDKGateTests(unittest.TestCase):
     def tearDown(self):
         self.temp.cleanup()
     def base(self):
-        root = self.root / 'ASH-Apple-SDK-1.0.0-rc.1'; root.mkdir()
+        root = self.root / 'ASH-Apple-SDK-1.0.0'; root.mkdir()
         for name in ('Frameworks','Documentation','Examples'):(root/name).mkdir()
         for module in sdk.MODULES:(root/'Frameworks'/f'{module}.xcframework').mkdir()
-        for name in ('VERSION','SDK-MANIFEST.json','COMPONENTS.json','CONTENTS.sha256'):(root/name).write_text('1.0.0-rc.1\n' if name=='VERSION' else '{}')
+        for name in ('VERSION','SDK-MANIFEST.json','COMPONENTS.json','CONTENTS.sha256'):(root/name).write_text('1.0.0\n' if name=='VERSION' else '{}')
         (root/'LICENSE').write_text('License')
         (root/'Package.swift').write_text(sdk.BINARY_PACKAGE)
         return root
@@ -39,12 +39,12 @@ class SDKGateTests(unittest.TestCase):
     def test_command_nonzero_is_not_a_pass(self):
         with self.assertRaisesRegex(ValueError,'Command failed'):sdk.run(['/bin/sh','-c','exit 19'])
     def test_missing_framework_rejected(self):
-        with self.assertRaisesRegex(ValueError,'Missing framework'):sdk.inspect_frameworks(self.root,'1.0.0-rc.1','1.0.0','1')
+        with self.assertRaisesRegex(ValueError,'Missing framework'):sdk.inspect_frameworks(self.root,'1.0.0','1.0.0','2')
     def test_wrong_architecture_matrix_rejected(self):
         root=self.root/'ASHCore.xcframework';root.mkdir()
         import plistlib
         (root/'Info.plist').write_bytes(plistlib.dumps({'AvailableLibraries':[{'LibraryIdentifier':'ios-arm64'}]}))
-        with self.assertRaisesRegex(ValueError,'three distinct'):sdk.inspect_frameworks(self.root,'1.0.0-rc.1','1.0.0','1')
+        with self.assertRaisesRegex(ValueError,'three distinct'):sdk.inspect_frameworks(self.root,'1.0.0','1.0.0','2')
     def test_omitted_license_rejected(self):
         root=self.base();(root/'LICENSE').unlink()
         with self.assertRaisesRegex(ValueError,'allowlist'):sdk.safe_payload(root)
@@ -149,7 +149,7 @@ class SDKGateTests(unittest.TestCase):
         z=self.archive([('root/Folder/a',b'a',stat.S_IFREG|0o644),('root/folder/b',b'b',stat.S_IFREG|0o644)])
         with self.assertRaisesRegex(ValueError,'Aliased ZIP entry'):sdk.safe_extract(z,self.root/'extract')
     def test_release_manifest_duplicate_asset_rejected(self):
-        version='1.0.0-rc.1'
+        version='1.0.0'
         names=[f'ASH-Apple-SDK-{version}.zip',f'ASHCore-{version}.xcframework.zip',f'ASHPatternSystem-{version}.xcframework.zip']
         assets=[]
         for name in names:
@@ -177,8 +177,8 @@ class SDKGateTests(unittest.TestCase):
         copied=self.root/'extract/ASHCore.framework'
         self.assertTrue((copied/'ASHCore').is_symlink());self.assertEqual((copied/'ASHCore').read_bytes(),b'binary')
     def test_zero_case_consumer_report_rejected(self):
-        report=self.root/'zero.json';report.write_text(json.dumps({'sdkVersion':'1.0.0-rc.1','diagnosticProfile':'release-minimal','checks':[]}))
-        result=subprocess.run([str(sdk.ROOT/'Examples/SDKConsumer/verify/verify-report.sh'),str(report),'core','1.0.0-rc.1'],capture_output=True,text=True)
+        report=self.root/'zero.json';report.write_text(json.dumps({'sdkVersion':'1.0.0','diagnosticProfile':'release-minimal','checks':[]}))
+        result=subprocess.run([str(sdk.ROOT/'Examples/SDKConsumer/verify/verify-report.sh'),str(report),'core','1.0.0'],capture_output=True,text=True)
         self.assertNotEqual(result.returncode,0);self.assertIn('Zero-case',result.stderr)
     def test_failed_archive_stops_build(self):
         fake=self.root/'xcodebuild';fake.write_text('#!/bin/sh\nexit 23\n');fake.chmod(0o755)
@@ -186,7 +186,7 @@ class SDKGateTests(unittest.TestCase):
             if str(command[0]) == str(fake):return original(command,log,cwd)
             return ''
         original=sdk.run
-        with patch.object(sdk,'checked_version',return_value=('1.0.0-rc.1','1.0.0','1')),patch.object(sdk,'composition',return_value={}),patch.object(sdk,'run',side_effect=observed),patch.dict(os.environ,{'ASH_XCODEBUILD':str(fake)}):
+        with patch.object(sdk,'checked_version',return_value=('1.0.0','1.0.0','2')),patch.object(sdk,'composition',return_value={}),patch.object(sdk,'run',side_effect=observed),patch.dict(os.environ,{'ASH_XCODEBUILD':str(fake)}):
             with self.assertRaisesRegex(ValueError,'Command failed'):sdk.build(argparse.Namespace(output=str(self.root/'build')))
         self.assertFalse((self.root/'build/Frameworks').exists())
 

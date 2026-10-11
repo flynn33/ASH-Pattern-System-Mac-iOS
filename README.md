@@ -1,6 +1,6 @@
 # ASH Pattern System — Apple SDK
 
-Version **1.0.0-rc.1**, Apple marketing version **1.0.0**, build **1**.
+Version **1.0.0**, Apple marketing version **1.0.0**, build **2**.
 
 The SDK provides the public Swift products `ASHCore` and `ASHPatternSystem` for macOS 14+ and iOS 16+. Both the root and nested Swift packages use the same native sources and have no external package dependencies. The binary distribution contains two dynamic XCFrameworks with public Swift interfaces and matching archive dSYMs.
 
@@ -9,10 +9,10 @@ The SDK provides the public Swift products `ASHCore` and `ASHPatternSystem` for 
 ## Integration
 
 ```swift
-.package(url: "https://github.com/flynn33/ASH-Pattern-System-Mac-iOS", exact: "1.0.0-rc.1")
+.package(url: "https://github.com/flynn33/ASH-Pattern-System-Mac-iOS", exact: "1.0.0")
 ```
 
-Use package identity `ash-pattern-system-mac-ios` with `.product(name: "ASHCore", package: "ash-pattern-system-mac-ios")` or `.product(name: "ASHPatternSystem", package: "ash-pattern-system-mac-ios")`. The composed product supplies Core transitively. For binary integration, obtain the curated `ASH-Apple-SDK-1.0.0-rc.1.zip` from [the SDK prerelease](https://github.com/flynn33/ASH-Pattern-System-Mac-iOS/releases/tag/v1.0.0-rc.1), verify its checksums and add the extracted package locally. GitHub's automatic source archives contain source rather than the precompiled SDK.
+Use package identity `ash-pattern-system-mac-ios` with `.product(name: "ASHCore", package: "ash-pattern-system-mac-ios")` or `.product(name: "ASHPatternSystem", package: "ash-pattern-system-mac-ios")`. The composed product supplies Core transitively. For binary integration, obtain the curated `ASH-Apple-SDK-1.0.0.zip` from [the SDK release](https://github.com/flynn33/ASH-Pattern-System-Mac-iOS/releases/tag/v1.0.0), verify its checksums and add the extracted package locally. GitHub's automatic source archives contain source rather than the precompiled SDK.
 
 Read [integration](docs/sdk-integration.md), [public API and lifecycle](docs/sdk-api-and-lifecycle.md), [diagnostics](docs/sdk-diagnostics.md), [migration](docs/sdk-migration.md), [compatibility](docs/sdk-compatibility.md), [security](docs/sdk-security.md) and [release notes](docs/sdk-release-notes.md). [Owner validation](docs/sdk-owner-validation.md) separates physical-device acceptance from the SDK's automated qualification. The public-only example is [Examples/SDKConsumer](Examples/SDKConsumer/docs/ConsumerAcceptance.md).
 
@@ -34,7 +34,7 @@ The explicit archive project is `MaciOS/ASHSDK.xcodeproj`, with shared `ASHCore`
 
 The canonical semantic authority is [ASH-Pattern-System at 50d7e5ab88932a4a967ffc2c83bd18fae45b73c8](https://github.com/flynn33/ASH-Pattern-System/tree/50d7e5ab88932a4a967ffc2c83bd18fae45b73c8), canonical 1.0.0-rc.3. Raven Forge Development method remains 0.7.0 at `8dd6e75a06336491b249fac3577db75458db8c13`; successor profiles are independently versioned policy inputs, never runtime dependencies. [Authority binding](docs/sdk-authority-and-conformance.md) describes the precedence and coverage.
 
-The [current source acceptance record](docs/sdk-acceptance.md) distinguishes source tests from final integrated binary, consumer and publication evidence. The final asset manifests identify the exact integrated source, canonical and profile revisions. Host/simulator execution does not establish physical-device, older-system, older-compiler or translated Intel runtime qualification. Publisher frameworks are unsigned; the sample's local simulator signing is separate. This SDK prerelease does not claim a signed application, notarization, App Store or TestFlight delivery. Historical reports under `completion-evidence/` retain their original dates and scope.
+The [current source acceptance record](docs/sdk-acceptance.md) distinguishes source tests from final integrated binary, consumer and publication evidence. The final asset manifests identify the exact integrated source, canonical and profile revisions. Host/simulator execution does not establish physical-device, older-system, older-compiler or translated Intel runtime qualification. Publisher frameworks are unsigned; the sample's local simulator signing is separate. This SDK release does not claim a signed application, notarization, App Store or TestFlight delivery. Historical reports under `completion-evidence/` retain their original dates and scope.
 
 ## Repository
 

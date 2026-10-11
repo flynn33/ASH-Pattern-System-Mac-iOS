@@ -1,4 +1,4 @@
-# Apple native sources — 1.0.0-rc.1
+# Apple native sources — 1.0.0
 
 This nested Swift package and the repository-root package expose exactly `ASHCore` and `ASHPatternSystem`, with Swift tools 5.10, macOS 14/iOS 16 minimums and no external package dependencies. They compile the same production sources. The nested package name is `MaciOS`; that name does not determine SDK version.
 

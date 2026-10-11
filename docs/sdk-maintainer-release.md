@@ -1,4 +1,4 @@
-# Maintainer release procedure — 1.0.0-rc.1
+# Maintainer release procedure — 1.0.0
 
 Use clean dedicated checkouts, repository-local owner identity and immutable authorities. The semantic VERSION is separate from numeric BUILD_NUMBER and derived Apple bundle configuration. `python3 tools/sdk/version.py` verifies derived files. Preserve existing release/tag bytes and unrelated worker changes.
 
@@ -22,7 +22,7 @@ After integrating the Apple source, use a separate successor public-product prof
 
 ```bash
 ./tools/sdk/verify-source-consumer.sh --revision ACTUAL_FORTY_CHARACTER_SHA --output '/absolute/empty/Git Revision Consumer'
-ASH_PRODUCER_ROOT=/absolute/producer ./Examples/SDKConsumer/verify/verify-consumer.sh   --sdk '/absolute/extracted/ASH-Apple-SDK-1.0.0-rc.1' --output '/absolute/empty/Binary Consumer' --simulators
+ASH_PRODUCER_ROOT=/absolute/producer ./Examples/SDKConsumer/verify/verify-consumer.sh   --sdk '/absolute/extracted/ASH-Apple-SDK-1.0.0' --output '/absolute/empty/Binary Consumer' --simulators
 python3 tools/sdk/compare-consumers.py --source '/absolute/Git Revision Consumer'   --binary '/absolute/Binary Consumer' --output /absolute/external/parity.json
 ```
 
@@ -30,6 +30,6 @@ Use the actual SHA in the source command. Inspect Package.resolved and the publi
 
 ## Publication transaction
 
-Create an owner-authored annotated `v1.0.0-rc.1` tag at the qualified integrated commit, prove exact-version Git acquisition reaches the same SHA, create an unpublished prerelease draft and upload only the five expected assets. The checksum file lists three ZIPs and external release manifest; it cannot contain its own digest. SDK-MANIFEST and COMPONENTS are custom provenance/inventory formats, not an industry SBOM claim. Inspect draft target, flags, inventory, sizes, hashes and notes before publishing as a prerelease.
+Create an owner-authored annotated `v1.0.0` tag at the qualified integrated commit, prove exact-version Git acquisition reaches the same SHA, create an unpublished draft for the stable release and upload only the five expected assets. The checksum file lists three ZIPs and external release manifest; it cannot contain its own digest. SDK-MANIFEST and COMPONENTS are custom provenance/inventory formats, not an industry SBOM claim. Inspect draft target, flags, inventory, sizes, hashes and notes before publishing as a stable release with the prerelease flag disabled.
 
-Download every published asset into a fresh directory with spaces, verify external/internal hashes and repeat all public binary consumer modes, native iPhone/iPad simulator execution and generic-device build on those actual downloaded bytes. Preserve immutable published bytes; any source/asset defect requires a new candidate. Synchronize maintained wiki source to actual `.wiki.git` remotes for every modified repository, then fetch and verify source/tag/wiki heads, clean status and no unpushed commits. Final reports name runtime gaps and physical-device owner validation pending.
+Download every published asset into a fresh directory with spaces, verify external/internal hashes and repeat all public binary consumer modes, native iPhone/iPad simulator execution and generic-device build on those actual downloaded bytes. Preserve immutable published bytes; any published source/asset defect requires a new version. Synchronize maintained wiki source to actual `.wiki.git` remotes for every modified repository, then fetch and verify source/tag/wiki heads, clean status and no unpushed commits. Final reports name runtime gaps and physical-device owner validation pending.

@@ -1,9 +1,9 @@
-# Compatibility — 1.0.0-rc.1
+# Compatibility — 1.0.0
 
 | Property | Declared or observed identity |
 |---|---|
-| SDK semantic version | 1.0.0-rc.1 |
-| Apple marketing/build | 1.0.0 / 1 |
+| SDK semantic version | 1.0.0 |
+| Apple marketing/build | 1.0.0 / 2 |
 | Public modules | ASHCore, ASHPatternSystem |
 | Swift package manifest | tools 5.10; no external package dependencies |
 | Deployment minimums | macOS 14.0, iOS 16.0 |

@@ -78,7 +78,7 @@
 				"INFOPLIST_KEY_LSApplicationCategoryType" = "public.app-category.developer-tools";
 				"SUPPORTED_PLATFORMS" = "macosx iphoneos iphonesimulator";
 				"PRODUCT_BUNDLE_IDENTIFIER" = "com.flynn33.ash.sdkconsumer";
-				"CURRENT_PROJECT_VERSION" = "1";
+				"CURRENT_PROJECT_VERSION" = "2";
 				"MACOSX_DEPLOYMENT_TARGET" = "14.0";
 				"INFOPLIST_KEY_UILaunchScreen_Generation" = "YES";
 				"SWIFT_ACTIVE_COMPILATION_CONDITIONS" = "CONSUME_ORCHESTRATION";
@@ -205,7 +205,7 @@
 				"INFOPLIST_KEY_LSApplicationCategoryType" = "public.app-category.developer-tools";
 				"SUPPORTED_PLATFORMS" = "macosx iphoneos iphonesimulator";
 				"PRODUCT_BUNDLE_IDENTIFIER" = "com.flynn33.ash.sdkconsumer";
-				"CURRENT_PROJECT_VERSION" = "1";
+				"CURRENT_PROJECT_VERSION" = "2";
 				"MACOSX_DEPLOYMENT_TARGET" = "14.0";
 				"INFOPLIST_KEY_UILaunchScreen_Generation" = "YES";
 				"SWIFT_ACTIVE_COMPILATION_CONDITIONS" = "CONSUME_ORCHESTRATION";

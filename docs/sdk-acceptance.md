@@ -1,6 +1,6 @@
-# Source acceptance and release gates — 1.0.0-rc.1
+# Source acceptance and release gates — 1.0.0
 
-This record describes the source candidate and required final transaction. It does not prefill a publication success or an integrated SHA into its own commit. Final SDK-MANIFEST, RELEASE-MANIFEST and external release verification identify the real delivered source and bindings.
+This record describes the source implementation and required final transaction. It does not prefill a publication success or an integrated SHA into its own commit. Final SDK-MANIFEST, RELEASE-MANIFEST and external release verification identify the real delivered source and bindings.
 
 ## Observed source evidence
 
@@ -16,7 +16,7 @@ Clean integrated source must pass equivalent root/nested source gates. Both fram
 
 Source Git consumers must resolve the integrated SHA and then exact annotated release tag. Core-only, composed-only and dual-product observations must match binary acquisition. Extracted and downloaded-byte binary consumers must run with producer sources inaccessible and network denied after acquisition, return nonzero unique checks and real Release-minimal identity, export useful paired evidence and exercise iPhone/iPad native simulator UI plus unsigned device linkage. Six realization reviews and original-method contract/preflight/delivery must bind the actual successor profiles.
 
-Only then publish the curated prerelease, download every asset, verify external/internal digests and repeat consumers on those downloaded bytes. Actual source/wiki/tag synchronization, release inventory, signatures and environment/case counts belong to the final delivery record. Historical `completion-evidence` receipts are unchanged.
+Only then publish the curated release, download every asset, verify external/internal digests and repeat consumers on those downloaded bytes. Actual source/wiki/tag synchronization, release inventory, signatures and environment/case counts belong to the final delivery record. Historical `completion-evidence` receipts are unchanged.
 
 ## Limits and owner phase
 

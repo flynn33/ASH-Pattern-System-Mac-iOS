@@ -1,4 +1,4 @@
-> Historical completion receipt from the pre-SDK Apple baseline at 5f15dc8acffc32f29b2397bd557df6482987699c. Its original application-readiness verdict and evidence remain unchanged. Current SDK 1.0.0-rc.1 source/artifact acceptance is recorded separately in repository-root docs/sdk-acceptance.md and the final release manifests.
+> Historical completion receipt from the pre-SDK Apple baseline at 5f15dc8acffc32f29b2397bd557df6482987699c. Its original application-readiness verdict and evidence remain unchanged. Current SDK 1.0.0 source/artifact acceptance is recorded separately in repository-root docs/sdk-acceptance.md and the final release manifests.
 
 # Canonical Conformance Gap Analysis
 

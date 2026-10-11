@@ -1,4 +1,4 @@
-# Repository shape — 1.0.0-rc.1
+# Repository shape — 1.0.0
 
 Root `Package.swift` and `MaciOS/Package.swift` compile the same public graph. `MaciOS/Sources/ASHCore` owns the core services and diagnostic profiles. `MaciOS/Sources/ASHOrchestration` supplies the public ASHPatternSystem module. `MaciOS/ASHSDK.xcodeproj` lists those same production files explicitly; shared framework schemes archive every required platform. Resources include each module's privacy manifest.
 

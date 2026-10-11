@@ -1,4 +1,4 @@
-# Security and privacy — 1.0.0-rc.1
+# Security and privacy — 1.0.0
 
 The runtime graph is `ASHPatternSystem -> ASHCore -> Apple platform modules`. There are no external packages, services, authority checkouts, generators, interpreter runtimes or plugin discovery in the SDK. Hosts select public products explicitly. Package-manager caches for those products are permitted; copying/submoduling the complete producer or canonical repository into application source is prohibited.
 
@@ -8,4 +8,4 @@ Support capture is caller-authorized and actor-isolated. Its allowlist, redactio
 
 Each framework includes `PrivacyInfo.xcprivacy`. Its declarations cover this SDK's reviewed implementation, not a future consuming app. Current SDK code does not use the required-reason API categories or collect data through automatic off-device transmission. Consumers must review their own SDKs and usage against Apple's current [privacy manifest documentation](https://developer.apple.com/documentation/bundleresources/privacy-manifest-files) and [required-reason API rules](https://developer.apple.com/documentation/bundleresources/describing-use-of-required-reason-api). A local diagnostic export does not establish an application's complete privacy disclosure.
 
-This candidate's publisher frameworks are unsigned. Consumer-local ad-hoc signatures used for host/simulator execution do not constitute publisher signing, physical-device qualification, notarization or production application distribution. See [compatibility](sdk-compatibility.md) and the release manifest for actual execution and signing evidence.
+This release's publisher frameworks are unsigned. Consumer-local ad-hoc signatures used for host/simulator execution do not constitute publisher signing, physical-device qualification, notarization or production application distribution. See [compatibility](sdk-compatibility.md) and the release manifest for actual execution and signing evidence.

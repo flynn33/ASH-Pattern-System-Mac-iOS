@@ -1,8 +1,8 @@
 # Changelog
 
-## 1.0.0-rc.1
+## 1.0.0
 
-First Apple source/binary SDK prerelease: root/nested ASHCore and ASHPatternSystem public products; dynamic library-evolution XCFrameworks, versioned manifests/checksums and public-only example.
+First Apple source/binary SDK release: root/nested ASHCore and ASHPatternSystem public products; dynamic library-evolution XCFrameworks, versioned manifests/checksums and public-only example.
 
 Adopts independently corrected canonical 1.0.0-rc.3. Repairs state decoding, duplicate/partial registries, explicit context classification and target/fallback selection, topology bounds, evidence-aware axioms and plan/emitter admission. Adds complete canonical diagnostic wire/chain validation, strict scalar-preserving JSON, actor-owned containment and terminal safety records, and compile-time Debug/Release support collectors with bounded paired exports.
 

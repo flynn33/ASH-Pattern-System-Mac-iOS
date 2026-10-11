@@ -1,4 +1,4 @@
-# Public API and lifecycle — 1.0.0-rc.1
+# Public API and lifecycle — 1.0.0
 
 ## Products and ownership
 

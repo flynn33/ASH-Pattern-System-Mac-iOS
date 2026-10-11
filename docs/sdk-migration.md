@@ -1,6 +1,6 @@
-# Migration — 1.0.0-rc.1
+# Migration — 1.0.0
 
-This is the first Apple SDK candidate. The earlier unversioned repository package is not a published compatible SDK baseline. Source, wire and behavior corrections are deliberate and require migration; they are not presented as a compatible patch.
+This is the first Apple SDK release. The earlier unversioned repository package is not a published compatible SDK baseline. Source, wire and behavior corrections are deliberate and require migration; they are not presented as a compatible patch.
 
 | Earlier behavior | Current contract | Migration |
 |---|---|---|
@@ -20,4 +20,4 @@ Internal orchestration files moved from Sources/ASHPatternSystem to Sources/ASHO
 
 Existing specification mirrors and completion receipts remain historical. Canonical rc.3 at `50d7e5ab88932a4a967ffc2c83bd18fae45b73c8` owns current reconciliation. Do not consume older contradictory prose as an exception to the updated runtime contract.
 
-The minimum metadata is macOS14/iOS16. Candidate framework binaries were produced using Xcode27/Swift6.4 and library evolution. Older Swift compilers and oldest declared OS runtimes require separate verification; minimum deployment metadata is not proof they were executed. Publisher binaries are unsigned. See [compatibility](sdk-compatibility.md) and [owner validation](https://github.com/flynn33/ASH-Pattern-System-Mac-iOS/blob/v1.0.0-rc.1/docs/sdk-owner-validation.md).
+The minimum metadata is macOS14/iOS16. Release framework binaries were produced using Xcode27/Swift6.4 and library evolution. Older Swift compilers and oldest declared OS runtimes require separate verification; minimum deployment metadata is not proof they were executed. Publisher binaries are unsigned. See [compatibility](sdk-compatibility.md) and [owner validation](https://github.com/flynn33/ASH-Pattern-System-Mac-iOS/blob/v1.0.0/docs/sdk-owner-validation.md).

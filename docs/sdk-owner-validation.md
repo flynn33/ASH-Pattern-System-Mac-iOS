@@ -1,8 +1,8 @@
-# Owner validation procedure — 1.0.0-rc.1
+# Owner validation procedure — 1.0.0
 
 Physical-device acceptance is **pending**. Simulator execution and an unsigned device-SDK build do not complete this phase. Use an owner-controlled test application, signing team and physical device; this procedure does not change installed products or provisioning settings automatically.
 
-1. Download every asset from the SDK prerelease into a new directory. Verify SHA256SUMS, extract the aggregate safely, verify CONTENTS.sha256, and record SDK/source/canonical/profile identities from SDK-MANIFEST.json. Preserve those original bytes.
+1. Download every asset from the SDK release into a new directory. Verify SHA256SUMS, extract the aggregate safely, verify CONTENTS.sha256, and record SDK/source/canonical/profile identities from SDK-MANIFEST.json. Preserve those original bytes.
 2. Copy the public SDKConsumer example to a disposable workspace. Point its SDK reference at the extracted package. Select your own development team and unique test bundle identifier in Xcode. Record the exact Xcode/Swift version, device model, OS, architecture, signing identity and resolved SDK bytes. Build/install through Xcode on an authorized iPhone and iPad. Record application logs and fresh public report, not a previous installation's report.
 3. Exercise malformed/out-of-range decoding, explicit stable/correctable/unstable/degraded context cases, both replacement policies, fallback exhaustion, containment with a prevented attempt, contradictory observations and confirmed breach. Confirm the frozen terminal snapshot remains byte/value-identical after every mutation entry. Inspect complete containment/halt wrapper JSON and paired support exports.
 4. Inspect application startup, visible success/failure status, background/foreground behavior, caller cancellation, collector shutdown/purge and export error handling. Confirm useful error/context/expected/actual data and full retained chain appear in JSON and Markdown, and synthetic credentials/private paths are absent. Keep exports in the app sandbox or another expressly permitted destination.
