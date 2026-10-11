@@ -47,4 +47,4 @@ The [current source acceptance record](docs/sdk-acceptance.md) distinguishes sou
 
 ## Contributing and license
 
-Copyright 2026 James Daley. Apache License, Version 2.0; see [LICENSE](LICENSE). Outside contributions are not accepted; see [CONTRIBUTING.md](CONTRIBUTING.md).
+Copyright 2026 James Daley. Dual license; see [LICENSE](LICENSE). Outside contributions are not accepted; see [CONTRIBUTING.md](CONTRIBUTING.md).
