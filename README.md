@@ -47,4 +47,4 @@ The [current source acceptance record](docs/sdk-acceptance.md) distinguishes sou
 
 ## Contributing and license
 
-Copyright 2026 James Daley. Dual license; see [LICENSE](LICENSE). Outside contributions are not accepted; see [CONTRIBUTING.md](CONTRIBUTING.md).
+Copyright (c) 2026 James Daley, Raven Forge Software. Licensed under the MIT License; see [LICENSE](LICENSE). Outside contributions are not accepted; see [CONTRIBUTING.md](CONTRIBUTING.md).
