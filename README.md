@@ -48,3 +48,5 @@ The [current source acceptance record](docs/sdk-acceptance.md) distinguishes sou
 ## Contributing and license
 
 Copyright (c) 2026 James Daley, Raven Forge Software. Licensed under the Apache License, Version 2.0; see [LICENSE](LICENSE). Outside contributions are not accepted; see [CONTRIBUTING.md](CONTRIBUTING.md).
+
+You must give credit to James Daley, Raven Forge Software, for the ASH Pattern System for Mac and iOS. Keep that credit with every copy or product that uses this work. Keep the LICENSE and NOTICE files, keep the copyright lines in the source, and state the changes you make.
